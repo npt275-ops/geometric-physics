@@ -9,3 +9,4 @@ ba8970eddd261ee28903d6c006d4fc38  geophys/fea2d.py
 5f380230f9aacbd9568f53212c1802c4  geophys/sensitivity.py
 6fb1e53f0538235480a4fa22d1b285c8  geophys/filter2d.py
 4c6d023e98261cd218d9b6995665b848  geophys/oc_update.py
+ea3bef00564f208deb01668aaf56385c  geophys/optimize.py

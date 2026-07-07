@@ -23,16 +23,16 @@
 | geophys/sensitivity.py | STABLE | ∂c/∂ρ — Tầng 0.3 đóng, FD check 4.1e-06 |
 | geophys/filter2d.py | STABLE | Sensitivity filter conv — Tầng 0.3 đóng, khớp ref O(N²) 2.7e-15 |
 | geophys/oc_update.py | STABLE | OC bisection — Tầng 0.3 đóng, vol err 3.6e-08 |
+| geophys/optimize.py | STABLE | Vòng lặp tối ưu — Tầng 0.4 đóng, MBB khớp top88 0.006%, DoD-0.1 ✓ |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| (kế tiếp: specs/stage0-t4-optimize-benchmark.md — vòng lặp + MBB) | |
+| (kế tiếp: specs/stage0-t5-render2d.md — PNG/GIF) | |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| geophys/optimize.py (vòng lặp) | Stage 0 task 4 |
 | geophys/render2d.py | Stage 0 task 5 |
 | geophys/grid3d.py, fea3d.py, filter3d.py | Stage 1 — chỉ mở khi Stage 0 đóng 8/8 DoD |
 | geophys/checkpoint.py | Stage 1 |
