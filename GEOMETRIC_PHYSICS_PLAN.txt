@@ -1,0 +1,236 @@
+﻿# DỰ ÁN "GEOMETRIC PHYSICS"
+## Kế hoạch xây dựng Môi trường Tiến hóa Cấu trúc — Giai đoạn 1 (Cấp độ 1: Generative Design Engine)
+
+**Phiên bản:** 1.0
+**Ngày lập:** 04/07/2026
+**Chủ dự án:** Sammis (solo builder)
+**Công cụ thi công:** Claude Code + Python (Windows)
+**Triết lý xuyên suốt:** Máy enforce, không tin lời hứa. Mọi Stage chỉ được coi là hoàn thành khi vượt qua bộ test tự động — không phải khi "nhìn có vẻ đúng".
+
+---
+
+## 0. TỔNG QUAN CHIẾN LƯỢC
+
+### 0.1. Định nghĩa dự án
+
+Geometric Physics là một **engine tối ưu hóa hình học dựa trên vật lý (topology optimization engine)**, viết bằng Python, chạy trên laptop cá nhân, nhận đầu vào là một bài toán cơ học khai báo dạng dữ liệu (`spec.json`) và trả về một cấu trúc vật chất tối ưu — hình dáng "mọc" ra từ toán học và luật vật lý, không qua bàn tay thiết kế của con người.
+
+Đây là hiện thực hóa **Cấp độ 1** trong khung tư duy 3 cấp độ (Phá vỡ định kiến → Giả lập song song → Ép cực hạn). Cấp độ 2 và 3 nằm ngoài phạm vi kế hoạch này và chỉ được xem xét sau khi Cấp độ 1 được kiểm chứng độc lập.
+
+### 0.2. Ba nguyên tắc kiến trúc bất biến
+
+1. **Problem-as-Data:** Bài toán là file `spec.json`, không phải thao tác trên giao diện. Engine chạy headless. Render là module tách rời. Hệ quả chiến lược: agent (X2) có thể tự viết bài toán và tự gọi engine.
+2. **Benchmark-as-Truth:** Tính đúng đắn được chứng minh bằng bài toán chuẩn quốc tế (MBB beam, cantilever) có nghiệm đã công bố — không bằng cảm quan "nhìn giống xương".
+3. **2D trước, 3D sau:** 2D và 3D dùng cùng một bộ toán (FEA + SIMP + Filter + OC). 2D là nơi chứng minh pipeline đúng với chi phí tính toán rẻ. Nhảy thẳng vào 3D voxel = tự sát về hiệu năng và không thể debug.
+
+### 0.3. Sơ đồ kiến trúc đích (cuối Stage 3)
+
+```
+[spec.json]  ←— con người HOẶC agent viết
+    │   design space, vùng bảo tồn, vùng cấm,
+    │   danh sách load cases, vật liệu, volume target
+    ▼
+┌─────────────────────────────────────────────┐
+│              GEOMETRIC PHYSICS ENGINE        │
+│                                             │
+│  Grid Module (2D pixel / 3D voxel)          │
+│      │                                      │
+│      ▼                                      │
+│  FEA Solver (sparse, KU = F)                │
+│      │                                      │
+│      ▼                                      │
+│  Sensitivity Analysis (∂c/∂ρ)               │
+│      │                                      │
+│      ▼                                      │
+│  Filter (chống checkerboard)                │
+│      │                                      │
+│      ▼                                      │
+│  OC Update (cập nhật mật độ)                │
+│      │                                      │
+│      └──── lặp đến hội tụ ────┐             │
+│  checkpoint + log JSON mỗi N vòng           │
+└─────────────────────────────────────────────┘
+    │
+    ├──► [Render Module]  PNG/GIF quá trình tiến hóa
+    ├──► [Validation Harness]  pytest + benchmark chuẩn
+    └──► [Export Module]  marching cubes → STL
+                              │
+                              ▼
+                  [Đối chứng độc lập: Ansys / SolidWorks Sim / FreeCAD FEM]
+```
+
+### 0.4. Tech stack
+
+| Thành phần | Lựa chọn | Lý do |
+|---|---|---|
+| Ngôn ngữ | Python 3.11+ | Hệ sinh thái sẵn có của Sammis |
+| Toán ma trận | numpy | Chuẩn ngành |
+| Sparse solver | scipy.sparse (spsolve → CG + preconditioner ở 3D) | Bắt buộc — ma trận độ cứng là sparse |
+| Render | matplotlib (2D), PyVista hoặc matplotlib voxel (3D) | Nhẹ, chạy tốt Windows |
+| Export STL | scikit-image (marching_cubes) + numpy-stl | Chuẩn, ổn định |
+| Test | pytest + GitHub Actions CI | Đồng bộ với chuẩn sammis.py |
+| Đối chứng | FreeCAD FEM (miễn phí) hoặc Ansys Student (miễn phí, giới hạn node) | Không tốn tiền license |
+
+**Chú ý Windows:** khóa encoding UTF-8 ngay từ đầu (`PYTHONUTF8=1`), tránh lặp lại bug encoding đã gặp ở sammis.py V5.1.
+
+---
+
+## STAGE 0 — LÕI 2D: CHỨNG MINH BỘ TOÁN ĐÚNG
+
+**Thời lượng dự kiến:** 5–7 ngày làm việc
+**Câu hỏi Stage này trả lời:** "Bộ toán FEA + SIMP + Filter + OC của tôi có đúng với chuẩn quốc tế không?"
+
+### S0.1. Phạm vi công việc
+
+| # | Hạng mục | Mô tả |
+|---|---|---|
+| 1 | `spec.json` schema v0 | Định nghĩa bài toán 2D: kích thước lưới (nelx, nely), volume fraction, vị trí lực, vị trí ngàm, vùng bảo tồn (density = 1 cố định), vùng cấm (density = 0 cố định), thông số vật liệu (E, ν), thông số SIMP (p = 3, rmin) |
+| 2 | Grid Module 2D | Lưới phần tử vuông, ánh xạ element ↔ node, trường mật độ ρ dạng ma trận numpy |
+| 3 | FEA Solver 2D | Phần tử Q4 (4 node), lắp ráp ma trận độ cứng toàn cục dạng sparse, áp điều kiện biên, giải KU = F |
+| 4 | Sensitivity Analysis | Tính ∂c/∂ρ cho từng phần tử (compliance-based, KHÔNG dùng heuristic ứng suất) |
+| 5 | Sensitivity Filter | Bán kính rmin, chống checkerboard — module bắt buộc, không phải tùy chọn |
+| 6 | Penalization | SIMP với p = 3, ép mật độ về 0/1 |
+| 7 | OC Update | Optimality Criteria với bisection tìm Lagrange multiplier, move limit 0.2 |
+| 8 | Render Module | Xuất PNG trường mật độ mỗi vòng lặp, ghép GIF quá trình "ăn mòn" |
+| 9 | Validation Harness | pytest: benchmark MBB beam + cantilever, kiểm tra hội tụ, kiểm tra tính đối xứng |
+| 10 | CI | GitHub Actions: chạy toàn bộ test trên Windows + Linux mỗi commit |
+
+### S0.2. MỤC TIÊU CẦN ĐẠT ĐƯỢC (Definition of Done — Stage 0)
+
+Stage 0 chỉ được đóng khi **TẤT CẢ** tiêu chí sau được xác nhận bằng test tự động hoặc bằng chứng cụ thể:
+
+- [ ] **DoD-0.1 — Benchmark MBB beam đạt chuẩn:** Chạy bài MBB beam 60×20, volume fraction 0.5, p = 3, rmin = 1.5. Kết quả hình học phải khớp với nghiệm chuẩn đã công bố của giới topology optimization (cấu trúc giàn chéo đặc trưng). Compliance cuối cùng nằm trong khoảng ±5% so với giá trị tham chiếu của top88.
+- [ ] **DoD-0.2 — Không checkerboard:** Kiểm tra tự động: không tồn tại pattern bàn cờ (các phần tử đặc/rỗng xen kẽ từng ô) trong kết quả cuối. Test bằng bộ lọc phát hiện tần số cao trên trường mật độ.
+- [ ] **DoD-0.3 — Hội tụ ổn định:** Vòng lặp dừng khi thay đổi mật độ lớn nhất giữa 2 vòng < 0.01, và số vòng lặp < 200. Đường cong compliance giảm đơn điệu (cho phép dao động nhỏ < 2%).
+- [ ] **DoD-0.4 — Bảo toàn ràng buộc:** Vùng bảo tồn giữ nguyên ρ = 1, vùng cấm giữ nguyên ρ = 0 trong suốt quá trình, volume fraction cuối sai lệch < 1% so với target. Có test riêng cho từng ràng buộc.
+- [ ] **DoD-0.5 — Kiểm tra vật lý sơ cấp:** Với khối nguyên vẹn chưa gọt (vòng 0), bản đồ ứng suất phải tập trung trên đường truyền lực từ điểm đặt lực về ngàm; các góc xa gần như không chịu lực. (Đây chính là "Static Physics Test" trong bản thiết kế gốc — được giữ nguyên và tự động hóa.)
+- [ ] **DoD-0.6 — Deterministic:** Chạy cùng một spec.json hai lần cho ra kết quả giống nhau từng bit (seed cố định nếu có thành phần ngẫu nhiên).
+- [ ] **DoD-0.7 — CI xanh:** Toàn bộ test pass trên GitHub Actions, matrix Windows + Ubuntu, Python 3.11 + 3.12.
+- [ ] **DoD-0.8 — Bằng chứng trực quan:** Một file GIF cho thấy quá trình khối chữ nhật bị "ăn mòn" thành cấu trúc xương qua các vòng lặp — deliverable dùng được ngay cho video build-in-public.
+
+**Điều kiện mở khóa Stage 1:** 8/8 DoD hoàn thành. Không có ngoại lệ.
+
+---
+
+## STAGE 1 — NÂNG CHIỀU: 3D VOXEL ENGINE
+
+**Thời lượng dự kiến:** 7–10 ngày làm việc
+**Câu hỏi Stage này trả lời:** "Pipeline đã đúng ở 2D có sống sót được khi nhân độ phức tạp tính toán lên 3 bậc không?"
+
+### S1.1. Phạm vi công việc
+
+| # | Hạng mục | Mô tả |
+|---|---|---|
+| 1 | `spec.json` schema v1 | Mở rộng sang 3D: (nelx, nely, nelz), vùng bảo tồn/cấm định nghĩa bằng hình khối nguyên thủy (hộp, trụ, cầu) thay vì liệt kê tọa độ từng voxel |
+| 2 | Grid Module 3D | Voxel grid, phần tử H8 (8 node), ánh xạ element ↔ node 3D |
+| 3 | FEA Solver 3D | Ma trận độ cứng H8, lắp ráp sparse. **Chuyển từ spsolve sang iterative solver (Conjugate Gradient + Jacobi/diagonal preconditioner)** — bắt buộc vì bài toán 3D cỡ trung đã vượt khả năng direct solver trên laptop |
+| 4 | Kiểm soát hiệu năng | Profiling từng khâu (assembly, solve, filter). Vectorize toàn bộ assembly bằng numpy — không vòng for Python trên từng voxel |
+| 5 | Checkpoint & Resume | Lưu trạng thái mỗi N vòng lặp ra file; bài chạy dài có thể ngắt và chạy tiếp — laptop không phải server |
+| 6 | Render 3D | Isosurface (ρ > 0.5) render bằng PyVista; ảnh chụp từng mốc vòng lặp |
+| 7 | Validation 3D | Port benchmark: cantilever 3D có nghiệm tham chiếu từ top3d; test đối xứng (bài toán đối xứng phải ra nghiệm đối xứng) |
+
+### S1.2. MỤC TIÊU CẦN ĐẠT ĐƯỢC (Definition of Done — Stage 1)
+
+- [ ] **DoD-1.1 — Benchmark 3D đạt chuẩn:** Bài cantilever 3D (ví dụ 60×20×4) ra cấu trúc khớp với nghiệm tham chiếu top3d, compliance sai lệch ±5%.
+- [ ] **DoD-1.2 — Ngưỡng hiệu năng laptop:** Bài toán 64×32×32 (~65.000 phần tử) chạy trọn vòng đời tối ưu (< 150 vòng lặp) trong **dưới 60 phút** trên laptop Windows của chủ dự án. Nếu không đạt: tối ưu tiếp, không hạ chuẩn.
+- [ ] **DoD-1.3 — Bộ nhớ trong tầm kiểm soát:** Peak RAM < 8GB cho bài 65.000 phần tử (đo bằng profiler, ghi vào log).
+- [ ] **DoD-1.4 — Checkpoint hoạt động thật:** Test tự động: ngắt bài chạy ở vòng 30, resume, kết quả cuối giống hệt bài chạy liền mạch.
+- [ ] **DoD-1.5 — Tính đối xứng:** Bài toán có đối xứng gương cho ra nghiệm đối xứng (sai lệch trường mật độ giữa 2 nửa < 1%) — đây là phép thử toán học rất khó gian lận.
+- [ ] **DoD-1.6 — Toàn bộ DoD Stage 0 vẫn xanh:** 3D không được phá 2D. CI chạy cả hai bộ test.
+
+**Điều kiện mở khóa Stage 2:** 6/6 DoD hoàn thành.
+
+---
+
+## STAGE 2 — ĐỘ NGHIÊM TÚC KỸ THUẬT: MULTI-LOAD + XUẤT XƯỞNG + ĐỐI CHỨNG ĐỘC LẬP
+
+**Thời lượng dự kiến:** 7–10 ngày làm việc
+**Câu hỏi Stage này trả lời:** "Cấu trúc engine sinh ra có dám đứng trước một phần mềm công nghiệp độc lập và một bài toán thực tế không?"
+
+### S2.1. Phạm vi công việc
+
+| # | Hạng mục | Mô tả |
+|---|---|---|
+| 1 | Multiple Load Cases | `spec.json` nhận danh sách load cases kèm trọng số. Hàm mục tiêu = tổng compliance có trọng số. Đây là nâng cấp quyết định: cấu trúc tối ưu cho MỘT hướng lực là cấu trúc mỏng manh nhất với mọi hướng còn lại |
+| 2 | Bài toán Bàn đạp phanh | Dựng lại đúng bài test trong bản thiết kế gốc: chốt xoay (vùng bảo tồn hình trụ), tấm đệm chân (vùng bảo tồn), lực chính 1200N + tối thiểu 2 load case phụ (lực lệch 15°, lực ngang mô phỏng đạp xéo), volume target 45% |
+| 3 | Export Module | Marching cubes trên trường mật độ (isosurface 0.5) → làm mượt Laplacian nhẹ → xuất STL kín (watertight) |
+| 4 | Material Database | `materials.json`: Nhôm 6061, Titan Ti-6Al-4V, thép — E, ν, giới hạn chảy. Đúng như Module 4 bản gốc |
+| 5 | Đối chứng độc lập | Nạp STL vào FreeCAD FEM (hoặc Ansys Student), đặt lại đúng tải và điều kiện biên, chạy phân tích tĩnh |
+| 6 | Báo cáo tự động | Engine xuất report JSON + markdown: compliance, volume, số vòng lặp, thời gian chạy, ảnh kết quả — nguyên liệu trực tiếp cho video build-in-public |
+
+### S2.2. MỤC TIÊU CẦN ĐẠT ĐƯỢC (Definition of Done — Stage 2)
+
+- [ ] **DoD-2.1 — Multi-load thay đổi kết quả một cách chứng minh được:** Chạy bài bàn đạp phanh 2 lần: chỉ 1 load case vs. 3 load cases. Hai cấu trúc phải khác nhau rõ rệt, và cấu trúc multi-load khi bị thử tải lệch trong FEA phải có compliance tốt hơn cấu trúc single-load ít nhất 30%. Đây là bằng chứng định lượng cho giá trị của nâng cấp.
+- [ ] **DoD-2.2 — STL hợp lệ:** File STL xuất ra watertight (kiểm tra tự động bằng trimesh: `is_watertight == True`), không mảnh rời (số connected components = 1), mở được trong FreeCAD và slicer in 3D không lỗi.
+- [ ] **DoD-2.3 — TIÊU CHÍ TỐI THƯỢNG — Đối chứng độc lập đạt:** Nạp STL bàn đạp phanh vào FreeCAD FEM/Ansys, đặt tải 1200N + điều kiện biên gốc. Kết quả: ứng suất Von Mises lớn nhất < giới hạn chảy của vật liệu (với nhôm 6061: < 276 MPa), không vùng phá hủy. Chụp màn hình + lưu file phân tích làm bằng chứng. **Đây là khoảnh khắc Cấp độ 1 được tuyên bố thành công — đúng như Bước 4 của bản thiết kế gốc.**
+- [ ] **DoD-2.4 — Khối lượng giảm đạt target:** Cấu trúc cuối đạt volume fraction 45% ±1% so với khối đặc ban đầu.
+- [ ] **DoD-2.5 — Chạy trọn từ spec đến STL bằng một lệnh:** `python -m geophys run spec_brake_pedal.json` chạy toàn pipeline không cần can thiệp tay. Đây là điều kiện tiên quyết cho Stage 3.
+- [ ] **DoD-2.6 — Toàn bộ DoD Stage 0 + 1 vẫn xanh.**
+
+**Điều kiện mở khóa Stage 3:** 6/6 DoD, trong đó DoD-2.3 có bằng chứng lưu trữ.
+
+---
+
+## STAGE 3 — HÒA VÀO HỆ SINH THÁI: AGENT-READY + VALIDATION VỚI THẾ GIỚI THẬT
+
+**Thời lượng dự kiến:** 5–7 ngày làm việc + thời gian chờ tín hiệu thị trường
+**Câu hỏi Stage này trả lời:** "Engine này có trở thành một node trong hệ X2 được không, và có AI NGOÀI KIA quan tâm không?"
+
+### S3.1. Phạm vi công việc
+
+| # | Hạng mục | Mô tả |
+|---|---|---|
+| 1 | CLI chuẩn hóa | `geophys validate <spec>` (kiểm tra spec hợp lệ, báo lỗi rõ ràng), `geophys run <spec>`, `geophys report <run_id>` — exit code chuẩn để agent đọc được |
+| 2 | Spec Validator | JSON Schema đầy đủ cho spec.json; lỗi trả về dạng máy-đọc-được (mã lỗi + vị trí + gợi ý sửa) — thiết kế cho agent tự sửa spec |
+| 3 | Agent Interface | Một agent (Claude Code / worker trong hệ X2) nhận mô tả bài toán bằng ngôn ngữ tự nhiên → tự viết spec.json → gọi engine → đọc report → tự đánh giá kết quả. Chạy thử tối thiểu 3 bài toán khác nhau |
+| 4 | Áp chuẩn Sammis | Toàn bộ codebase pass sammis.py V5.1 — dogfooding chính công cụ của chủ dự án |
+| 5 | Gói build-in-public | Video 4 (hoặc số kế tiếp trong series): "Tôi build engine thiết kế bằng vật lý — đây là cấu trúc nó tự mọc ra". Nguyên liệu: GIF Stage 0, render 3D Stage 1, đối chứng Ansys Stage 2 |
+| 6 | Thu tín hiệu thị trường | Đưa demo + STL mẫu ra cộng đồng (YouTube, group kỹ thuật/in 3D Việt Nam). Đo lường phản hồi có cấu trúc |
+
+### S3.2. MỤC TIÊU CẦN ĐẠT ĐƯỢC (Definition of Done — Stage 3)
+
+- [ ] **DoD-3.1 — Agent tự vận hành trọn vòng:** Một agent nhận đề bài bằng tiếng Việt tự nhiên ("thiết kế giá đỡ chịu 500N, neo 2 lỗ bu-lông, nhôm, giảm 50% khối lượng") → sinh spec.json hợp lệ → chạy engine → trả về STL + report, **không con người can thiệp giữa chừng**, thành công 3/3 bài toán thử.
+- [ ] **DoD-3.2 — Spec Validator chặn được rác:** Bộ test 10 spec cố tình sai (thiếu ngàm, lực = 0, vùng bảo tồn ngoài lưới, volume target > 1...) — validator bắt được 10/10 với thông báo lỗi actionable.
+- [ ] **DoD-3.3 — Pass chuẩn Sammis:** `sammis.py` chạy trên toàn codebase: 0 vi phạm mức chặn.
+- [ ] **DoD-3.4 — Video xuất bản:** Video build-in-public về dự án lên sóng, kể đúng chuẩn "mộc": cả cú vả về safety factor 1.0 lẫn khoảnh khắc Ansys xác nhận cấu trúc đứng vững.
+- [ ] **DoD-3.5 — Tín hiệu thị trường được ĐO, không được ĐOÁN:** Trong 30 ngày sau video: ghi nhận có cấu trúc (spreadsheet) mọi phản hồi inbound — ai hỏi, họ là ai (sinh viên / xưởng in 3D / kỹ sư / công ty), họ muốn gì. Ngưỡng tín hiệu đáng chú ý: ≥ 5 cuộc hội thoại thật với người có bài toán thật. Dưới ngưỡng: dự án đóng băng ở trạng thái "công cụ nội bộ của X2 + nội dung content" — KHÔNG build thêm tính năng cho thị trường chưa tồn tại.
+
+**Điều kiện đóng dự án Giai đoạn 1:** 5/5 DoD. DoD-3.5 quyết định có Giai đoạn 2 (Cấp độ 2: parallel simulation) hay không — bằng dữ liệu, không bằng cảm hứng.
+
+---
+
+## 4. QUẢN TRỊ RỦI RO
+
+| # | Rủi ro | Xác suất | Tác động | Đối sách |
+|---|---|---|---|---|
+| R1 | FEA 3D quá chậm trên laptop | Cao | Chặn Stage 1 | Iterative solver + vectorize triệt để; nếu vẫn chậm: giảm độ phân giải, coi 64³ là trần phần cứng hiện tại và ghi nhận trần này công khai |
+| R2 | Sa đà viết lại thứ đã có (top88/top3d/FEniCS) | Cao | Đốt thời gian | Quy tắc: tham chiếu code chuẩn để đối chứng kết quả, nhưng tự viết để hiểu — đây là dự án học sâu + xây nền, không phải wrapper |
+| R3 | Kết quả đẹp trên máy, Ansys bác bỏ | Trung bình | Đau nhưng quý | Đây chính là lý do DoD-2.3 tồn tại. Nếu fail: quay lại kiểm tra filter, mesh resolution, cách áp tải — fail ở đây rẻ hơn fail khi đã in ra |
+| R4 | Scope creep sang Cấp độ 2/3 giữa chừng | Cao (đúng pattern lịch sử của chủ dự án) | Dự án không bao giờ ship | Kế hoạch này là hợp đồng. Mọi ý tưởng mới ghi vào `BACKLOG.md`, không code. Chỉ mở sau khi DoD-3.5 có dữ liệu |
+| R5 | Không ai quan tâm (thị trường tưởng tượng) | Trung bình–Cao | Về chiến lược | DoD-3.5 được thiết kế chính xác để đối mặt rủi ro này sớm và rẻ. Kết cục "chỉ là công cụ nội bộ + content" vẫn là kết cục có lãi: kiến thức FEA/optimization + nguyên liệu video + một node mới cho X2 |
+| R6 | Bug encoding/path trên Windows | Trung bình | Phiền | PYTHONUTF8=1, pathlib xuyên suốt, CI matrix có Windows từ ngày đầu (bài học từ sammis.py V5.1) |
+
+---
+
+## 5. NHỮNG GÌ DỰ ÁN NÀY **KHÔNG** LÀM (Phạm vi đóng)
+
+1. **Không mô phỏng đa quy mô / vi cấu trúc** (Cấp độ 3 trong tài liệu gốc) — và safety factor tiệm cận 1.0 bị loại vĩnh viễn khỏi mục tiêu: variance của vật liệu và sản xuất thật là thứ mô phỏng không xóa được.
+2. **Không chạy ma trận 100.000 phiên bản song song** (Cấp độ 2) — chỉ mở nếu DoD-3.5 cho tín hiệu dương.
+3. **Không build UI đồ họa kéo-thả** — spec.json + render tĩnh là đủ cho toàn Giai đoạn 1.
+4. **Không hứa hẹn thay thế Ansys/SolidWorks** — chúng là trọng tài của dự án, không phải đối thủ.
+5. **Không nhận stress-based optimization** (tối ưu trực tiếp theo ứng suất) — bài toán singularity vượt phạm vi; compliance-based là chuẩn khởi đầu đúng.
+
+---
+
+## 6. TÓM TẮT MỐC & DELIVERABLES
+
+| Stage | Thời lượng | Deliverable chính | Cửa ải quyết định |
+|---|---|---|---|
+| 0 | 5–7 ngày | Engine 2D + GIF tiến hóa + CI xanh | MBB beam khớp nghiệm chuẩn (±5%) |
+| 1 | 7–10 ngày | Engine 3D voxel + checkpoint/resume | Cantilever 3D khớp top3d, < 60 phút trên laptop |
+| 2 | 7–10 ngày | STL bàn đạp phanh + báo cáo đối chứng | **Ansys/FreeCAD xác nhận cấu trúc an toàn dưới 1200N** |
+| 3 | 5–7 ngày + 30 ngày đo | CLI agent-ready + video + spreadsheet tín hiệu | ≥ 5 hội thoại thật → mở Giai đoạn 2; ngược lại → đóng băng có kỷ luật |
+
+**Tổng thời gian code:** ~4–5 tuần làm việc solo với Claude Code.
+**Nguyên tắc đóng dự án:** Geometric Physics thành công khi (a) một cấu trúc do thuật toán tự mọc được phần mềm công nghiệp độc lập xác nhận an toàn, và (b) quyết định đi tiếp hay dừng được đưa ra bằng dữ liệu thị trường thật — không phải bằng sự hưng phấn của chính người build.
+

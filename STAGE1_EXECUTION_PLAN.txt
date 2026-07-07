@@ -1,0 +1,203 @@
+# KẾ HOẠCH THỰC THI STAGE 1 — 3D VOXEL ENGINE
+## Dự án Geometric Physics — Bản thực thi chi tiết theo hướng v1.1
+
+**Phiên bản:** 1.1
+**Ngày lập:** 07/07/2026
+**Tài liệu mẹ:** GEOMETRIC_PHYSICS_PLAN.txt (v1.0 — giữ nguyên làm đối chứng)
+**Thay đổi so với v1.0 (chỉ đúng 2 điểm, không thêm gì khác):**
+1. Kéo Export Module (STL) từ Stage 2 lên cuối Stage 1 + smoke test FreeCAD FEM → DoD-1.7 mới.
+2. Nâng Render Module thành interactive HTML viewer → DoD-1.8 mới (hạng mục CẮT-ĐẦU-TIÊN nếu trễ).
+
+**Thời lượng:** 9–13 ngày làm việc (7–10 gốc + 2–3 ngày cho export/smoke test)
+**Câu hỏi Stage này trả lời:** "Pipeline đã đúng ở 2D có sống sót khi nhân độ phức tạp lên 3 bậc không — VÀ vật thể nó sinh ra có bước được ra thế giới ngoài (STL → FreeCAD) không?"
+
+---
+
+## 0. ĐIỀU KIỆN TIÊN QUYẾT (không thỏa = không bắt đầu)
+
+- [ ] Stage 0 đã đóng: 8/8 DoD xanh, CI Windows + Ubuntu pass.
+- [ ] Benchmark MBB beam 2D khớp top88 ±5% — có log lưu làm tham chiếu.
+- [ ] `PYTHONUTF8=1` + pathlib đã áp toàn codebase (bài học sammis.py V5.1).
+- [ ] `BACKLOG.md` tồn tại — mọi ý tưởng mới trong Stage 1 ghi vào đây, KHÔNG code.
+
+---
+
+## 1. TRÌNH TỰ THI CÔNG THEO BLOCK
+
+Nguyên tắc: mỗi block có test tự động riêng, block sau chỉ mở khi block trước xanh.
+Thứ tự dưới đây là thứ tự phụ thuộc kỹ thuật — không đảo.
+
+### Block A — Nền 3D: spec v1 + Grid Module (Ngày 1–2)
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| A1 | `spec.json` schema v1 | Mở rộng 3D: (nelx, nely, nelz); vùng bảo tồn/cấm bằng hình khối nguyên thủy (hộp, trụ, cầu) — hàm rasterize primitive → mask voxel |
+| A2 | Grid Module 3D | Voxel grid, phần tử H8 (8 node), ánh xạ element ↔ node 3D (đánh số node nhất quán, viết ra giấy trước khi code) |
+| A3 | Test Block A | pytest: đếm node/element khớp công thức; mask primitive đúng thể tích lý thuyết (±1 voxel biên); spec v0 2D vẫn parse được |
+
+**Cổng Block A:** test xanh + spec v1 mẫu (cantilever 3D) validate được bằng tay.
+
+### Block B — FEA 3D: trái tim của Stage (Ngày 3–5)
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| B1 | Ma trận độ cứng H8 | KE 24×24 cho phần tử hexahedron; đối chiếu với KE của top3d làm tham chiếu số |
+| B2 | Assembly vectorized | Lắp ráp sparse (COO → CSR) thuần numpy — KHÔNG vòng for Python trên từng voxel |
+| B3 | Solver lộ trình kép | Bài nhỏ (< 10k phần tử): spsolve làm ground truth. Bài lớn: CG + Jacobi/diagonal preconditioner. Test bắt buộc: nghiệm CG khớp spsolve trên bài nhỏ (sai số < 1e-6 tương đối) |
+| B4 | Test Block B | Bài patch test (khối chịu nén đều → ứng suất đồng nhất); dầm console bé so với nghiệm giải tích Euler-Bernoulli (sai số < 5% ở lưới đủ mịn) |
+
+**Cổng Block B:** CG khớp spsolve + patch test xanh. Đây là cổng quan trọng nhất Stage 1 — FEA sai thì mọi thứ sau vô nghĩa.
+
+### Block C — Vòng lặp tối ưu 3D (Ngày 6–7)
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| C1 | Port sang 3D | Sensitivity ∂c/∂ρ, filter 3D (rmin theo khoảng cách Euclid 3 chiều), SIMP p=3, OC update — tái dùng tối đa logic 2D đã kiểm chứng |
+| C2 | Benchmark top3d | Cantilever 3D 60×20×4: cấu trúc khớp nghiệm tham chiếu, compliance ±5% (→ DoD-1.1) |
+| C3 | Test đối xứng | Bài toán đối xứng gương → nghiệm đối xứng, sai lệch 2 nửa < 1% (→ DoD-1.5) |
+
+**Cổng Block C:** DoD-1.1 + DoD-1.5 xanh.
+
+### Block D — Hiệu năng + Checkpoint (Ngày 8–9)
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| D1 | Profiling | Đo từng khâu: assembly / solve / filter / update trên bài 64×32×32 (~65k phần tử). Ghi log JSON: thời gian mỗi khâu, peak RAM |
+| D2 | Tối ưu điểm nóng | Chỉ tối ưu khâu chiếm > 20% thời gian. Mục tiêu: trọn vòng đời < 150 vòng lặp trong < 60 phút (→ DoD-1.2), peak RAM < 8GB (→ DoD-1.3) |
+| D3 | Checkpoint & Resume | Lưu trạng thái mỗi N vòng; test tự động: ngắt ở vòng 30, resume, kết quả cuối giống hệt chạy liền mạch (→ DoD-1.4) |
+
+**Cổng Block D:** DoD-1.2 + 1.3 + 1.4 xanh. Nếu không đạt 60 phút: tối ưu tiếp, không hạ chuẩn (đúng v1.0). Trần cứng ghi nhận công khai: 64³.
+
+### Block E — Xuất xưởng: STL + Smoke test (Ngày 10–12) ← KÉO TỪ STAGE 2 LÊN
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| E1 | Marching cubes | scikit-image trên trường mật độ (isosurface 0.5). Chú ý: PAD trường mật độ bằng lớp 0 trước khi chạy — tránh mesh hở ở biên |
+| E2 | Làm mượt + xuất | Laplacian nhẹ (giữ thể tích), xuất STL qua numpy-stl |
+| E3 | Kiểm tra tự động | trimesh: `is_watertight == True`, connected components == 1, thể tích STL sai lệch < 5% so với tổng mật độ voxel |
+| E4 | Smoke test FreeCAD FEM | Nạp STL cantilever 3D, đặt lại đúng tải + điều kiện biên benchmark, chạy phân tích tĩnh. Tiêu chí ĐỊNH TÍNH: mở không lỗi, mesh được, ứng suất tập trung đúng đường truyền lực, không vùng phá hủy vô lý. Lưu file phân tích + screenshot làm bằng chứng |
+
+**Cổng Block E:** DoD-1.7 xanh. Đây là kiểm chứng PIPELINE (engine → STL → phần mềm ngoài), KHÔNG phải kiểm chứng sản phẩm — tiêu chí tối thượng vẫn là DoD-2.3 ở Stage 2 với bài bàn đạp phanh.
+
+### Block F — Render 3D + HTML Viewer (Ngày 13 — CẮT ĐẦU TIÊN NẾU TRỄ)
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| F1 | Render PyVista | Ảnh isosurface (ρ > 0.5) tại các mốc vòng lặp — mức tối thiểu bắt buộc (như v1.0) |
+| F2 | HTML viewer | File HTML tự chứa (PyVista export HTML): xoay, zoom, slider xem tiến hóa qua checkpoint. Lớp đọc-chỉ, ăn vào JSON log + checkpoint sẵn có — engine KHÔNG biết viewer tồn tại |
+
+**Quy tắc cắt:** nếu đến ngày 13 mà bất kỳ DoD 1.1–1.7 nào chưa xanh → F2 bị cắt, chỉ giữ F1. Viewer đẹp không cứu được toán sai.
+
+---
+
+## 2. DEFINITION OF DONE — STAGE 1 (v1.1)
+
+Giữ nguyên 6 DoD gốc, thêm 2:
+
+- [ ] **DoD-1.1** — Cantilever 3D 60×20×4 khớp top3d, compliance ±5%.
+- [ ] **DoD-1.2** — Bài 64×32×32 chạy trọn (< 150 vòng) dưới 60 phút trên laptop Windows của chủ dự án.
+- [ ] **DoD-1.3** — Peak RAM < 8GB cho bài 65k phần tử (profiler đo, ghi log).
+- [ ] **DoD-1.4** — Checkpoint/resume: ngắt vòng 30, resume, kết quả giống hệt chạy liền mạch (test tự động).
+- [ ] **DoD-1.5** — Bài đối xứng gương ra nghiệm đối xứng, sai lệch 2 nửa < 1%.
+- [ ] **DoD-1.6** — Toàn bộ DoD Stage 0 vẫn xanh; CI chạy cả hai bộ test, matrix Windows + Ubuntu.
+- [ ] **DoD-1.7 (MỚI)** — STL cantilever watertight (trimesh xác nhận, 1 component), nạp FreeCAD FEM chạy được phân tích tĩnh, ứng suất phân bố hợp lý. Bằng chứng: file phân tích + screenshot lưu trong repo.
+- [ ] **DoD-1.8 (MỚI — optional)** — HTML viewer mở được offline, xoay/zoom/slider hoạt động. KHÔNG chặn việc đóng Stage: 1.1–1.7 xanh là đủ điều kiện mở Stage 2.
+
+**Điều kiện mở khóa Stage 2:** 7/7 DoD bắt buộc (1.1–1.7). DoD-1.8 không tính vào cửa ải.
+
+---
+
+## 3. RỦI RO RIÊNG CỦA STAGE 1
+
+| # | Rủi ro | Đối sách |
+|---|---|---|
+| S1-R1 | CG không hội tụ / hội tụ chậm ở mật độ gần 0 | Sàn mật độ Emin (không để E = 0 tuyệt đối); diagonal preconditioner; theo dõi số vòng CG mỗi lần solve, ghi log |
+| S1-R2 | Assembly thành nút cổ chai | Vectorize triệt để; precompute chỉ số COO một lần, tái dùng mỗi vòng lặp |
+| S1-R3 | Marching cubes ra mesh hở/mảnh rời | Pad biên bằng 0; lọc connected component nhỏ trước khi xuất; nếu vẫn hở — nâng nhẹ isovalue |
+| S1-R4 | FreeCAD FEM mesh lỗi trên STL thô | Tăng Laplacian smoothing; giảm resolution lưới voxel cho bài smoke test; đây là smoke test — được phép đơn giản hóa bài toán, không được bỏ qua bước |
+| S1-R5 | Sa đà làm viewer đẹp (scope creep cục bộ) | Quy tắc cắt ở Block F là hợp đồng; mọi ý tưởng viewer nâng cao → BACKLOG.md |
+
+---
+
+## 4. NHỮNG GÌ STAGE 1 KHÔNG LÀM
+
+1. Không multi-load case — Stage 2.
+2. Không materials.json / giới hạn chảy — Stage 2. (Smoke test dùng E, ν của benchmark, đánh giá định tính.)
+3. Không CLI `geophys` / spec validator / agent interface — Stage 3.
+4. Không đánh giá "an toàn" theo Von Mises ở smoke test — từ đó là việc của DoD-2.3.
+5. Không GPU, không Cython/Numba trừ khi DoD-1.2 fail sau khi đã vectorize hết cỡ — và nếu dùng, ghi vào log quyết định.
+
+---
+
+## 5. TÓM TẮT LỊCH
+
+| Ngày | Block | Cổng |
+|---|---|---|
+| 1–2 | A: spec v1 + Grid 3D | Test lưới xanh |
+| 3–5 | B: FEA 3D | CG khớp spsolve + patch test |
+| 6–7 | C: Vòng lặp tối ưu | DoD-1.1, 1.5 |
+| 8–9 | D: Hiệu năng + checkpoint | DoD-1.2, 1.3, 1.4 |
+| 10–12 | E: STL + smoke test FreeCAD | DoD-1.7 |
+| 13 | F: Render + viewer (cắt được) | DoD-1.8 (optional) |
+
+**Đầu ra khi đóng Stage 1:** engine 3D voxel đã benchmark + checkpoint/resume + STL watertight đầu tiên của dự án đã được FreeCAD mở và phân tích — vật thể GP "mọc" ra lần đầu bước được ra thế giới ngoài, trước cả khi vào bài toán thật ở Stage 2.
+
+---
+
+## PHỤ LỤC A — PHÂN TẦNG ĐO LƯỜNG ĐƯỢC (mapping với Block ở mục 1)
+
+Nguyên tắc: mỗi con số ở cột "Kết quả đo được" là một pytest case. Tầng dưới chưa xanh thì không code tầng trên. Fail ở tầng nào sửa tại tầng đó — không vá ở tầng trên.
+
+### Tầng 0 — Mục tiêu Stage 1
+"Bộ toán đã kiểm chứng ở 2D sống sót khi lên 3D, và vật thể nó sinh ra bước được ra thế giới ngoài."
+**Đo bằng:** 7/7 DoD bắt buộc xanh (1.1–1.7). Không thước đo cảm tính.
+
+### Tầng 1 — Nền dữ liệu (≈ Block A)
+
+| Việc | Kết quả đo được |
+|---|---|
+| 1.1 Schema v1 parse | 3 spec mẫu parse thành công; spec thiếu trường → lỗi nêu tên trường cụ thể |
+| 1.2 Rasterize hình khối (hộp/trụ/cầu) → mask voxel | Thể tích mask vs lý thuyết: sai < 2% |
+| 1.3 Ánh xạ element ↔ node | Số node = (nelx+1)(nely+1)(nelz+1); round-trip index: 100% khớp |
+
+### Tầng 2 — FEA 3D (≈ Block B — tầng rủi ro cao nhất)
+
+| Việc | Kết quả đo được |
+|---|---|
+| 2.1 Ma trận KE của H8 | Khớp KE top3d: sai < 1e-10; đối xứng; đúng 6 rigid body mode (eigenvalue = 0) |
+| 2.2 Assembly sparse vectorized | Ma trận toàn cục đối xứng; assembly bài 65k phần tử < 10 giây |
+| 2.3 Solver | CG vs spsolve (bài < 10k phần tử): sai tương đối < 1e-6 |
+| 2.4 Kiểm vật lý | Patch test: nén đều → ứng suất đồng nhất (variance ~ 0); dầm console vs giải tích Euler-Bernoulli: sai < 5% |
+
+### Tầng 3 — Vòng lặp tối ưu 3D (≈ Block C)
+
+| Việc | Kết quả đo được |
+|---|---|
+| 3.1 Sensitivity ∂c/∂ρ | Đối chiếu finite difference trên 20 phần tử ngẫu nhiên: sai < 1% |
+| 3.2 Filter 3D | Detector checkerboard trên kết quả cuối: 0 pattern |
+| 3.3 Benchmark | Cantilever 60×20×4: compliance ±5% top3d; < 200 vòng; volume ±1% (DoD-1.1) |
+| 3.4 Đối xứng | Bài đối xứng gương: sai lệch 2 nửa < 1% (DoD-1.5) |
+
+Ghi chú 3.1: kiểm sensitivity bằng finite difference là phép đo rẻ bắt được loại bug nguy hiểm nhất — gradient sai nhưng vòng lặp vẫn "ra hình gì đó" nhìn rất giống thật mà vô nghĩa.
+
+### Tầng 4 — Vận hành thật trên laptop (≈ Block D)
+
+| Việc | Kết quả đo được |
+|---|---|
+| 4.1 Profiling | Log JSON: thời gian từng khâu + peak RAM cho mọi bài chạy |
+| 4.2 Hiệu năng | 64×32×32: trọn vòng đời < 60 phút (DoD-1.2); RAM < 8GB (DoD-1.3) |
+| 4.3 Checkpoint/resume | Ngắt vòng 30 → resume → kết quả giống hệt chạy liền mạch (DoD-1.4) |
+
+### Tầng 5 — Xuất xưởng (≈ Block E)
+
+| Việc | Kết quả đo được |
+|---|---|
+| 5.1 STL | trimesh: watertight = True; components = 1; thể tích STL vs tổng mật độ voxel sai < 5% |
+| 5.2 Smoke test FreeCAD | Mở + mesh + phân tích tĩnh chạy hết không lỗi; ứng suất max trên đường truyền lực; bằng chứng commit vào repo (DoD-1.7) |
+
+### Tầng 6 — Trực quan (≈ Block F — optional, cắt đầu tiên)
+
+| Việc | Kết quả đo được |
+|---|---|
+| 6.1 Render PyVista | Ảnh isosurface tại ≥ 5 mốc vòng lặp |
+| 6.2 HTML viewer | Mở offline; xoay/zoom/slider hoạt động (DoD-1.8 — không chặn cửa ải) |
