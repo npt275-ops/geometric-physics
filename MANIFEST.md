@@ -20,18 +20,18 @@
 | geophys/spec_loader.py | STABLE | Schema v0 loader — Tầng 0.1 đóng |
 | geophys/grid2d.py | STABLE | Lưới 2D + edof + mật độ — Tầng 0.1 đóng |
 | geophys/fea2d.py | STABLE | FEA Q4 sparse + energy — Tầng 0.2 đóng 07/07/2026, KE khớp Gauss 1e-16, Timoshenko 0.75% |
+| geophys/sensitivity.py | STABLE | ∂c/∂ρ — Tầng 0.3 đóng, FD check 4.1e-06 |
+| geophys/filter2d.py | STABLE | Sensitivity filter conv — Tầng 0.3 đóng, khớp ref O(N²) 2.7e-15 |
+| geophys/oc_update.py | STABLE | OC bisection — Tầng 0.3 đóng, vol err 3.6e-08 |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| (kế tiếp: specs/stage0-t3-sens-filter-oc.md) | |
+| (kế tiếp: specs/stage0-t4-optimize-benchmark.md — vòng lặp + MBB) | |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| geophys/sensitivity.py | Stage 0 task 3 |
-| geophys/filter2d.py | Stage 0 task 3 |
-| geophys/oc_update.py | Stage 0 task 3 |
 | geophys/optimize.py (vòng lặp) | Stage 0 task 4 |
 | geophys/render2d.py | Stage 0 task 5 |
 | geophys/grid3d.py, fea3d.py, filter3d.py | Stage 1 — chỉ mở khi Stage 0 đóng 8/8 DoD |

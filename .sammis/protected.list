@@ -9,3 +9,6 @@ geophys/spec_loader.py
 geophys/grid2d.py
 geophys/fea2d.py
 STAGE1_EXECUTION_PLAN.txt
+geophys/sensitivity.py
+geophys/filter2d.py
+geophys/oc_update.py
