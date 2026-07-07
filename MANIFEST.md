@@ -9,6 +9,22 @@
   quốc tế, không bằng cảm quan.
 - **Tài liệu mẹ:** GEOMETRIC_PHYSICS_PLAN.txt (v1.0) + STAGE1_EXECUTION_PLAN.txt (v1.1)
 
+## Tình trạng dự án (cập nhật 07/07/2026 — sau khi đóng Tầng 0.4)
+- **Tiến độ Stage 0:** 4/6 tầng đóng (0.1 grid → 0.2 FEA → 0.3 sens/filter/OC
+  → 0.4 vòng lặp + benchmark). Còn: 0.5 render (LOW), 0.6 CI (cần GitHub repo).
+- **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
+  compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
+  (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
+- **DoD đã xanh bằng test:** 0.1 ✓ · 0.2 (0 checkerboard) ✓ · 0.3 (94<200 vòng,
+  đơn điệu) ✓ · 0.4 (preserve/void từng vòng, volume ±1%) ✓ · 0.5 (Static
+  Physics, đóng ở Tầng 0.2) ✓ · 0.6 (deterministic từng bit) ✓.
+  Còn: 0.7 (CI xanh — chờ GitHub) · 0.8 (GIF — Tầng 0.5).
+- **Test:** 73/73 pass, ~2.7s. Mọi ngưỡng đều có số đo thật ghi trong docstring test.
+- **Kỷ luật quy chuẩn:** 12 file protected + snapshot md5 · metrics 5 vòng
+  postagent = 4 ĐÚNG-ngay-lần-1, 1 FAIL (scope-creep do file khóa Word — đã ignore).
+- **Stage 1 (3D):** KHÓA cho đến khi 8/8 DoD Stage 0 xanh. Kế hoạch + phân tầng
+  đo được: STAGE1_EXECUTION_PLAN.txt Phụ lục A.
+
 ## Thành phần STABLE (KHÔNG được sửa — phải có trong .sammis/protected.list)
 | File / Module | Trạng thái | Mô tả |
 |---|---|---|
@@ -17,25 +33,4 @@
 | AGENT_RULES.md | STABLE | Quy chuẩn agent — không sửa |
 | sammis.py | STABLE | Trạm gác — không sửa |
 | geophys/errors.py | STABLE | SpecError — Tầng 0.1 đóng 07/07/2026, 32/32 test |
-| geophys/spec_loader.py | STABLE | Schema v0 loader — Tầng 0.1 đóng |
-| geophys/grid2d.py | STABLE | Lưới 2D + edof + mật độ — Tầng 0.1 đóng |
-| geophys/fea2d.py | STABLE | FEA Q4 sparse + energy — Tầng 0.2 đóng 07/07/2026, KE khớp Gauss 1e-16, Timoshenko 0.75% |
-| geophys/sensitivity.py | STABLE | ∂c/∂ρ — Tầng 0.3 đóng, FD check 4.1e-06 |
-| geophys/filter2d.py | STABLE | Sensitivity filter conv — Tầng 0.3 đóng, khớp ref O(N²) 2.7e-15 |
-| geophys/oc_update.py | STABLE | OC bisection — Tầng 0.3 đóng, vol err 3.6e-08 |
-| geophys/optimize.py | STABLE | Vòng lặp tối ưu — Tầng 0.4 đóng, MBB khớp top88 0.006%, DoD-0.1 ✓ |
-
-## Thành phần IN PROGRESS
-| File / Module | Đang làm gì |
-|---|---|
-| (kế tiếp: specs/stage0-t5-render2d.md — PNG/GIF) | |
-
-## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
-| File / Module | Ghi chú |
-|---|---|
-| geophys/render2d.py | Stage 0 task 5 |
-| geophys/grid3d.py, fea3d.py, filter3d.py | Stage 1 — chỉ mở khi Stage 0 đóng 8/8 DoD |
-| geophys/checkpoint.py | Stage 1 |
-| geophys/export_stl.py | Stage 1 (Block E) |
-| geophys/render3d.py, viewer HTML | Stage 1 (Block F — optional) |
-| CLI geophys, spec validator, agent interface | Stage 3 — CẤM đụng trước đó |
+| geophys/spec_loader.py | STABLE | Schema v0 loader — Tầng
