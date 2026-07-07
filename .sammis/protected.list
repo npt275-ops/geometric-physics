@@ -1,3 +1,7 @@
 # Mỗi dòng một path (tính từ root repo) mà agent CẤM sửa.
 # Nguồn: bảng STABLE trong MANIFEST.md. Ba tầng canh: snapshot md5,
 # postagent, pre-commit chặn cứng.
+GEOMETRIC_PHYSICS_PLAN.txt
+STAGE1_EXECUTION_PLAN.txt
+AGENT_RULES.md
+sammis.py
