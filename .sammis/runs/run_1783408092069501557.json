@@ -1,0 +1,15 @@
+{
+  "task": "stage0-t3-sens-filter-oc",
+  "files_created": [
+    "specs/stage0-t3-sens-filter-oc.md",
+    "geophys/sensitivity.py",
+    "geophys/filter2d.py",
+    "geophys/oc_update.py",
+    "tests/test_sensitivity.py",
+    "tests/test_filter2d.py",
+    "tests/test_oc_update.py"
+  ],
+  "files_modified": [],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
