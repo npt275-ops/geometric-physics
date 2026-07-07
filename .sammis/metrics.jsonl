@@ -1,0 +1,2 @@
+{"ts": "2026-07-07T06:28:56+00:00", "task": "stage0-t1-spec-v0-grid2d", "result": "fail", "attempt": 1, "codes": ["scope-creep"]}
+{"ts": "2026-07-07T06:29:11+00:00", "task": "stage0-t1-spec-v0-grid2d", "result": "pass", "attempt": 2, "codes": []}

@@ -1,0 +1,18 @@
+{
+  "task": "stage0-t1-spec-v0-grid2d",
+  "files_created": [
+    "geophys/__init__.py",
+    "geophys/errors.py",
+    "geophys/spec_loader.py",
+    "geophys/grid2d.py",
+    "tests/test_spec_loader.py",
+    "tests/test_grid2d.py",
+    "examples/spec_mbb_60x20.json",
+    "examples/spec_cantilever_40x20.json",
+    "examples/spec_preserve_void_20x20.json",
+    "requirements.txt"
+  ],
+  "files_modified": [".gitignore"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

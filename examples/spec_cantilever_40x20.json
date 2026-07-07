@@ -1,0 +1,12 @@
+{
+  "_comment": "Cantilever: ngàm toàn cạnh trái, lực xuống tại giữa cạnh phải",
+  "nelx": 40,
+  "nely": 20,
+  "volfrac": 0.4,
+  "loads": [{"x": 40, "y": 10, "fx": 0.0, "fy": -1.0}],
+  "supports": [{"edge": "left", "dof": "both"}],
+  "material": {"E": 1.0, "nu": 0.3},
+  "simp": {"p": 3.0, "rmin": 1.2},
+  "preserve": [],
+  "void": []
+}

@@ -1,0 +1,12 @@
+{
+  "_comment": "Bài thử vùng: preserve dải sát ngàm trái, void lỗ giữa lưới — hai vùng rời nhau",
+  "nelx": 20,
+  "nely": 20,
+  "volfrac": 0.4,
+  "loads": [{"x": 20, "y": 20, "fx": 0.0, "fy": -1.0}],
+  "supports": [{"edge": "left", "dof": "both"}],
+  "material": {"E": 1.0, "nu": 0.3},
+  "simp": {"p": 3.0, "rmin": 1.2},
+  "preserve": [{"x0": 0, "y0": 0, "x1": 1, "y1": 19}],
+  "void": [{"x0": 9, "y0": 8, "x1": 11, "y1": 11}]
+}

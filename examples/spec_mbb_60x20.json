@@ -1,0 +1,15 @@
+{
+  "_comment": "MBB beam nửa mô hình theo top88: lực tại góc trên-trái, đối xứng cạnh trái (khóa x), gối góc dưới-phải (khóa y)",
+  "nelx": 60,
+  "nely": 20,
+  "volfrac": 0.5,
+  "loads": [{"x": 0, "y": 0, "fx": 0.0, "fy": -1.0}],
+  "supports": [
+    {"edge": "left", "dof": "x"},
+    {"x": 60, "y": 20, "dof": "y"}
+  ],
+  "material": {"E": 1.0, "nu": 0.3},
+  "simp": {"p": 3.0, "rmin": 1.5},
+  "preserve": [],
+  "void": []
+}
