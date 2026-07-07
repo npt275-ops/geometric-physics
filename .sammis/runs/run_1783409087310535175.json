@@ -1,0 +1,11 @@
+{
+  "task": "stage0-t4-optimize-benchmark",
+  "files_created": [
+    "specs/stage0-t4-optimize-benchmark.md",
+    "geophys/optimize.py",
+    "tests/test_optimize.py"
+  ],
+  "files_modified": [],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
