@@ -8,3 +8,4 @@ sammis.py
 geophys/errors.py
 geophys/spec_loader.py
 geophys/grid2d.py
+geophys/fea2d.py
