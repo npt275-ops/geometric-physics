@@ -2,3 +2,6 @@
 b05d4f26f1923573f67045b804605a86  STAGE1_EXECUTION_PLAN.txt
 d6457ec5614ac54e3b99d5de172cf829  AGENT_RULES.md
 53080b6e861c50b1b59aff720ee5b1d2  sammis.py
+bd8cbed4574c57a00dace833d741f2f7  geophys/errors.py
+1384dd90c6b37e6619283d31cf001215  geophys/spec_loader.py
+ba7b9f006671fe0657d43b2b05974e8e  geophys/grid2d.py

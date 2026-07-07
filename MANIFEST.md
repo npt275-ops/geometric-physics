@@ -16,17 +16,18 @@
 | STAGE1_EXECUTION_PLAN.txt | STABLE | Kế hoạch thực thi Stage 1 v1.1 + Phụ lục A |
 | AGENT_RULES.md | STABLE | Quy chuẩn agent — không sửa |
 | sammis.py | STABLE | Trạm gác — không sửa |
+| geophys/errors.py | STABLE | SpecError — Tầng 0.1 đóng 07/07/2026, 32/32 test |
+| geophys/spec_loader.py | STABLE | Schema v0 loader — Tầng 0.1 đóng |
+| geophys/grid2d.py | STABLE | Lưới 2D + edof + mật độ — Tầng 0.1 đóng |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| (chưa có — task đầu tiên: specs/stage0-t1-spec-v0-grid2d.md) | |
+| (kế tiếp: specs/stage0-t2-fea2d.md — FEA 2D Q4) | |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| geophys/spec_loader.py | Stage 0 task 1 |
-| geophys/grid2d.py | Stage 0 task 1 |
 | geophys/fea2d.py | Stage 0 task 2 |
 | geophys/sensitivity.py | Stage 0 task 3 |
 | geophys/filter2d.py | Stage 0 task 3 |

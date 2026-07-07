@@ -5,3 +5,6 @@ GEOMETRIC_PHYSICS_PLAN.txt
 STAGE1_EXECUTION_PLAN.txt
 AGENT_RULES.md
 sammis.py
+geophys/errors.py
+geophys/spec_loader.py
+geophys/grid2d.py
