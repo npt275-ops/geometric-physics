@@ -13,6 +13,34 @@
 
 ---
 
+## TRẠNG THÁI THỰC THI (cập nhật 07/07/2026 — sau khi đóng Tầng 0.2)
+
+**Hạ tầng:** repo Git tuân quy chuẩn Sammis V5 Mức 3 · trạm gác đã kiểm chứng
+bằng vi phạm thật (silent-except CHẶN, sửa protected CHẶN) · 8 file protected
+· metrics: 3 vòng postagent = 2 ĐÚNG ngay lần 1 + 1 FAIL scope-creep
+(file khóa Word `~$*` — đã ignore).
+
+| Tầng | Trạng thái | Bằng chứng |
+|---|---|---|
+| Khung repo + trạm gác | ✅ | preflight PASS, hook chặn 2 loại vi phạm thử |
+| 0.1 spec v0 + grid 2D | ✅ ĐÓNG | 32/32 test; round-trip 100%; STABLE + protected |
+| 0.2 FEA 2D Q4 | ✅ ĐÓNG | 45/45 test; KE vs Gauss 1.1e-16; patch 4.6e-15; Timoshenko 0.75%; DoD-0.5 góc chết 14%<20%; Clapeyron ✓ |
+| 0.3 sensitivity + filter + OC | ⏳ KẾ TIẾP | spec sẽ viết trước khi code |
+| 0.4 vòng lặp + benchmark MBB | ⬜ | |
+| 0.5 render 2D | ⬜ | |
+| 0.6 CI | ⬜ | |
+| Stage 1 (6 tầng, Phụ lục A) | 🔒 KHÓA | chờ Stage 0 đóng 8/8 DoD |
+
+**Sổ tay sự cố (mang theo lên 3D):**
+1. Suy biến do làm tròn cho nghiệm hữu hạn nhưng SAI (u ~ 1e16, không NaN)
+   → solve() có 2 lớp kiểm: NaN/Inf + residual ‖Ku−f‖/‖f‖ > 1e-6 → SolverError.
+   Bài học sống còn cho CG solver ở Stage 1.
+2. Mount sandbox đồng bộ file không ổn định (Windows đủ, sandbox cụt)
+   — không tái hiện khi chạy trực tiếp trên máy chủ dự án.
+3. `__pycache__` cũ che code mới — xóa cache trước khi pytest sau mỗi lần sửa.
+
+---
+
 ## 0. ĐIỀU KIỆN TIÊN QUYẾT (không thỏa = không bắt đầu)
 
 - [ ] Stage 0 đã đóng: 8/8 DoD xanh, CI Windows + Ubuntu pass.
@@ -174,30 +202,4 @@ Nguyên tắc: mỗi con số ở cột "Kết quả đo được" là một pyt
 | Việc | Kết quả đo được |
 |---|---|
 | 3.1 Sensitivity ∂c/∂ρ | Đối chiếu finite difference trên 20 phần tử ngẫu nhiên: sai < 1% |
-| 3.2 Filter 3D | Detector checkerboard trên kết quả cuối: 0 pattern |
-| 3.3 Benchmark | Cantilever 60×20×4: compliance ±5% top3d; < 200 vòng; volume ±1% (DoD-1.1) |
-| 3.4 Đối xứng | Bài đối xứng gương: sai lệch 2 nửa < 1% (DoD-1.5) |
-
-Ghi chú 3.1: kiểm sensitivity bằng finite difference là phép đo rẻ bắt được loại bug nguy hiểm nhất — gradient sai nhưng vòng lặp vẫn "ra hình gì đó" nhìn rất giống thật mà vô nghĩa.
-
-### Tầng 4 — Vận hành thật trên laptop (≈ Block D)
-
-| Việc | Kết quả đo được |
-|---|---|
-| 4.1 Profiling | Log JSON: thời gian từng khâu + peak RAM cho mọi bài chạy |
-| 4.2 Hiệu năng | 64×32×32: trọn vòng đời < 60 phút (DoD-1.2); RAM < 8GB (DoD-1.3) |
-| 4.3 Checkpoint/resume | Ngắt vòng 30 → resume → kết quả giống hệt chạy liền mạch (DoD-1.4) |
-
-### Tầng 5 — Xuất xưởng (≈ Block E)
-
-| Việc | Kết quả đo được |
-|---|---|
-| 5.1 STL | trimesh: watertight = True; components = 1; thể tích STL vs tổng mật độ voxel sai < 5% |
-| 5.2 Smoke test FreeCAD | Mở + mesh + phân tích tĩnh chạy hết không lỗi; ứng suất max trên đường truyền lực; bằng chứng commit vào repo (DoD-1.7) |
-
-### Tầng 6 — Trực quan (≈ Block F — optional, cắt đầu tiên)
-
-| Việc | Kết quả đo được |
-|---|---|
-| 6.1 Render PyVista | Ảnh isosurface tại ≥ 5 mốc vòng lặp |
-| 6.2 HTML viewer | Mở offline; xoay/zoom/slider hoạt động (DoD-1.8 — không chặn cửa ải) |
+| 3.2 Filter 3D | Det
