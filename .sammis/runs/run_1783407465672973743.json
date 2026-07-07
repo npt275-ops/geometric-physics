@@ -1,0 +1,11 @@
+{
+  "task": "stage0-t2-fea2d",
+  "files_created": [
+    "specs/stage0-t2-fea2d.md",
+    "geophys/fea2d.py",
+    "tests/test_fea2d.py"
+  ],
+  "files_modified": [],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
