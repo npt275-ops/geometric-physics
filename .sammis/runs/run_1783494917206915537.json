@@ -1,0 +1,15 @@
+{
+  "task": "stage1-t1-spec-v1-grid3d",
+  "files_created": [
+    "specs/stage1-t1-spec-v1-grid3d.md",
+    "geophys/spec3d.py",
+    "geophys/grid3d.py",
+    "tests/test_spec3d.py",
+    "tests/test_grid3d.py",
+    "examples/spec3d_cantilever_60x20x4.json",
+    "examples/spec3d_primitives_20.json"
+  ],
+  "files_modified": ["MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

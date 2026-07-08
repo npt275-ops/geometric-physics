@@ -1,0 +1,18 @@
+{
+  "_comment": "Bài thử hình khối: box bảo tồn sát ngàm, cầu + trụ là vùng cấm (lỗ bu-lông / khoang rỗng)",
+  "nelx": 20,
+  "nely": 20,
+  "nelz": 20,
+  "volfrac": 0.35,
+  "loads": [{"x": 20, "y": 10, "z": 10, "fx": 0.0, "fy": -1.0, "fz": 0.0}],
+  "supports": [{"face": "x0", "dof": "all"}],
+  "material": {"E": 1.0, "nu": 0.3},
+  "simp": {"p": 3.0, "rmin": 1.4},
+  "preserve": [
+    {"type": "box", "x0": 0, "y0": 0, "z0": 0, "x1": 1, "y1": 19, "z1": 19}
+  ],
+  "void": [
+    {"type": "sphere", "cx": 12.0, "cy": 6.0, "cz": 10.0, "r": 3.0},
+    {"type": "cylinder", "axis": "z", "cx": 15.0, "cy": 14.0, "r": 2.0, "z0": 0, "z1": 19}
+  ]
+}
