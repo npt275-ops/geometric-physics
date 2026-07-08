@@ -1,0 +1,13 @@
+{
+  "task": "stage1-t6-render-viewer",
+  "files_created": [
+    "specs/stage1-t6-render-viewer.md",
+    "geophys/render3d.py",
+    "tests/test_render3d.py",
+    "media/cantilever3d_iso.png",
+    "media/cantilever3d_viewer.html"
+  ],
+  "files_modified": ["MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

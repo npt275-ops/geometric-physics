@@ -11,3 +11,6 @@
 {"ts": "2026-07-08T07:33:51+00:00", "task": "stage1-t3-optimize3d-benchmark", "result": "pass", "attempt": 1, "codes": []}
 {"ts": "2026-07-08T07:46:52+00:00", "task": "stage1-t4-perf-checkpoint", "result": "pass", "attempt": 1, "codes": []}
 {"ts": "2026-07-08T08:27:40+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "fail", "attempt": 1, "codes": ["scope-creep"]}
+{"ts": "2026-07-08T08:28:12+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "pass", "attempt": 2, "codes": []}
+{"ts": "2026-07-08T08:50:13+00:00", "task": "stage1-t6-render-viewer", "result": "pass", "attempt": 1, "codes": []}
+{"ts": "2026-07-08T08:50:46+00:00", "task": "stage1-t6-render-viewer", "result": "pass", "attempt": 2, "codes": []}
