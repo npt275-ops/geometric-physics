@@ -10,8 +10,9 @@
 - **Tài liệu mẹ:** GEOMETRIC_PHYSICS_PLAN.txt (v1.0) + STAGE1_EXECUTION_PLAN.txt (v1.1)
 
 ## Tình trạng dự án (cập nhật 07/07/2026 — sau khi đóng Tầng 0.4)
-- **Tiến độ Stage 0:** 5/6 tầng đóng. Còn duy nhất: 0.6 CI (cần NGƯỜI tạo
-  repo GitHub + push — DoD-0.7).
+- **Tiến độ Stage 0:** 5/6 tầng đóng + tầng 0.6 ĐÃ SOẠN SẴN (ci.yml).
+  Việc còn lại DUY NHẤT thuộc NGƯỜI: tạo repo GitHub → push → xác nhận
+  4/4 ô matrix xanh → DoD-0.7 đóng → Stage 0 đóng 8/8 → MỞ KHÓA Stage 1.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -45,12 +46,11 @@
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| (kế tiếp: tầng 0.6 CI — CHỜ NGƯỜI tạo repo GitHub) | |
+| .github/workflows/ci.yml | ĐÃ SOẠN + kiểm YAML — chờ NGƯỜI push GitHub, 4/4 ô xanh mới đóng DoD-0.7 |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| .github/workflows/ci.yml | Stage 0 task 6 — cần repo GitHub (việc của người vận hành) |
 | geophys/grid3d.py, fea3d.py, filter3d.py | Stage 1 — chỉ mở khi Stage 0 đóng 8/8 DoD |
 | geophys/checkpoint.py | Stage 1 |
 | geophys/export_stl.py | Stage 1 (Block E) |

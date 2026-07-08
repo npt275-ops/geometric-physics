@@ -1,0 +1,10 @@
+{
+  "task": "stage0-t6-ci",
+  "files_created": [
+    "specs/stage0-t6-ci.md",
+    ".github/workflows/ci.yml"
+  ],
+  "files_modified": ["MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
