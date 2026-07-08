@@ -12,3 +12,5 @@ ea3bef00564f208deb01668aaf56385c  geophys/optimize.py
 293b1baa73c870e9fffa93c623262c2f  geophys/render2d.py
 dc58a1fc3ac2b5c317af8cf49535a2c6  STAGE1_EXECUTION_PLAN.txt
 636faa051313f5a55fd964b3355bcc06  .github/workflows/ci.yml
+77742b59ddf02ad247d7d4538dc9a50f  geophys/spec3d.py
+b3083713bace41a78ea69687ee5c521a  geophys/grid3d.py
