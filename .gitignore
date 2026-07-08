@@ -4,3 +4,4 @@ __pycache__/
 outputs/
 *.egg-info/
 ~$*
+bench/bench64_checkpoint.npz
