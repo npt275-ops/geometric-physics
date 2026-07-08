@@ -3,23 +3,22 @@
 > Bản đồ tĩnh. Agent đọc TRƯỚC TIÊN. MANIFEST sai làm agent tin sai.
 
 ## Thông tin dự án
-- **Tên:** Geometric Physics (GP) · **Giai đoạn:** BUILDING (Stage 0 — lõi 2D)
+- **Tên:** Geometric Physics (GP) · **Giai đoạn:** BUILDING (Stage 1 — 3D voxel)
 - **Một câu:** Engine tối ưu hóa topology (FEA + SIMP + Filter + OC), Python,
   headless, nhận spec.json trả về cấu trúc tối ưu — kiểm chứng bằng benchmark
   quốc tế, không bằng cảm quan.
 - **Tài liệu mẹ:** GEOMETRIC_PHYSICS_PLAN.txt (v1.0) + STAGE1_EXECUTION_PLAN.txt (v1.1)
 
-## Tình trạng dự án (cập nhật 07/07/2026 — sau khi đóng Tầng 0.4)
-- **Tiến độ Stage 0:** 5/6 tầng đóng + tầng 0.6 ĐÃ SOẠN SẴN (ci.yml).
-  Việc còn lại DUY NHẤT thuộc NGƯỜI: tạo repo GitHub → push → xác nhận
-  4/4 ô matrix xanh → DoD-0.7 đóng → Stage 0 đóng 8/8 → MỞ KHÓA Stage 1.
+## Tình trạng dự án (cập nhật 08/07/2026 — STAGE 0 ĐÓNG 8/8 DoD)
+- **STAGE 0 ĐÓNG:** người vận hành xác nhận CI GitHub 4/4 ô xanh (08/07/2026)
+  → DoD-0.7 ✓ → 8/8 DoD. STAGE 1 MỞ KHÓA — tiến độ 0/6 tầng, bắt đầu 1.1.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
 - **DoD đã xanh bằng test:** 0.1 ✓ · 0.2 (0 checkerboard) ✓ · 0.3 (94<200 vòng,
   đơn điệu) ✓ · 0.4 (preserve/void từng vòng, volume ±1%) ✓ · 0.5 (Static
   Physics, đóng ở Tầng 0.2) ✓ · 0.6 (deterministic từng bit) ✓.
-  0.8 (GIF 94 khung media/mbb_evolution.gif) ✓. Còn DUY NHẤT: 0.7 CI — 7/8 DoD.
+  0.7 (CI 4/4 xanh, người xác nhận 08/07) ✓ · 0.8 (GIF 94 khung) ✓ — ĐỦ 8/8.
 - **Test:** 79/79 pass, ~2.7s. Mọi ngưỡng đều có số đo thật ghi trong docstring test.
 - **Kỷ luật quy chuẩn:** 12 file protected + snapshot md5 · metrics 5 vòng
   postagent = 4 ĐÚNG-ngay-lần-1, 1 FAIL (scope-creep do file khóa Word — đã ignore).
@@ -42,11 +41,12 @@
 | geophys/oc_update.py | STABLE | OC bisection — Tầng 0.3 đóng, vol err 3.6e-08 |
 | geophys/optimize.py | STABLE | Vòng lặp tối ưu — Tầng 0.4 đóng, MBB khớp top88 0.006%, DoD-0.1 ✓ |
 | geophys/render2d.py | STABLE | PNG/GIF tách rời engine — Tầng 0.5 đóng, DoD-0.8 ✓ (media/) |
+| .github/workflows/ci.yml | STABLE | CI matrix 4 ô — DoD-0.7 xanh 08/07/2026 |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| .github/workflows/ci.yml | ĐÃ SOẠN + kiểm YAML — chờ NGƯỜI push GitHub, 4/4 ô xanh mới đóng DoD-0.7 |
+| specs/stage1-t1-spec-v1-grid3d.md | Tầng 1.1 — spec v1 3D + Grid3D (đang làm) |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |

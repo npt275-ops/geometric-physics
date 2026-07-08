@@ -11,3 +11,4 @@ ba8970eddd261ee28903d6c006d4fc38  geophys/fea2d.py
 ea3bef00564f208deb01668aaf56385c  geophys/optimize.py
 293b1baa73c870e9fffa93c623262c2f  geophys/render2d.py
 dc58a1fc3ac2b5c317af8cf49535a2c6  STAGE1_EXECUTION_PLAN.txt
+636faa051313f5a55fd964b3355bcc06  .github/workflows/ci.yml
