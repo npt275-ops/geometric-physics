@@ -1,0 +1,13 @@
+{
+  "spec": "spec3d_bench_64x32x32.json",
+  "n_iter": 150,
+  "converged": false,
+  "compliance": 0.616505950206397,
+  "wall_s_phien_cuoi": 2459.8,
+  "tong_t_solve_s": 2435.4,
+  "peak_rss_mb": 717.6,
+  "cg_iters_max": 1126,
+  "DoD-1.2": "FAIL",
+  "DoD-1.3": "PASS",
+  "ghi_chu": "wall_s là thời gian PHIÊN CUỐI; nếu có resume, cộng các phiên"
+}

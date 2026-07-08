@@ -1,0 +1,7 @@
+{
+  "task": "stage1-t4-perf-checkpoint",
+  "files_created": [],
+  "files_modified": ["examples/spec3d_bench_64x32x32.json", "scripts/benchmark_laptop.py"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

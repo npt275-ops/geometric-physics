@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from geophys.checkpoint import load_checkpoint  # noqa: E402
 from geophys.optimize3d import optimize3d  # noqa: E402
 from geophys.spec3d import load_spec3d  # noqa: E402
 
@@ -30,6 +31,13 @@ def main() -> int:
     BENCH_DIR.mkdir(exist_ok=True)
     spec = load_spec3d(SPEC)
     resume = CKPT.is_file()
+    if resume:
+        try:
+            load_checkpoint(CKPT, spec)
+        except ValueError:
+            print("[bench] checkpoint thuộc spec CŨ (đã đổi rmin) — chạy mới")
+            CKPT.unlink()
+            resume = False
     print(f"[bench] {'TIẾP TỤC từ checkpoint' if resume else 'chạy mới'} — "
           "64×32×32, tối đa 150 vòng, checkpoint mỗi 5 vòng")
     t0 = time.perf_counter()
