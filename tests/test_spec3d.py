@@ -24,8 +24,8 @@ def _dump(tmp_path, raw):
     return f
 
 
-def test_co_2_spec_3d_mau():
-    assert len(ALL_3D) == 2
+def test_co_3_spec_3d_mau():
+    assert len(ALL_3D) == 3  # cantilever + primitives + bench 64x32x32
 
 
 @pytest.mark.parametrize("path", ALL_3D, ids=lambda p: p.stem)

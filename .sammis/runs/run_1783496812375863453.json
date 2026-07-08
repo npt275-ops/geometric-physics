@@ -1,0 +1,14 @@
+{
+  "task": "stage1-t4-perf-checkpoint",
+  "files_created": [
+    "specs/stage1-t4-perf-checkpoint.md",
+    "geophys/checkpoint.py",
+    "tests/test_checkpoint.py",
+    "examples/spec3d_bench_64x32x32.json",
+    "scripts/benchmark_laptop.py",
+    "RUN_BENCHMARK.bat"
+  ],
+  "files_modified": ["geophys/optimize3d.py", "requirements.txt", "MANIFEST.md", "tests/test_spec3d.py"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

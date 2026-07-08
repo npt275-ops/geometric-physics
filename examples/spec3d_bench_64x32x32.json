@@ -1,0 +1,19 @@
+{
+  "_comment": "Bài đo DoD-1.2/1.3: ~65k phần tử, cantilever 3D, tải dải giữa mặt tự do. Chạy bằng RUN_BENCHMARK.bat trên laptop thật.",
+  "nelx": 64,
+  "nely": 32,
+  "nelz": 32,
+  "volfrac": 0.3,
+  "loads": [
+    {"x": 64, "y": 32, "z": 8,  "fx": 0.0, "fy": -0.05, "fz": 0.0},
+    {"x": 64, "y": 32, "z": 12, "fx": 0.0, "fy": -0.1,  "fz": 0.0},
+    {"x": 64, "y": 32, "z": 16, "fx": 0.0, "fy": -0.1,  "fz": 0.0},
+    {"x": 64, "y": 32, "z": 20, "fx": 0.0, "fy": -0.1,  "fz": 0.0},
+    {"x": 64, "y": 32, "z": 24, "fx": 0.0, "fy": -0.05, "fz": 0.0}
+  ],
+  "supports": [{"face": "x0", "dof": "all"}],
+  "material": {"E": 1.0, "nu": 0.3},
+  "simp": {"p": 3.0, "rmin": 1.5},
+  "preserve": [],
+  "void": []
+}

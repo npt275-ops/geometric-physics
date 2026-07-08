@@ -11,7 +11,7 @@
 
 ## Tình trạng dự án (cập nhật 08/07/2026 — STAGE 0 ĐÓNG 8/8 DoD)
 - **STAGE 0 ĐÓNG:** người vận hành xác nhận CI GitHub 4/4 ô xanh (08/07/2026)
-  → DoD-0.7 ✓ → 8/8 DoD. STAGE 1: 3/6 tầng — DoD-1.1 ✓ (cantilever 60×20×4: GP 82.4677 vs ref monolithic 82.4447, lệch 0.028%, cùng 54 vòng) · DoD-1.5 ✓ đối xứng z <1%. 126 test (benchmark đầy đủ chạy trên CI). Kế tiếp: 1.4.
+  → DoD-0.7 ✓ → 8/8 DoD. STAGE 1: 3/6 đóng + 1.4 code xong (DoD-1.4 resume giống hệt từng bit, cả direct lẫn CG). DoD-1.2/1.3 CHỜ số đo laptop (RUN_BENCHMARK.bat). 134 test. Kế tiếp: 1.5 STL.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -47,17 +47,17 @@
 | geophys/fea3d.py | STABLE | FEA H8 + CG/direct kép — Tầng 1.2 đóng 08/07: CG khớp direct 9.1e-13, Timoshenko 2.84%, residual check |
 | geophys/sensitivity3d.py | STABLE | ∂c/∂ρ 3D — Tầng 1.3 đóng, FD 1.8e-07 |
 | geophys/filter3d.py | STABLE | Filter kernel cầu — Tầng 1.3 đóng, khớp ref 1.8e-15 |
-| geophys/optimize3d.py | STABLE | Vòng lặp 3D + warm start — Tầng 1.3 đóng, DoD-1.1 lệch 0.028% |
+| geophys/optimize3d.py | STABLE | Vòng lặp 3D + warm start + checkpoint/profiling (mở khóa nghi thức 08/07, spec t4) — DoD-1.1 0.028%, DoD-1.4 ✓ |
+| geophys/checkpoint.py | STABLE | Save/load + digest chống resume nhầm bài — Tầng 1.4 |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| specs/stage1-t4-perf-checkpoint.md | Tầng 1.4 — hiệu năng + checkpoint (kế tiếp) |
+| Tầng 1.4 | CODE XONG + DoD-1.4 ✓ — CHỜ NGƯỜI chạy RUN_BENCHMARK.bat đóng DoD-1.2/1.3 (sandbox ước lượng ~9s/vòng, RSS 755MB) |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| geophys/checkpoint.py | Stage 1 |
 | geophys/export_stl.py | Stage 1 (Block E) |
 | geophys/render3d.py, viewer HTML | Stage 1 (Block F — optional) |
 | CLI geophys, spec validator, agent interface | Stage 3 — CẤM đụng trước đó |
