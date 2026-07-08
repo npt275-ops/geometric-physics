@@ -3,3 +3,5 @@
 {"ts": "2026-07-07T06:57:45+00:00", "task": "stage0-t2-fea2d", "result": "pass", "attempt": 1, "codes": []}
 {"ts": "2026-07-07T07:08:12+00:00", "task": "stage0-t3-sens-filter-oc", "result": "pass", "attempt": 1, "codes": []}
 {"ts": "2026-07-07T07:24:47+00:00", "task": "stage0-t4-optimize-benchmark", "result": "pass", "attempt": 1, "codes": []}
+{"ts": "2026-07-08T06:07:32+00:00", "task": "stage0-t5-render2d", "result": "fail", "attempt": 1, "codes": ["protected-tampered", "scope-creep"]}
+{"ts": "2026-07-08T06:08:58+00:00", "task": "stage0-t5-render2d", "result": "pass", "attempt": 2, "codes": []}

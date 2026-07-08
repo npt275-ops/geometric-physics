@@ -1,0 +1,13 @@
+{
+  "task": "stage0-t5-render2d",
+  "files_created": [
+    "specs/stage0-t5-render2d.md",
+    "geophys/render2d.py",
+    "tests/test_render2d.py",
+    "media/mbb_evolution.gif",
+    "media/mbb_final.png"
+  ],
+  "files_modified": ["requirements.txt"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
