@@ -20,4 +20,3 @@ geophys/grid3d.py
 geophys/fea3d.py
 geophys/sensitivity3d.py
 geophys/filter3d.py
-geophys/optimize3d.py
