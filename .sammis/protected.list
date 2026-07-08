@@ -12,4 +12,3 @@ geophys/sensitivity.py
 geophys/filter2d.py
 geophys/oc_update.py
 geophys/optimize.py
-STAGE1_EXECUTION_PLAN.txt
