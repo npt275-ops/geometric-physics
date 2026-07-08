@@ -11,7 +11,7 @@
 
 ## Tình trạng dự án (cập nhật 08/07/2026 — STAGE 0 ĐÓNG 8/8 DoD)
 - **STAGE 0 ĐÓNG:** người vận hành xác nhận CI GitHub 4/4 ô xanh (08/07/2026)
-  → DoD-0.7 ✓ → 8/8 DoD. STAGE 1: 1/6 tầng (1.1 đóng 08/07, 105/105 test). Kế tiếp: 1.2 FEA 3D.
+  → DoD-0.7 ✓ → 8/8 DoD. STAGE 1: 2/6 tầng (1.2 FEA 3D đóng 08/07, 119/119 test). Kế tiếp: 1.3 benchmark top3d.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -44,16 +44,17 @@
 | .github/workflows/ci.yml | STABLE | CI matrix 4 ô — DoD-0.7 xanh 08/07/2026 |
 | geophys/spec3d.py | STABLE | Schema v1 3D + primitives — Tầng 1.1 đóng 08/07 |
 | geophys/grid3d.py | STABLE | Voxel H8 + rasterize (sphere 1.46%, cyl 1.34%) — Tầng 1.1 đóng |
+| geophys/fea3d.py | STABLE | FEA H8 + CG/direct kép — Tầng 1.2 đóng 08/07: CG khớp direct 9.1e-13, Timoshenko 2.84%, residual check |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| specs/stage1-t2-fea3d-cg.md | Tầng 1.2 — FEA 3D + CG (kế tiếp) |
+| specs/stage1-t3-optimize3d-benchmark.md | Tầng 1.3 — vòng lặp 3D + top3d (kế tiếp) |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| geophys/fea3d.py, filter3d.py, optimize3d | Tầng 1.2–1.3 |
+| geophys/filter3d.py, sensitivity3d, optimize3d | Tầng 1.3 |
 | geophys/checkpoint.py | Stage 1 |
 | geophys/export_stl.py | Stage 1 (Block E) |
 | geophys/render3d.py, viewer HTML | Stage 1 (Block F — optional) |
