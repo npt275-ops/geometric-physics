@@ -1,0 +1,13 @@
+{
+  "task": "stage1-t3-optimize3d-benchmark",
+  "files_created": [
+    "specs/stage1-t3-optimize3d-benchmark.md",
+    "geophys/sensitivity3d.py",
+    "geophys/filter3d.py",
+    "geophys/optimize3d.py",
+    "tests/test_optimize3d.py"
+  ],
+  "files_modified": ["MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
