@@ -1,0 +1,13 @@
+{
+  "task": "stage1-t5-export-stl-smoketest",
+  "files_created": [
+    "specs/stage1-t5-export-stl-smoketest.md",
+    "geophys/export_stl.py",
+    "tests/test_export_stl.py",
+    "media/cantilever3d_60x20x4.stl",
+    "HUONG_DAN_FREECAD.md"
+  ],
+  "files_modified": ["requirements.txt", "MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

@@ -11,7 +11,7 @@
 
 ## Tình trạng dự án (cập nhật 08/07/2026 — STAGE 0 ĐÓNG 8/8 DoD)
 - **STAGE 0 ĐÓNG:** người vận hành xác nhận CI GitHub 4/4 ô xanh (08/07/2026)
-  → DoD-0.7 ✓ → 8/8 DoD. STAGE 1: 3/6 đóng + 1.4 code xong (DoD-1.4 resume giống hệt từng bit, cả direct lẫn CG). DoD-1.2/1.3 CHỜ số đo laptop (RUN_BENCHMARK.bat). 134 test. Kế tiếp: 1.5 STL.
+  → DoD-0.7 ✓ → 8/8 DoD. STAGE 1: 3/6 đóng + 1.4, 1.5 code xong. 140 test. CHỜ NGƯỜI: (a) RUN_BENCHMARK.bat → DoD-1.2/1.3; (b) HUONG_DAN_FREECAD.md → DoD-1.7. Kế tiếp agent: 1.6 render/viewer.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -49,15 +49,16 @@
 | geophys/filter3d.py | STABLE | Filter kernel cầu — Tầng 1.3 đóng, khớp ref 1.8e-15 |
 | geophys/optimize3d.py | STABLE | Vòng lặp 3D + warm start + checkpoint/profiling (mở khóa nghi thức 08/07, spec t4) — DoD-1.1 0.028%, DoD-1.4 ✓ |
 | geophys/checkpoint.py | STABLE | Save/load + digest chống resume nhầm bài — Tầng 1.4 |
+| geophys/export_stl.py | STABLE | Marching cubes + Taubin + trimesh check — Tầng 1.5: box 4.36%, sphere 0.88% |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| Tầng 1.4 | CODE XONG + DoD-1.4 ✓ — CHỜ NGƯỜI chạy RUN_BENCHMARK.bat đóng DoD-1.2/1.3 (sandbox ước lượng ~9s/vòng, RSS 755MB) |
+| Tầng 1.4 | CODE XONG + DoD-1.4 ✓ — CHỜ NGƯỜI chạy RUN_BENCHMARK.bat (DoD-1.2/1.3) |
+| Tầng 1.5 | CODE XONG — STL cantilever đã sinh (watertight, 255KB). CHỜ NGƯỜI làm HUONG_DAN_FREECAD.md → bằng chứng bench/ → DoD-1.7 |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| geophys/export_stl.py | Stage 1 (Block E) |
 | geophys/render3d.py, viewer HTML | Stage 1 (Block F — optional) |
 | CLI geophys, spec validator, agent interface | Stage 3 — CẤM đụng trước đó |
