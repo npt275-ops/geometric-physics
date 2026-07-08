@@ -17,3 +17,4 @@ STAGE1_EXECUTION_PLAN.txt
 .github/workflows/ci.yml
 geophys/spec3d.py
 geophys/grid3d.py
+geophys/fea3d.py
