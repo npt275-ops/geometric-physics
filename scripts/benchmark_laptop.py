@@ -36,7 +36,11 @@ def main() -> int:
             load_checkpoint(CKPT, spec)
         except ValueError:
             print("[bench] checkpoint thuộc spec CŨ (đã đổi rmin) — chạy mới")
-            CKPT.unlink()
+            try:
+                CKPT.unlink()
+            except PermissionError:
+                # phòng hờ Windows còn khóa file: né bằng cách đổi tên
+                CKPT.rename(CKPT.with_suffix(f".old_{int(time.time())}"))
             resume = False
     print(f"[bench] {'TIẾP TỤC từ checkpoint' if resume else 'chạy mới'} — "
           "64×32×32, tối đa 150 vòng, checkpoint mỗi 5 vòng")

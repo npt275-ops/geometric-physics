@@ -104,3 +104,28 @@ def test_save_load_roundtrip(tmp_path):
     assert np.array_equal(state["u_prev"], u)
     assert state["n_iter"] == 2
     assert state["history"] == hist
+
+
+# ── hồi quy bug Windows: file phải ĐÓNG kể cả nhánh raise ───────
+
+def test_khong_ro_file_descriptor(tmp_path):
+    """Bản cũ để npz mở khi digest lệch → Windows không unlink được
+    (WinError 32 trên máy người vận hành, 08/07). Proxy Linux: đếm fd."""
+    import os
+    spec_a = mk(tmp_path)
+    other = dict(SMALL)
+    other["volfrac"] = 0.5
+    spec_b = mk(tmp_path, other, "s2.json")
+    ckpt = tmp_path / "ck.npz"
+    optimize3d(spec_a, max_iter=3, checkpoint_path=ckpt, checkpoint_every=3)
+    fd_dir = "/proc/self/fd"
+    if os.path.isdir(fd_dir):
+        before = len(os.listdir(fd_dir))
+        load_checkpoint(ckpt, spec_a)                     # nhánh thành công
+        with pytest.raises(ValueError):
+            load_checkpoint(ckpt, spec_b)                 # nhánh raise
+        after = len(os.listdir(fd_dir))
+        assert after <= before                            # không rò fd
+    # sau cả 2 nhánh, file phải xóa được (hành vi Windows cần)
+    ckpt.unlink()
+    assert not ckpt.exists()

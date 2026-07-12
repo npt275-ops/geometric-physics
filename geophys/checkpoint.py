@@ -4,6 +4,10 @@ File .npz chứa: digest spec (sha256 — chống resume nhầm bài), rho, u_pr
 (warm start CG), n_iter, history JSON. Vì mỗi vòng lặp chỉ phụ thuộc
 (rho, u_prev), lưu đủ hai thứ đó là resume tái lập đúng quỹ đạo —
 có test DoD-1.4 chứng minh từng bit.
+
+Sửa 08/07 (mở khóa có nghi thức): np.load dùng context manager — bản cũ
+để file MỞ khi raise ValueError, Windows khóa file đang mở → unlink fail
+WinError 32 trên máy người vận hành. Có test chống rò file descriptor.
 """
 
 from __future__ import annotations
@@ -42,6 +46,9 @@ def save_checkpoint(path, spec: Spec3D, rho: np.ndarray,
 def load_checkpoint(path, spec: Spec3D) -> dict:
     """Nạp checkpoint, ĐỐI CHIẾU digest với spec hiện tại.
 
+    File LUÔN được đóng khi hàm thoát (kể cả nhánh raise) — Windows
+    không xóa được file đang mở.
+
     Raises:
         FileNotFoundError: chưa có checkpoint tại path.
         ValueError: checkpoint thuộc bài toán khác (digest lệch).
@@ -50,17 +57,18 @@ def load_checkpoint(path, spec: Spec3D) -> dict:
     if not p.is_file():
         raise FileNotFoundError(
             f"Không có checkpoint tại {p} — bỏ resume=True để chạy mới")
-    data = np.load(p, allow_pickle=False)
-    found = str(data["digest"])
-    expected = spec_digest(spec)
-    if found != expected:
-        raise ValueError(
-            "Checkpoint thuộc BÀI TOÁN KHÁC — digest checkpoint "
-            f"{found[:12]}… ≠ spec hiện tại {expected[:12]}…")
-    u_prev = data["u_prev"]
-    return {
-        "rho": data["rho"],
-        "u_prev": (None if u_prev.size == 0 else u_prev),
-        "n_iter": int(data["n_iter"]),
-        "history": json.loads(str(data["history_json"])),
-    }
+    with np.load(p, allow_pickle=False) as data:
+        found = str(data["digest"])
+        expected = spec_digest(spec)
+        if found != expected:
+            raise ValueError(
+                "Checkpoint thuộc BÀI TOÁN KHÁC — digest checkpoint "
+                f"{found[:12]}… ≠ spec hiện tại {expected[:12]}…")
+        u_prev = np.array(data["u_prev"])
+        state = {
+            "rho": np.array(data["rho"]),
+            "u_prev": (None if u_prev.size == 0 else u_prev),
+            "n_iter": int(data["n_iter"]),
+            "history": json.loads(str(data["history_json"])),
+        }
+    return state
