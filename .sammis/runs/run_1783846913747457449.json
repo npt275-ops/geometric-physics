@@ -1,0 +1,7 @@
+{
+  "task": "stage1-t5-export-stl-smoketest",
+  "files_created": ["scripts/freecad_smoketest.py", "RUN_FREECAD_TEST.bat"],
+  "files_modified": [],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

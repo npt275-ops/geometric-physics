@@ -17,3 +17,6 @@
 {"ts": "2026-07-08T13:16:57+00:00", "task": "stage1-t4-perf-checkpoint", "result": "fail", "attempt": 2, "codes": ["scope-creep"]}
 {"ts": "2026-07-08T13:18:37+00:00", "task": "stage1-t4-perf-checkpoint", "result": "pass", "attempt": 3, "codes": []}
 {"ts": "2026-07-12T08:54:57+00:00", "task": "stage1-t4-perf-checkpoint", "result": "pass", "attempt": 4, "codes": []}
+{"ts": "2026-07-12T09:01:54+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "fail", "attempt": 3, "codes": ["ghost-import", "silent-except"]}
+{"ts": "2026-07-12T09:02:04+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "fail", "attempt": 4, "codes": ["ghost-import", "silent-except"]}
+{"ts": "2026-07-12T09:02:39+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "pass", "attempt": 5, "codes": []}
