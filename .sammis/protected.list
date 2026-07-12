@@ -21,6 +21,5 @@ geophys/fea3d.py
 geophys/sensitivity3d.py
 geophys/filter3d.py
 geophys/optimize3d.py
-geophys/checkpoint.py
 geophys/export_stl.py
 geophys/render3d.py
