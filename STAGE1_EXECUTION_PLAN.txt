@@ -13,7 +13,26 @@
 
 ---
 
-## TRẠNG THÁI THỰC THI (cập nhật 07/07/2026 — sau khi đóng Tầng 0.4)
+## ★ BIÊN BẢN ĐÓNG STAGE 1 — 12/07/2026 ★
+
+**STAGE 1 ĐÓNG 7/7 DoD bắt buộc + DoD-1.8 optional.** Người vận hành ký DoD-1.7.
+
+| DoD | Bằng chứng |
+|---|---|
+| 1.1 | Cantilever 60×20×4: GP 82.4677 vs ref monolithic 82.4447 — lệch 0.028%, cùng 54 vòng |
+| 1.2 | 64×32×32 rmin2.5: hội tụ 115 vòng / 25 phút laptop thật (trần 150/60ph) — bench/report |
+| 1.3 | Peak RAM 718MB (trần 8GB) — bench/report |
+| 1.4 | Ngắt → resume giống hệt TỪNG BIT, cả direct lẫn CG (test tự động) |
+| 1.5 | Đối xứng gương z < 1% |
+| 1.6 | Toàn bộ test 2D xanh chung suite (145 test) |
+| 1.7 | FreeCAD 1.1.1 + Gmsh (2642 nodes) + CalculiX: Von Mises max 76.62 MPa tại x=11.6 GẦN ngàm — bench/ (FCStd + report + screenshot), NGƯỜI xác nhận 12/07 |
+| 1.8 | HTML viewer offline xoay/zoom/slider (optional) ✓ |
+
+Deliverables: geophys 3D engine (7 module STABLE) · media/cantilever3d_60x20x4.stl
+(watertight) · viewer HTML · bench/ evidence · sổ tay 8 sự cố.
+→ MỞ KHÓA STAGE 2 (multi-load + bàn đạp phanh + DoD-2.3 tối thượng).
+
+## TRẠNG THÁI THỰC THI (lịch sử — cập nhật 07/07/2026 sau Tầng 0.4)
 
 **Hạ tầng:** repo Git tuân quy chuẩn Sammis V5 Mức 3 · trạm gác đã kiểm chứng
 bằng vi phạm thật (silent-except CHẶN, sửa protected CHẶN) · 12 file protected
@@ -40,10 +59,14 @@ bằng vi phạm thật (silent-except CHẶN, sửa protected CHẶN) · 12 fil
 2. Mount sandbox đồng bộ file không ổn định (Windows đủ, sandbox cụt)
    — không tái hiện khi chạy trực tiếp trên máy chủ dự án.
 3. `__pycache__` cũ che code mới — xóa cache trước khi pytest sau mỗi lần sửa.
-4. Cache mtime của git trên mount lệch — `touch <file>` trước `git add`
-   khi status báo sạch bất thường.
-5. File đang mở trong Word giữ khóa ghi (`~$*`) — đóng Word trước khi
-   agent cần cập nhật MANIFEST/CONTEXT/BACKLOG.
+4. Cache mtime của git trên mount lệch — `touch <file>` trước `git add`.
+5. File đang mở trong Word giữ khóa ghi (`~$*`).
+6. np.load không context manager → file mở → Windows WinError 32 khi unlink
+   (test hồi quy fd-leak đã canh).
+7. FreeCADCmd vỡ encoding argv với đường dẫn có dấu ("Nhà Kho") — copy
+   script sang %TEMP% ASCII + truyền GP_ROOT qua env.
+8. FreeCAD đổi API giữa các bản (run_all_tasks biến mất ở 1.1) — luôn viết
+   fallback đa phiên bản khi gọi API ngoài.
 
 ---
 
