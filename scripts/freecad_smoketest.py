@@ -137,7 +137,14 @@ try:
     if msg:
         raise RuntimeError("Prerequisites: " + msg)
     fea.purge_results()
-    fea.run_all_tasks()
+    # API doi ten giua cac ban FreeCAD - thu tu fallback:
+    if hasattr(fea, "run_all_tasks"):
+        fea.run_all_tasks()
+    else:
+        step("API 1.1: dung write_inp_file + ccx_run + load_results")
+        fea.write_inp_file()
+        fea.ccx_run()
+        fea.load_results()
     step("CalculiX chay xong")
 
     results = [o for o in doc.Objects

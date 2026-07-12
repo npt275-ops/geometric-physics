@@ -1,5 +1,6 @@
-Unknown exception while processing file: D:/Nhà Kho/GP/scripts/freecad_smoketest.py 
-FreeCAD 1.1.1, Libs: 1.1.1R20260414 (Git shallow)
-(C) 2001-2026 FreeCAD contributors
-FreeCAD is free and open-source software licensed under the terms of LGPL2+ license.
-
+[smoketest] FreeCAD 1.1.1 - tao document
+[smoketest] import STL: 5220 mat tam giac
+[smoketest] Shape->Solid OK: volume=1189.0, 5220 faces
+[smoketest] chon mat: ngam=52 (x~-0.5), tai=90 (x~59.6)
+[smoketest] rang buoc: ngam + luc 100N huong -Y
+[smoketes

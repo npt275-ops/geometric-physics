@@ -1,0 +1,7 @@
+{
+  "task": "stage1-t5-export-stl-smoketest",
+  "files_created": [],
+  "files_modified": ["scripts/freecad_smoketest.py", "bench/report_64x32x32.json", "bench/bench64_log.json", "bench/freecad_console.log", "bench/freecad_report.json"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

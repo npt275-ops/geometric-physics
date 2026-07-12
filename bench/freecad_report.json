@@ -1,0 +1,13 @@
+{
+  "status": "FAIL",
+  "gp_root": "D:\\Nh\u00e0 Kho\\GP",
+  "steps": [
+    "FreeCAD 1.1.1 - tao document",
+    "import STL: 5220 mat tam giac",
+    "Shape->Solid OK: volume=1189.0, 5220 faces",
+    "chon mat: ngam=52 (x~-0.5), tai=90 (x~59.6)",
+    "rang buoc: ngam + luc 100N huong -Y",
+    "Gmsh: 2642 nodes, 6802 volume elements"
+  ],
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users/ADMINN/AppData/Local/Temp\\gp_fc_test.py\", line 140, in <module>\n    fea.run_all_tasks()\n    ^^^^^^^^^^^^^^^^^\nAttributeError: 'FemToolsCcx' object has no attribute 'run_all_tasks'\n"
+}
