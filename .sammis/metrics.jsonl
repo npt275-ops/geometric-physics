@@ -24,3 +24,4 @@
 {"ts": "2026-07-12T09:12:48+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "fail", "attempt": 7, "codes": ["scope-creep"]}
 {"ts": "2026-07-12T09:13:07+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "pass", "attempt": 8, "codes": []}
 {"ts": "2026-07-12T11:08:32+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "pass", "attempt": 9, "codes": []}
+{"ts": "2026-07-12T14:44:19+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "pass", "attempt": 10, "codes": []}

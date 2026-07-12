@@ -1,5 +1,5 @@
 {
-  "status": "FAIL",
+  "status": "PASS-MAY (cho mat nguoi xac nhan + screenshot GUI)",
   "gp_root": "D:\\Nh\u00e0 Kho\\GP",
   "steps": [
     "FreeCAD 1.1.1 - tao document",
@@ -7,7 +7,9 @@
     "Shape->Solid OK: volume=1189.0, 5220 faces",
     "chon mat: ngam=52 (x~-0.5), tai=90 (x~59.6)",
     "rang buoc: ngam + luc 100N huong -Y",
-    "Gmsh: 2642 nodes, 6802 volume elements"
-  ],
-  "error": "Traceback (most recent call last):\n  File \"C:\\Users/ADMINN/AppData/Local/Temp\\gp_fc_test.py\", line 140, in <module>\n    fea.run_all_tasks()\n    ^^^^^^^^^^^^^^^^^\nAttributeError: 'FemToolsCcx' object has no attribute 'run_all_tasks'\n"
-}
+    "Gmsh: 2642 nodes, 6802 volume elements",
+    "API 1.1: dung write_inp_file + ccx_run + load_results",
+    "CalculiX chay xong",
+    "Von Mises max 76.62 MPa tai x=11.6 (GAN ngam)",
+    "luu D:\\Nh\u00e0 Kho\\GP\\bench\\cantilever_smoketest.FCStd",
+    "

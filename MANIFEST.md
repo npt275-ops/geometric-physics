@@ -3,15 +3,21 @@
 > Bản đồ tĩnh. Agent đọc TRƯỚC TIÊN. MANIFEST sai làm agent tin sai.
 
 ## Thông tin dự án
-- **Tên:** Geometric Physics (GP) · **Giai đoạn:** BUILDING (Stage 1 — 3D voxel)
+- **Tên:** Geometric Physics (GP) · **Giai đoạn:** BUILDING (Stage 2 — bài toán thật; STAGE 1 ĐÓNG 12/07/2026)
 - **Một câu:** Engine tối ưu hóa topology (FEA + SIMP + Filter + OC), Python,
   headless, nhận spec.json trả về cấu trúc tối ưu — kiểm chứng bằng benchmark
   quốc tế, không bằng cảm quan.
 - **Tài liệu mẹ:** GEOMETRIC_PHYSICS_PLAN.txt (v1.0) + STAGE1_EXECUTION_PLAN.txt (v1.1)
 
 ## Tình trạng dự án (cập nhật 08/07/2026 — STAGE 0 ĐÓNG 8/8 DoD)
-- **STAGE 0 ĐÓNG:** người vận hành xác nhận CI GitHub 4/4 ô xanh (08/07/2026)
-  → DoD-0.7 ✓ → 8/8 DoD. STAGE 1: TOÀN BỘ 6 TẦNG CODE XONG (145 test). DoD xanh: 1.1 (0.028%), 1.4, 1.5 đối xứng, 1.6 2D-nguyên-vẹn, 1.8 viewer. CHỜ NGƯỜI đóng nốt: DoD-1.2/1.3 (RUN_BENCHMARK.bat) + DoD-1.7 (HUONG_DAN_FREECAD.md).
+- **STAGE 0 ĐÓNG 8/8 DoD** (08/07/2026, CI 4/4 xanh).
+- **STAGE 1 ĐÓNG 7/7 DoD (12/07/2026)** — người vận hành ký DoD-1.7:
+  1.1 benchmark 0.028% vs ref (54 vòng) · 1.2 hội tụ 115 vòng/25 phút laptop
+  thật · 1.3 peak RAM 718MB · 1.4 resume giống hệt từng bit (direct+CG) ·
+  1.5 đối xứng <1% · 1.6 2D nguyên vẹn (145 test) · 1.7 FreeCAD+CalculiX:
+  Von Mises max 76.62 MPa tại x=11.6 GẦN ngàm, bằng chứng bench/ (FCStd +
+  report + screenshot). DoD-1.8 (optional) viewer ✓. KẾ TIẾP: Stage 2 tầng 2.1
+  multi-load.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -55,10 +61,10 @@
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| Tầng 1.4 | CODE XONG + DoD-1.4 ✓ — CHỜ NGƯỜI chạy RUN_BENCHMARK.bat (DoD-1.2/1.3) |
-| Tầng 1.5 | CODE XONG — STL cantilever đã sinh (watertight, 255KB). CHỜ NGƯỜI làm HUONG_DAN_FREECAD.md → bằng chứng bench/ → DoD-1.7 |
+| (kế tiếp: specs/stage2-t1-multiload.md — Stage 2 Block 1) | |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
+| multi-load trong spec3d, materials.json | Stage 2 (tầng 2.1–2.2) |
 | CLI geophys, spec validator, agent interface | Stage 3 — CẤM đụng trước đó |
