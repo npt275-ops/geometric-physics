@@ -20,3 +20,6 @@
 {"ts": "2026-07-12T09:01:54+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "fail", "attempt": 3, "codes": ["ghost-import", "silent-except"]}
 {"ts": "2026-07-12T09:02:04+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "fail", "attempt": 4, "codes": ["ghost-import", "silent-except"]}
 {"ts": "2026-07-12T09:02:39+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "pass", "attempt": 5, "codes": []}
+{"ts": "2026-07-12T09:12:33+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "fail", "attempt": 6, "codes": ["scope-creep"]}
+{"ts": "2026-07-12T09:12:48+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "fail", "attempt": 7, "codes": ["scope-creep"]}
+{"ts": "2026-07-12T09:13:07+00:00", "task": "stage1-t5-export-stl-smoketest", "result": "pass", "attempt": 8, "codes": []}
