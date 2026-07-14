@@ -22,3 +22,6 @@ geophys/render3d.py
 geophys/checkpoint.py
 STAGE1_EXECUTION_PLAN.txt
 STAGE2_EXECUTION_PLAN.txt
+geophys/spec3d.py
+geophys/fea3d.py
+geophys/optimize3d.py
