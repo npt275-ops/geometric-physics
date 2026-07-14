@@ -14,12 +14,9 @@ geophys/oc_update.py
 geophys/optimize.py
 geophys/render2d.py
 .github/workflows/ci.yml
-geophys/spec3d.py
 geophys/grid3d.py
-geophys/fea3d.py
 geophys/sensitivity3d.py
 geophys/filter3d.py
-geophys/optimize3d.py
 geophys/export_stl.py
 geophys/render3d.py
 geophys/checkpoint.py
