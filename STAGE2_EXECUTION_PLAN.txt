@@ -1,0 +1,135 @@
+# KẾ HOẠCH THỰC THI STAGE 2 — ĐỘ NGHIÊM TÚC KỸ THUẬT
+## Multi-load + Vật liệu thật + Bàn đạp phanh + Đối chứng độc lập
+
+**Phiên bản:** 1.0 · **Ngày lập:** 12/07/2026 · **Kỹ sư trưởng:** agent (tuân Quy chuẩn Sammis V5)
+**Tài liệu mẹ:** GEOMETRIC_PHYSICS_PLAN.txt mục STAGE 2 (hợp đồng gốc — giữ nguyên)
+**Điều kiện vào (ĐÃ THỎA 12/07):** Stage 0 đóng 8/8 + Stage 1 đóng 7/7, CI 4/4 xanh.
+**Câu hỏi Stage này trả lời:** "Cấu trúc engine sinh ra có dám đứng trước một
+phần mềm công nghiệp độc lập và MỘT BÀI TOÁN THỰC TẾ không?"
+
+---
+
+## 0. BẢN ĐỒ WORKFLOW STAGE 2
+
+```
+  STAGE 1 ĐÓNG (7/7 DoD) ✅
+        │
+        ▼
+┌─ TẦNG 2.1 ── MULTI-LOAD ─────────────────────────── HIGH ── ~2 phiên ─┐
+│ spec v2: "load_cases": [{loads, weight}, ...]                          │
+│ FEA giải K·U=Fi cho TỪNG case · mục tiêu = Σ wi·ci · dc = Σ wi·dci     │
+│ CỔNG: FD check multi <1% · 1-case ≡ kết quả cũ TỪNG BIT (hồi quy)     │
+│       · bài 2-case ra cấu trúc KHÁC bài 1-case (định lượng)           │
+└────────────────────────────┬───────────────────────────────────────────┘
+                             ▼
+┌─ TẦNG 2.2 ── VẬT LIỆU THẬT + ĐƠN VỊ THẬT ────────── HIGH ── ~1 phiên ─┐
+│ materials.json: Nhôm 6061 / Ti-6Al-4V / Thép (E, ν, giới hạn chảy)     │
+│ spec v2 thêm element_size_mm + material_name → hệ mm-N-MPa             │
+│ CỔNG: luật scaling giải tích (đổi E, đổi kích thước → U, c đổi đúng   │
+│       công thức) · db validate chặn vật liệu rác                       │
+└────────────────────────────┬───────────────────────────────────────────┘
+                             ▼
+┌─ TẦNG 2.3 ── BÀI BÀN ĐẠP PHANH ⭐ ──────────────── HIGH ── ~2 phiên ─┐
+│ spec_brake_pedal.json: chốt xoay (preserve trụ) + đệm chân (preserve)  │
+│ + 3 load case: 1200N chính · lệch 15° · ngang (đạp xéo) · volume 45%  │
+│ Chạy: AGENT thiết kế + thử nhỏ → NGƯỜI chạy bài chuẩn trên laptop     │
+│ CỔNG: DoD-2.1 (multi vs single: thử tải lệch tốt hơn ≥30%)            │
+│       DoD-2.4 (volume 45% ±1%) · DoD-2.2 (STL watertight)             │
+└────────────────────────────┬───────────────────────────────────────────┘
+                             ▼
+┌─ TẦNG 2.4 ── MỘT LỆNH SPEC→STL + BÁO CÁO ───────── MEDIUM ─ ~1 phiên ─┐
+│ `python -m geophys run spec_brake_pedal.json`                          │
+│ → tự chạy trọn: validate → optimize (checkpoint) → STL → PNG/viewer   │
+│ → report JSON + Markdown (compliance, volume, vòng, thời gian, ảnh)   │
+│ CỔNG: DoD-2.5 — một lệnh, không can thiệp tay, exit code chuẩn        │
+│ (⚡ mở khóa GP Studio trong BACKLOG + là nền CLI Stage 3)              │
+└────────────────────────────┬───────────────────────────────────────────┘
+                             ▼
+┌─ TẦNG 2.5 ── TRỌNG TÀI PHÁN QUYẾT ⭐⭐ TỐI THƯỢNG ─ cổng NGƯỜI ──────┐
+│ STL bàn đạp → FreeCAD FEM (macro tự động, nâng cấp từ Stage 1):       │
+│ vật liệu NHÔM 6061 THẬT + tải 1200N + điều kiện biên gốc              │
+│ CỔNG: DoD-2.3 — Von Mises max < 276 MPa, không vùng phá hủy           │
+│ Bằng chứng: FCStd + report + screenshot → bench/ → NGƯỜI KÝ           │
+│ ═══ "KHOẢNH KHẮC CẤP ĐỘ 1 ĐƯỢC TUYÊN BỐ THÀNH CÔNG" (hợp đồng gốc) ═══│
+└────────────────────────────┬───────────────────────────────────────────┘
+                             ▼
+                DoD-2.6: toàn bộ DoD Stage 0+1 vẫn xanh (CI canh)
+                             │
+                             ▼
+              ★ STAGE 2 ĐÓNG 6/6 → MỞ STAGE 3 + GP STUDIO ★
+```
+
+Luật không đổi: mỗi tầng một vòng Mức 3 (spec 9 mục → code → pytest ngưỡng số
+→ postagent → STABLE + protected) · fail tầng nào sửa tầng đó · ý tưởng mới
+→ BACKLOG.md · 146 test cũ chạy chung suite mọi vòng.
+
+---
+
+## 1. MỤC TIÊU ĐẠT ĐƯỢC KHI STAGE 2 KẾT THÚC
+
+Khi 6/6 DoD đóng, GP biến đổi về CHẤT — từ "bằng chứng năng lực" thành
+"SẢN PHẨM KỸ THUẬT":
+
+1. **Vật thể thật đầu tiên:** bàn đạp phanh nhôm 6061, giảm còn 45% khối
+   lượng, do thuật toán tự "mọc", được phần mềm công nghiệp độc lập xác
+   nhận CHỊU ĐƯỢC 1200N an toàn — in 3D/CNC được, dùng làm mẫu thật được.
+2. **Engine trưởng thành:** multi-load (sống sót lực đời thật, không chỉ
+   lực trong đề bài) + vật liệu thật (MPa, mm, N — không còn đơn vị hóa).
+3. **Pipeline một lệnh:** spec.json vào → STL + báo cáo ra, zero can thiệp
+   tay — điều kiện tiên quyết của Stage 3 (agent tự gọi engine) và điều
+   kiện mở GP Studio (web local trong BACKLOG).
+4. **Nguyên liệu content trọn bộ:** ảnh so sánh single vs multi-load,
+   screenshot Ansys/FreeCAD phán "an toàn", report tự động — đủ dựng
+   video build-in-public số kế tiếp không cần quay bổ sung.
+5. **Quyền đi tiếp:** cửa duy nhất còn lại của Giai đoạn 1 là Stage 3 —
+   agent-ready + 30 ngày đo thị trường → quyết định Giai đoạn 2 bằng DATA.
+
+KHÔNG nằm trong mục tiêu (phạm vi đóng, mục 5 hợp đồng gốc): stress-based
+optimization · safety factor tiệm cận 1.0 · UI kéo-thả · thay thế Ansys.
+
+---
+
+## 2. DoD STAGE 2 (chép nguyên hợp đồng gốc — không sửa chữ nào)
+
+- [ ] **DoD-2.1** Multi-load thay đổi kết quả CHỨNG MINH ĐƯỢC: bàn đạp chạy
+      1 case vs 3 case → 2 cấu trúc khác rõ rệt; cấu trúc multi-load khi
+      thử tải lệch có compliance tốt hơn single-load ≥ 30%.
+- [ ] **DoD-2.2** STL watertight (trimesh xác nhận), 1 khối liền, mở được
+      FreeCAD + slicer không lỗi.
+- [ ] **DoD-2.3 ⭐ TỐI THƯỢNG** STL bàn đạp vào FreeCAD FEM/Ansys, tải 1200N
+      + BC gốc: Von Mises max < giới hạn chảy nhôm 6061 (276 MPa), không
+      vùng phá hủy. Screenshot + file phân tích lưu làm bằng chứng.
+- [ ] **DoD-2.4** Volume fraction cuối 45% ±1%.
+- [ ] **DoD-2.5** `python -m geophys run spec_brake_pedal.json` chạy trọn
+      pipeline không can thiệp tay.
+- [ ] **DoD-2.6** Toàn bộ DoD Stage 0 + 1 vẫn xanh.
+
+**Điều kiện đóng Stage 2:** 6/6, trong đó DoD-2.3 có bằng chứng lưu trữ.
+
+---
+
+## 3. PHÂN VAI
+
+| Việc | Ai |
+|---|---|
+| Spec 9 mục từng tầng, code, test, benchmark nhỏ trong sandbox | AGENT |
+| Duyệt spec (đặc biệt hình học bàn đạp: vị trí chốt, đệm chân, hướng lực) | NGƯỜI |
+| Chạy bài bàn đạp chuẩn trên laptop (RUN_BRAKE_PEDAL.bat sẽ có) | NGƯỜI |
+| Chạy macro FreeCAD DoD-2.3 + nhìn màu + KÝ | NGƯỜI (reality verification) |
+| Quyết định "khác rõ rệt" ở DoD-2.1 (kèm số ≥30% máy đo) | NGƯỜI ký, máy đo |
+
+## 4. RỦI RO RIÊNG STAGE 2
+
+| # | Rủi ro | Đối sách |
+|---|---|---|
+| S2-R1 | Multi-load phá hồi quy single-load | Cổng tầng 2.1: 1-case phải ra kết quả GIỐNG TỪNG BIT bản cũ |
+| S2-R2 | Sai đơn vị mm/N/MPa (bug kinh điển ngành) | Luật scaling giải tích làm test cứng; mọi đại lượng ghi rõ đơn vị trong tên trường |
+| S2-R3 | DoD-2.3 FAIL — Ansys bác bỏ | Đây là lý do DoD tồn tại (R3 gốc): quay lại kiểm filter/mesh/tải — "fail ở đây rẻ hơn fail khi đã in ra". Nếu volume 45% không đủ cứng: TĂNG volume là thay đổi spec bài toán (người duyệt), KHÔNG nới 276 MPa |
+| S2-R4 | Hình học bàn đạp khai sai (chốt/đệm đặt vô lý) | Người duyệt spec bằng hình render TRƯỚC khi chạy bài dài |
+| S2-R5 | Bài 3 load case × lưới mịn quá chậm laptop | 3 case = 3 lần solve/vòng; warm start giúp; nếu >60ph → giảm lưới có ghi nhận, chuẩn thời gian không phải DoD Stage 2 |
+
+## 5. NHỊP DỰ KIẾN
+
+Hợp đồng gốc: 7–10 ngày solo. Nhịp thực tế Stage 0+1 (agent code liên tục
++ người gác cổng): ước 4–6 phiên làm việc, trong đó 2 cổng NGƯỜI
+(chạy bài chuẩn ~30–60 phút máy; FreeCAD ký ~10 phút vì macro đã tự động).
