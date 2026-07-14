@@ -24,3 +24,6 @@ STAGE1_EXECUTION_PLAN.txt
 STAGE2_EXECUTION_PLAN.txt
 geophys/fea3d.py
 geophys/optimize3d.py
+geophys/spec3d.py
+materials.json
+geophys/materials.py
