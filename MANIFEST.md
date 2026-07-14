@@ -3,7 +3,7 @@
 > Bản đồ tĩnh. Agent đọc TRƯỚC TIÊN. MANIFEST sai làm agent tin sai.
 
 ## Thông tin dự án
-- **Tên:** Geometric Physics (GP) · **Giai đoạn:** BUILDING (Stage 2 — bài toán thật; STAGE 1 ĐÓNG 12/07/2026)
+- **Tên:** Geometric Physics (GP) · **Giai đoạn:** CẤP ĐỘ 1 THÀNH CÔNG — STAGE 2 ĐÓNG 6/6 DoD 15/07/2026 (Stage 3 chuẩn bị)
 - **Một câu:** Engine tối ưu hóa topology (FEA + SIMP + Filter + OC), Python,
   headless, nhận spec.json trả về cấu trúc tối ưu — kiểm chứng bằng benchmark
   quốc tế, không bằng cảm quan.
@@ -21,7 +21,13 @@
   **1.923 ≥ 1.3** (single yếu hơn 92%) · DoD-2.2 STL watertight ·
   DoD-2.4 volume 0.45000. 2.4 ĐÓNG: `python -m geophys run` — DoD-2.5,
   exit 0/1/2, 7 file output, resume-sau-hội-tụ, validate/report vẫn khóa
-  Stage 3. Kế tiếp: 2.5 ⭐⭐ phiên tòa FreeCAD.
+  Stage 3.
+- **STAGE 2 ĐÓNG 6/6 DoD (15/07/2026) — CẤP ĐỘ 1 TUYÊN BỐ THÀNH CÔNG.**
+  DoD-2.3 ⭐ ký 15/07: FreeCAD 1.1.1 + CalculiX (93.763 nodes tetra):
+  **Von Mises max 72.18 MPa < 276 MPa · safety factor 3.82 · 0 node vượt
+  yield** · max tại vành lỗ trục (27.9, 36.0)mm — đúng dự đoán cơ học.
+  Bằng chứng bench/ (FCStd + report + screenshot + console log).
+  Biên bản đầy đủ: STAGE2_EXECUTION_PLAN.txt. Kế tiếp: lập kế hoạch Stage 3.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -69,7 +75,7 @@
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| specs/stage2-t5-freecad-verdict.md | Tầng 2.5 ⭐⭐ — phiên tòa FreeCAD (kế tiếp) |
+| (trống — Stage 2 đóng; chờ kế hoạch Stage 3) | |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |

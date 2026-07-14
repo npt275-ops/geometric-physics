@@ -91,18 +91,18 @@ optimization · safety factor tiệm cận 1.0 · UI kéo-thả · thay thế An
 
 ## 2. DoD STAGE 2 (chép nguyên hợp đồng gốc — không sửa chữ nào)
 
-- [ ] **DoD-2.1** Multi-load thay đổi kết quả CHỨNG MINH ĐƯỢC: bàn đạp chạy
+- [x] **DoD-2.1** Multi-load thay đổi kết quả CHỨNG MINH ĐƯỢC: bàn đạp chạy
       1 case vs 3 case → 2 cấu trúc khác rõ rệt; cấu trúc multi-load khi
       thử tải lệch có compliance tốt hơn single-load ≥ 30%.
-- [ ] **DoD-2.2** STL watertight (trimesh xác nhận), 1 khối liền, mở được
+- [x] **DoD-2.2** STL watertight (trimesh xác nhận), 1 khối liền, mở được
       FreeCAD + slicer không lỗi.
-- [ ] **DoD-2.3 ⭐ TỐI THƯỢNG** STL bàn đạp vào FreeCAD FEM/Ansys, tải 1200N
+- [x] **DoD-2.3 ⭐ TỐI THƯỢNG** STL bàn đạp vào FreeCAD FEM/Ansys, tải 1200N
       + BC gốc: Von Mises max < giới hạn chảy nhôm 6061 (276 MPa), không
       vùng phá hủy. Screenshot + file phân tích lưu làm bằng chứng.
-- [ ] **DoD-2.4** Volume fraction cuối 45% ±1%.
-- [ ] **DoD-2.5** `python -m geophys run spec_brake_pedal.json` chạy trọn
+- [x] **DoD-2.4** Volume fraction cuối 45% ±1%.
+- [x] **DoD-2.5** `python -m geophys run spec_brake_pedal.json` chạy trọn
       pipeline không can thiệp tay.
-- [ ] **DoD-2.6** Toàn bộ DoD Stage 0 + 1 vẫn xanh.
+- [x] **DoD-2.6** Toàn bộ DoD Stage 0 + 1 vẫn xanh.
 
 **Điều kiện đóng Stage 2:** 6/6, trong đó DoD-2.3 có bằng chứng lưu trữ.
 
@@ -133,3 +133,28 @@ optimization · safety factor tiệm cận 1.0 · UI kéo-thả · thay thế An
 Hợp đồng gốc: 7–10 ngày solo. Nhịp thực tế Stage 0+1 (agent code liên tục
 + người gác cổng): ước 4–6 phiên làm việc, trong đó 2 cổng NGƯỜI
 (chạy bài chuẩn ~30–60 phút máy; FreeCAD ký ~10 phút vì macro đã tự động).
+
+---
+
+## BIÊN BẢN ĐÓNG STAGE 2 — 15/07/2026
+
+**STAGE 2 ĐÓNG 6/6 DoD.** Người vận hành ký DoD-2.3 ngày 15/07/2026.
+
+| DoD | Kết quả đo thật | Bằng chứng |
+|---|---|---|
+| 2.1 Multi-load chứng minh được | tỷ số đạp xéo c₃(single)/c₃(multi) = **1.923 ≥ 1.3** (single yếu hơn 92%); case 2 báo kèm 0.99 (minh bạch — xem spec 4b) | bench/report_brake_pedal.json |
+| 2.2 STL watertight | brake_pedal.stl 24.068 mặt, 1 khối liền, FreeCAD mở được | media/brake_pedal.stl + FCStd |
+| 2.3 ⭐ TỐI THƯỢNG | FreeCAD 1.1.1 + Gmsh (93.763 nodes / 431.620 tetra) + CalculiX: **Von Mises max 72.18 MPa < 276 MPa**, 0 node vượt yield, **safety factor 3.82**, max tại vành lỗ trục (27.9, 36.0)mm — đúng dự đoán cơ học. NGƯỜI nhìn màu + ký "DoD-2.3 OK" | bench/freecad_brake_verdict.json + brake_pedal_verdict.FCStd + brake_verdict_vonmises.png + console log (commit 9ba9eac) |
+| 2.4 Volume 45% ±1% | mean(ρ) = 0.45000 | bench/report_brake_pedal.json |
+| 2.5 Một lệnh | `python -m geophys run` exit 0/1/2, 7 file output, resume-sau-hội-tụ | tests/test_cli.py (đo 14/07) |
+| 2.6 Stage 0+1 vẫn xanh | toàn bộ test pass, golden 2 bài trùng bit | CI + tests/test_multiload.py |
+
+Nguyên văn hợp đồng gốc (GEOMETRIC_PHYSICS_PLAN.txt, DoD-2.3):
+"Đây là khoảnh khắc Cấp độ 1 được tuyên bố thành công."
+
+**TUYÊN BỐ: Cấp độ 1 THÀNH CÔNG — 15/07/2026.**
+Engine GP thiết kế một chi tiết máy thật (bàn đạp phanh nhôm 6061,
+1200N, 45% vật liệu) và trọng tài công nghiệp độc lập xác nhận AN TOÀN
+với biên dự trữ 3.82×.
+
+Kế tiếp: STAGE 3 (agent-ready + thị trường) — lập kế hoạch riêng.
