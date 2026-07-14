@@ -10,7 +10,12 @@ from geophys.spec_loader import load_spec
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "examples"
-ALL_EXAMPLES = sorted(EXAMPLES.glob("spec_*.json"))
+# CHỈ spec 2D v0 (không có nelz) — spec 3D/v2 do test_spec3d.py chấm.
+# Bài học CI 15/07/2026: glob cả examples/ nuốt luôn spec bàn đạp 3D v2
+# → 5 FAIL trên cả 4 ô matrix dù engine đúng.
+ALL_EXAMPLES = sorted(
+    p for p in EXAMPLES.glob("spec_*.json")
+    if "nelz" not in json.loads(p.read_text(encoding="utf-8")))
 
 
 def _valid_raw() -> dict:
@@ -21,6 +26,7 @@ def _valid_raw() -> dict:
 # ── 3 spec mẫu parse thành công ─────────────────────────────────
 
 def test_co_dung_3_spec_mau():
+    # 3 spec mẫu 2D; spec 3D không được lọt vào đây
     assert len(ALL_EXAMPLES) == 3
 
 

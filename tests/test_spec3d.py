@@ -10,7 +10,8 @@ from geophys.spec3d import load_spec3d
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "examples"
-ALL_3D = sorted(EXAMPLES.glob("spec3d_*.json"))
+ALL_3D = sorted(EXAMPLES.glob("spec3d_*.json")) + sorted(
+    EXAMPLES.glob("spec_brake_*.json"))  # v2 bàn đạp — CI 15/07/2026
 
 
 def _valid_raw() -> dict:
@@ -25,7 +26,7 @@ def _dump(tmp_path, raw):
 
 
 def test_co_3_spec_3d_mau():
-    assert len(ALL_3D) == 3  # cantilever + primitives + bench 64x32x32
+    assert len(ALL_3D) == 7  # 3 spec3d + 4 spec bàn đạp v2 (15/07/2026)  # cantilever + primitives + bench 64x32x32
 
 
 @pytest.mark.parametrize("path", ALL_3D, ids=lambda p: p.stem)
