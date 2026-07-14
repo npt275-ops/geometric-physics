@@ -19,8 +19,9 @@
   report + screenshot). DoD-1.8 (optional) viewer ✓. STAGE 2: 3/5 tầng — 2.3 BÀN ĐẠP PHANH ĐÓNG 14/07 trên laptop thật:
   multi 65 vòng (c=275.90) · single 141 vòng · DoD-2.1 tỷ số đạp xéo
   **1.923 ≥ 1.3** (single yếu hơn 92%) · DoD-2.2 STL watertight ·
-  DoD-2.4 volume 0.45000. Evidence bench/ + media/brake_pedal.stl.
-  Người vận hành duyệt hình học bằng lệnh chạy bài chuẩn. Kế tiếp: 2.4.
+  DoD-2.4 volume 0.45000. 2.4 ĐÓNG: `python -m geophys run` — DoD-2.5,
+  exit 0/1/2, 7 file output, resume-sau-hội-tụ, validate/report vẫn khóa
+  Stage 3. Kế tiếp: 2.5 ⭐⭐ phiên tòa FreeCAD.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -62,13 +63,15 @@
 | geophys/checkpoint.py | STABLE | Save/load + digest chống resume nhầm bài — Tầng 1.4 |
 | geophys/export_stl.py | STABLE | Marching cubes + Taubin + trimesh check — Tầng 1.5: box 4.36%, sphere 0.88% |
 | geophys/render3d.py | STABLE | PNG trisurf + HTML viewer tự chứa offline — Tầng 1.6, DoD-1.8 ✓ |
+| geophys/__main__.py | STABLE | Entry `python -m geophys run` — Tầng 2.4, DoD-2.5, exit 0/1/2 |
+| geophys/runner.py | STABLE | Pipeline một lệnh: spec→STL+report JSON/MD — Tầng 2.4 |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| specs/stage2-t4-run-cli.md | Tầng 2.4 — one-command spec→STL (kế tiếp) |
+| specs/stage2-t5-freecad-verdict.md | Tầng 2.5 ⭐⭐ — phiên tòa FreeCAD (kế tiếp) |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| CLI geophys, spec validator, agent interface | Stage 3 — CẤM đụng trước đó |
+| geophys validate/report, spec validator JSON-schema, agent interface | Stage 3 — CẤM đụng (lệnh `run` đã mở ở 2.4 theo DoD-2.5) |

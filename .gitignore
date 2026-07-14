@@ -6,3 +6,4 @@ outputs/
 ~$*
 bench/bench64_checkpoint.npz
 bench/brake_*_checkpoint.npz
+runs/
