@@ -30,3 +30,4 @@
 {"ts": "2026-07-14T10:13:40+00:00", "task": "stage2-t1-multiload", "result": "fail", "attempt": 3, "codes": ["scope-creep"]}
 {"ts": "2026-07-14T10:14:04+00:00", "task": "stage2-t1-multiload", "result": "pass", "attempt": 4, "codes": []}
 {"ts": "2026-07-14T10:33:35+00:00", "task": "stage2-t2-materials", "result": "pass", "attempt": 1, "codes": []}
+{"ts": "2026-07-14T11:14:46+00:00", "task": "stage2-t3-brake-pedal", "result": "pass", "attempt": 1, "codes": []}

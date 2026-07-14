@@ -1,0 +1,18 @@
+{
+  "task": "stage2-t3-brake-pedal",
+  "files_created": [
+    "specs/stage2-t3-brake-pedal.md",
+    "scripts/gen_brake_pedal_spec.py",
+    "examples/spec_brake_pedal.json",
+    "examples/spec_brake_pedal_single.json",
+    "examples/spec_brake_smoke.json",
+    "examples/spec_brake_smoke_single.json",
+    "media/brake_pedal_design_space.png",
+    "scripts/run_brake_pedal.py",
+    "RUN_BRAKE_PEDAL.bat",
+    "tests/test_brake_pedal.py"
+  ],
+  "files_modified": ["MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
