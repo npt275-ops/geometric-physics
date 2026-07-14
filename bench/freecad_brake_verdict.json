@@ -1,0 +1,28 @@
+{
+  "status": "PASS-MAY (cho NGUOI ky DoD-2.3)",
+  "yield_MPa": 276.0,
+  "steps": [
+    "FreeCAD 1.1.1",
+    "import STL: 24068 mat tam giac",
+    "scale x2.0 -> bbox 156.8 x 80.6 x 21.8 mm",
+    "chon mat: ngam lo truc=438, pad tai=218",
+    "vat lieu: nhom 6061-T6 (E 68900 MPa, yield 276 MPa)",
+    "tai: 1200N huong +y len pad",
+    "Gmsh: 93763 nodes, 431620 volume elements",
+    "CalculiX chay xong",
+    "VON MISES MAX = 72.18 MPa | yield 276 | safety factor 3.82 | PASS",
+    "luu D:\\Nh\u00e0 Kho\\GP\\bench\\brake_pedal_verdict.FCStd"
+  ],
+  "scale_mm_per_voxel": 2.0,
+  "n_nodes": 93763,
+  "von_mises_max_MPa": 72.183,
+  "von_mises_mean_MPa": 7.814,
+  "vi_tri_max_mm": {
+    "x": 27.9,
+    "y": 36.0,
+    "z": -1.1
+  },
+  "so_node_vuot_yield": 0,
+  "safety_factor": 3.824,
+  "verdict": "AN TOAN (vm_max < 276 MPa)"
+}

@@ -1,0 +1,707 @@
+[verdict] FreeCAD 1.1.1
+[verdict] import STL: 24068 mat tam giac
+[verdict] scale x2.0 -> bbox 156.8 x 80.6 x 21.8 mm
+[verdict] chon mat: ngam lo truc=438, pad tai=218
+[verdict] vat lieu: nhom 6061-T6 (E 68900 MPa, yield 276 MPa)
+[verdict] tai: 1200N huong +y len pad
+[verdict] Gmsh: 93763 nodes, 431620 volume elements
+FreeCAD 1.1.1, Libs: 1.1.1R20260414 (Git shallow)
+(C) 2001-2026 FreeCAD contributors
+FreeCAD is free and open-source software licensed under the terms of LGPL2+ license.
+
+  ElementDimension: 3
+  C:\Users\ADMINN\AppData\Local\Temp\fcfem_y4no3zju\BrakePedal_Geometry.brep
+  C:\Users\ADMINN\AppData\Local\Temp\fcfem_y4no3zju\BrakePedal_Mesh.unv
+  C:\Users\ADMINN\AppData\Local\Temp\fcfem_y4no3zju\shape2mesh.geo
+  C:\Program Files\FreeCAD 1.1\bin\gmsh.EXE
+Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									
+Check prerequisites...
+Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									
+Get mesh data for constraints, materials and element geometry...
+NgamLoTruc:
+    Type: Fem::ConstraintFixed, Name: NgamLoTruc
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1056
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1057
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1058
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1059
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1060
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1061
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1062
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1063
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1064
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1065
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1066
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1067
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1068
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1069
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1070
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1071
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1072
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1073
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1074
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1075
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1076
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1077
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1109
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1110
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1149
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face1150
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2446
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2448
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2450
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2458
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2460
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2467
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2468
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2469
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2470
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2471
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2472
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2473
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2474
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2475
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2476
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2477
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2478
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2479
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2480
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2481
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2482
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2483
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2484
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2488
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2489
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2490
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2491
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2492
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2493
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2494
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2495
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2496
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2497
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2498
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2499
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2500
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2501
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2502
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2503
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2504
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2505
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2506
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2508
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2510
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2511
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2512
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2513
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2514
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2515
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2516
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2517
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2518
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2519
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2520
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2521
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2522
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2523
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2524
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2525
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2526
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2527
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2528
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2529
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2719
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2720
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2721
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2722
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2723
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2724
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2725
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2726
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2727
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2728
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2729
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2730
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2731
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2732
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2733
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2734
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2735
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2736
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2737
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2738
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2740
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2741
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2742
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2743
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2744
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2745
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2746
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2747
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2748
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2749
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2750
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2751
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2752
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2753
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2754
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2755
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2756
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2757
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2758
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2759
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2944
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2946
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2954
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2956
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2958
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2961
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2962
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2963
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2964
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2965
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2966
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2967
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2968
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2969
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2970
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2971
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2972
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2973
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2974
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2975
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2976
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2977
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2978
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2979
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2980
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2981
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2982
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face2985
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3163
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3164
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3165
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3166
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3167
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3168
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3169
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3170
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3171
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3172
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3173
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3174
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3175
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3176
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3177
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3178
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3179
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3180
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3183
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3184
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3185
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3186
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3187
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3188
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3189
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3190
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3191
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3192
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3193
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3194
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3195
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3196
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3197
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3198
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3199
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3200
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3201
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3202
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3203
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3204
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3205
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3206
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3207
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3208
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3379
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3380
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3381
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3382
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3383
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3384
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3385
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3386
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3387
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3388
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3389
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3390
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3391
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3392
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3393
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3394
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3395
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3396
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3397
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3399
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3400
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3401
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3402
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3403
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3404
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3405
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3406
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3407
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3408
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3409
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3410
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3411
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3412
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3413
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3414
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3415
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3416
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3417
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3418
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3419
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3420
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3421
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3422
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3423
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3424
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3425
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3602
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3603
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3605
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3606
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3607
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3608
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3609
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3610
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3611
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3612
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3613
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3614
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3615
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3616
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3617
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3618
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3619
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3620
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3621
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3622
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3623
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3624
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3626
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3627
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3628
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3629
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3630
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3631
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3632
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3633
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3634
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3635
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3636
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3637
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3638
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3639
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3640
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3641
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3642
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3643
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3644
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3645
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3646
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3647
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3648
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3649
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3650
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3651
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3652
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3653
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3654
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3655
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3656
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3657
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3658
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3659
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3660
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3661
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3662
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3663
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3664
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3665
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3666
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3667
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3668
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3670
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3859
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3860
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3862
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3863
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3864
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3865
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3866
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3867
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3868
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3869
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3870
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3871
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3872
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3873
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3874
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3875
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3876
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3877
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3878
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3879
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3880
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3881
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3883
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3884
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3885
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3886
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3887
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3888
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3889
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3890
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3891
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3892
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3893
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3894
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3895
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3896
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3897
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3898
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3899
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3900
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3901
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3902
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3903
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3904
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3905
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3906
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3907
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3908
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3909
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3910
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3911
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3912
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3913
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3914
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3915
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3916
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3917
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3918
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3919
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3920
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3921
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3922
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3923
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3924
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3925
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3926
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3927
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3928
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3929
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3930
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3931
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3932
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3933
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3934
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3935
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3936
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3937
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3938
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3939
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3940
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3941
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3942
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3943
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3944
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3945
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3946
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3947
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3948
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3949
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3950
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3951
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3952
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3953
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3954
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3955
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3956
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3957
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3958
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3959
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3960
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3961
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3962
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3963
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3964
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3965
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3966
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3967
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3968
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3969
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3970
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3971
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3972
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3973
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face3975
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4187
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4191
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4192
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4193
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4194
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4195
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4196
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4197
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4198
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4199
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face4201
+Luc1200N:
+    Type: Fem::ConstraintForce, Name: Luc1200N
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22730
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22731
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22732
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22733
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22734
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22735
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22736
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22737
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22738
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22739
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22740
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22741
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22742
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22743
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22744
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22745
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22746
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22747
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22748
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22749
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22750
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22751
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22941
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22942
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22943
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22944
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22945
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22946
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22947
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22948
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22949
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22950
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22951
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22952
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22953
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22954
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22955
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22956
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22957
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22958
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22959
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22960
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22961
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face22962
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23169
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23170
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23171
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23172
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23173
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23174
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23175
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23176
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23177
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23178
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23179
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23180
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23181
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23182
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23183
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23184
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23185
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23186
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23187
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23188
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23189
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23190
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23347
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23348
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23349
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23350
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23351
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23352
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23353
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23354
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23355
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23356
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23357
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23358
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23359
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23360
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23361
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23362
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23363
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23364
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23365
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23366
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23367
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23368
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23482
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23483
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23484
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23485
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23486
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23487
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23488
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23489
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23490
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23491
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23492
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23493
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23494
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23495
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23496
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23497
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23498
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23499
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23500
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23501
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23502
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23503
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23605
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23606
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23607
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23608
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23609
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23610
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23611
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23612
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23613
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23614
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23615
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23616
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23617
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23618
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23619
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23620
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23621
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23622
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23623
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23624
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23625
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23626
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23732
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23733
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23734
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23735
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23736
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23737
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23738
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23739
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23740
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23741
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23742
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23743
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23744
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23745
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23746
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23747
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23748
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23749
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23750
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23751
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23752
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23753
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23830
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23831
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23832
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23833
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23834
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23835
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23836
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23837
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23838
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23839
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23840
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23841
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23842
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23843
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23844
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23845
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23846
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23847
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23848
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23849
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23850
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23851
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23907
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23908
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23909
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23910
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23911
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23912
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23913
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23914
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23915
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23916
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23917
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23918
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23919
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23920
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23921
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23922
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23923
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23924
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23925
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23926
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23927
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23928
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23963
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23964
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23965
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23966
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23967
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23968
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23969
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23970
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23971
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23972
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23973
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23974
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23975
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23976
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23977
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23978
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23979
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23980
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23981
+    ReferenceShape ... Type: Face, Object name: BrakePedal, Object label: BrakePedal, Element name: Face23982
+Getting mesh data time: 10.016 seconds.
+
+CalculiX solver input writing...
+Input file:C:\Users\ADMINN\AppData\Local\Temp\tmpolx1jhna\GmshMesh.inp
+One monster input file.
+Writing time CalculiX input file: 2.109 seconds.
+
+CalculiX solver run...
+Everything seems fine. CalculiX ccx will be executed ......
+								CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: C:\Users\ADMINN\AppData\Local\T[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'Al6061T6Solid', 'mat_obj_name': 'Al6061T6', 'ccx_mat_name': 'Aluminium-6061-T6'}]
+[verdict] CalculiX chay xong
+[verdict] VON MISES MAX = 72.18 MPa | yield 276 | safety factor 3.82 | PASS
+[verdict] luu D:\Nhà Kho\GP\bench\brake_pedal_verdict.FCStd
+[verdict] report -> D:\Nhà Kho\GP\bench\freecad_brake_verdict.json
+emp\tmpolx1jhna\GmshMesh.frd
+Read ccx results from dat file: C:\Users\ADMINN\AppData\Local\Temp\tmpolx1jhna\GmshMesh.dat
+Recompute......
+						(7 %)							(15 %)							(23 %)							(30 %)							(38 %)							(46 %)							(53 %)							(61 %)							(69 %)							(76 %)							(84 %)							(92 %)							(100 %)									
