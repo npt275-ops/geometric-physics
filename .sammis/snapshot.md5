@@ -19,6 +19,5 @@ da1dea96577e622ca9891df4add33fe6  geophys/filter3d.py
 8c2d8d75e136dbafd917fa709e83255e  geophys/checkpoint.py
 8b1949df29ada920574020d698e9f297  STAGE1_EXECUTION_PLAN.txt
 5645fb3a6841d67aae8bfb0aa53878a1  STAGE2_EXECUTION_PLAN.txt
-1cc9fa3633f69ab8a90a6b10761f5a01  geophys/spec3d.py
 f58a8532af5332212d71c0cae274e963  geophys/fea3d.py
 4efb3e31f3db9295ba823ab6be3d8035  geophys/optimize3d.py
