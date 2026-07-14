@@ -18,7 +18,6 @@ da1dea96577e622ca9891df4add33fe6  geophys/filter3d.py
 5eb8d154fffe3a8d7a7a720c1f6868a1  geophys/render3d.py
 8c2d8d75e136dbafd917fa709e83255e  geophys/checkpoint.py
 8b1949df29ada920574020d698e9f297  STAGE1_EXECUTION_PLAN.txt
-5645fb3a6841d67aae8bfb0aa53878a1  STAGE2_EXECUTION_PLAN.txt
 f58a8532af5332212d71c0cae274e963  geophys/fea3d.py
 4efb3e31f3db9295ba823ab6be3d8035  geophys/optimize3d.py
 f6ca3890d80b806f515eda5d31aad906  geophys/spec3d.py
@@ -26,3 +25,4 @@ f6ca3890d80b806f515eda5d31aad906  geophys/spec3d.py
 e32bd601e6b43aa8337d019bdba85508  geophys/materials.py
 d6ac8aef18e78b0378f290cf90d52e88  geophys/__main__.py
 ec492b444afe3e9c9302ae511cc2581d  geophys/runner.py
+4b377aa094f4b59bfd77d59fea546a5f  STAGE2_EXECUTION_PLAN.txt
