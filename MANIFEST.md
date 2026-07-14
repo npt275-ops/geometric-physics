@@ -16,9 +16,11 @@
   thật · 1.3 peak RAM 718MB · 1.4 resume giống hệt từng bit (direct+CG) ·
   1.5 đối xứng <1% · 1.6 2D nguyên vẹn (145 test) · 1.7 FreeCAD+CalculiX:
   Von Mises max 76.62 MPa tại x=11.6 GẦN ngàm, bằng chứng bench/ (FCStd +
-  report + screenshot). DoD-1.8 (optional) viewer ✓. STAGE 2: 2/5 đóng + 2.3 code xong (smoke: single yếu hơn multi 45% dưới
-  tải đạp xéo — DoD-2.1 metric chốt ở spec 4b; STL smoke watertight;
-  vol 45%). CHỜ NGƯỜI duyệt hình học + chạy RUN_BRAKE_PEDAL.bat.
+  report + screenshot). DoD-1.8 (optional) viewer ✓. STAGE 2: 3/5 tầng — 2.3 BÀN ĐẠP PHANH ĐÓNG 14/07 trên laptop thật:
+  multi 65 vòng (c=275.90) · single 141 vòng · DoD-2.1 tỷ số đạp xéo
+  **1.923 ≥ 1.3** (single yếu hơn 92%) · DoD-2.2 STL watertight ·
+  DoD-2.4 volume 0.45000. Evidence bench/ + media/brake_pedal.stl.
+  Người vận hành duyệt hình học bằng lệnh chạy bài chuẩn. Kế tiếp: 2.4.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -64,7 +66,7 @@
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| Tầng 2.3 bàn đạp phanh | CODE + THÍ NGHIỆM SMOKE XONG (c₃ ratio 1.45 ≥ 1.3, xem spec 4b). CHỜ NGƯỜI: (a) duyệt hình học media/brake_pedal_design_space.png; (b) RUN_BRAKE_PEDAL.bat bài chuẩn |
+| specs/stage2-t4-run-cli.md | Tầng 2.4 — one-command spec→STL (kế tiếp) |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |

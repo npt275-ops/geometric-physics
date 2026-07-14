@@ -1,0 +1,7 @@
+{
+  "task": "stage2-t3-brake-pedal",
+  "files_created": ["bench/report_brake_pedal.json", "bench/brake_multi_log.json", "bench/brake_single_log.json", "media/brake_pedal.stl", "media/brake_pedal_iso.png", "media/brake_pedal_viewer.html"],
+  "files_modified": [".gitignore", "MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}

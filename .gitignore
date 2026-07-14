@@ -5,3 +5,4 @@ outputs/
 *.egg-info/
 ~$*
 bench/bench64_checkpoint.npz
+bench/brake_*_checkpoint.npz

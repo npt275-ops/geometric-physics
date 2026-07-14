@@ -1,0 +1,36 @@
+{
+  "multi": {
+    "n_iter": 65,
+    "converged": true,
+    "c_weighted": 275.901
+  },
+  "single": {
+    "n_iter": 141,
+    "converged": true,
+    "c": 182.582
+  },
+  "cross_eval": {
+    "c2_lech15_single": 144.06,
+    "c2_lech15_multi": 142.97,
+    "c3_ngang_single": 142.36,
+    "c3_ngang_multi": 74.01,
+    "ty_so_DoD21_c3": 1.923
+  },
+  "volume_multi": 0.45,
+  "stl": {
+    "watertight": true,
+    "n_components_raw": 1,
+    "n_components": 1,
+    "volume_stl": 13914.62717214677,
+    "volume_voxel": 13844.0,
+    "volume_lech_pct": 0.5101644910919476,
+    "n_faces": 24068,
+    "iso": 0.5,
+    "smooth_iters": 10,
+    "path": "D:\\Nhà Kho\\GP\\media\\brake_pedal.stl",
+    "size_kb": 1175.3
+  },
+  "DoD-2.1": "PASS",
+  "DoD-2.2": "PASS",
+  "DoD-2.4": "PASS"
+}
