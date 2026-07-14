@@ -1,0 +1,24 @@
+{
+  "_comment": "Module 4 hop dong goc. Don vi: E_MPa (N/mm2), yield_MPa, density_kg_m3. Nguon: gia tri danh dinh pho bien cua vat lieu ky thuat.",
+  "nhom_6061_t6": {
+    "ten": "Nhom 6061-T6",
+    "E_MPa": 68900,
+    "nu": 0.33,
+    "yield_MPa": 276,
+    "density_kg_m3": 2700
+  },
+  "ti_6al_4v": {
+    "ten": "Titan Ti-6Al-4V (annealed)",
+    "E_MPa": 113800,
+    "nu": 0.342,
+    "yield_MPa": 880,
+    "density_kg_m3": 4430
+  },
+  "thep_s235": {
+    "ten": "Thep ket cau S235",
+    "E_MPa": 210000,
+    "nu": 0.30,
+    "yield_MPa": 235,
+    "density_kg_m3": 7850
+  }
+}

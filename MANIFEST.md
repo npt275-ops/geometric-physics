@@ -16,9 +16,9 @@
   thật · 1.3 peak RAM 718MB · 1.4 resume giống hệt từng bit (direct+CG) ·
   1.5 đối xứng <1% · 1.6 2D nguyên vẹn (145 test) · 1.7 FreeCAD+CalculiX:
   Von Mises max 76.62 MPa tại x=11.6 GẦN ngàm, bằng chứng bench/ (FCStd +
-  report + screenshot). DoD-1.8 (optional) viewer ✓. STAGE 2: 1/5 tầng — 2.1 multi-load ĐÓNG 12/07
-  (golden TRÙNG BIT sau refactor, FD 1.3e-05, multi≠single 77.4%, 157 test).
-  Kế tiếp: 2.2 materials.json.
+  report + screenshot). DoD-1.8 (optional) viewer ✓. STAGE 2: 2/5 tầng — 2.1 multi-load + 2.2 vật liệu/đơn vị thật ĐÓNG 12/07
+  (scaling E & h sai số ĐÚNG 0 · Timoshenko đơn vị thật 3.36% · golden trùng
+  bit · ~170 test). Kế tiếp: 2.3 bàn đạp phanh ⭐.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -49,7 +49,9 @@
 | geophys/optimize.py | STABLE | Vòng lặp tối ưu — Tầng 0.4 đóng, MBB khớp top88 0.006%, DoD-0.1 ✓ |
 | geophys/render2d.py | STABLE | PNG/GIF tách rời engine — Tầng 0.5 đóng, DoD-0.8 ✓ (media/) |
 | .github/workflows/ci.yml | STABLE | CI matrix 4 ô — DoD-0.7 xanh 08/07/2026 |
-| geophys/spec3d.py | STABLE | Schema v1+v2 (load_cases) — 1.1 đóng, 2.1 mở khóa nghi thức 12/07, golden giữ nguyên |
+| geophys/spec3d.py | STABLE | Schema v1+v2 (load_cases, material_name, element_size_mm; E=E_MPa×h) — golden giữ nguyên qua 2.1+2.2 |
+| materials.json | STABLE | DB vật liệu: nhôm 6061 yield 276 MPa (khớp DoD-2.3), Ti-6Al-4V, thép S235 |
+| geophys/materials.py | STABLE | Load + validate + tra vật liệu — Tầng 2.2 |
 | geophys/grid3d.py | STABLE | Voxel H8 + rasterize (sphere 1.46%, cyl 1.34%) — Tầng 1.1 đóng |
 | geophys/fea3d.py | STABLE | FEA H8 + CG/direct + đa vector lực — 1.2 đóng, 2.1 mở rộng, golden giữ nguyên |
 | geophys/sensitivity3d.py | STABLE | ∂c/∂ρ 3D — Tầng 1.3 đóng, FD 1.8e-07 |
@@ -62,10 +64,9 @@
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| specs/stage2-t2-materials.md | Tầng 2.2 — vật liệu thật (kế tiếp) |
+| specs/stage2-t3-brake-pedal.md | Tầng 2.3 — bàn đạp phanh (kế tiếp) |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| materials.json + đơn vị mm-N-MPa | Stage 2 tầng 2.2 (kế tiếp) |
 | CLI geophys, spec validator, agent interface | Stage 3 — CẤM đụng trước đó |

@@ -15,6 +15,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from geophys.errors import SpecError
+from geophys.materials import get_material
 from geophys.spec_loader import _require_int, _require_number
 
 VALID_FACES = ("x0", "x1", "y0", "y1", "z0", "z1")
@@ -23,8 +24,9 @@ VALID_PRIMITIVES = ("box", "sphere", "cylinder")
 VALID_AXES = ("x", "y", "z")
 
 _REQUIRED = ("nelx", "nely", "nelz", "volfrac", "supports",
-             "material", "simp", "preserve", "void")
-# "loads" HOẶC "load_cases" — kiểm riêng trong load_spec3d (schema v2)
+             "simp", "preserve", "void")
+# "loads" XOR "load_cases", "material" XOR "material_name" — kiểm riêng
+# trong load_spec3d (schema v2)
 
 
 @dataclass(frozen=True)
@@ -70,6 +72,10 @@ class Spec3D:
     preserve: tuple
     void: tuple
     load_cases: tuple = ()  # v2: ((weight, (Load3D,…)), …) — luôn ≥ 1 case
+    element_size_mm: float = 1.0  # v2: cạnh voxel [mm]; 1.0 = đơn vị hóa cũ
+    material_name: str = ""       # v2: khóa tra materials.json (nếu dùng)
+    e_mpa: float = 0.0            # E vật liệu THÔ [MPa] (E = e_mpa × h)
+    yield_mpa: float = 0.0        # giới hạn chảy [MPa]; 0 = không khai
 
 
 def _node_id3(x: int, y: int, z: int, nx: int, ny: int, nz: int,
@@ -237,11 +243,41 @@ def load_spec3d(path) -> Spec3D:
     ny = _require_int(raw, "nely", 1)
     nz = _require_int(raw, "nelz", 1)
     volfrac = _require_number(raw, "volfrac", 0.0, 1.0)
-    material = raw["material"]
-    if not isinstance(material, dict):
-        raise SpecError("material", "phải là object {E, nu}", "")
-    e_mod = _require_number(material, "E", 0.0, float("inf"))
-    nu = _require_number(material, "nu", 0.0, 0.5)
+
+    # v2: đơn vị thật — E_engine = E_MPa × h_mm (K = E·h·K_unit với H8
+    # lập phương; xem specs/stage2-t2-materials.md). h=1 ⇒ hành vi cũ.
+    if "element_size_mm" in raw:
+        h_mm = _require_number(raw, "element_size_mm", 0.0, float("inf"))
+    else:
+        h_mm = 1.0
+
+    has_mat, has_name = "material" in raw, "material_name" in raw
+    if has_mat and has_name:
+        raise SpecError("material/material_name",
+                        "chỉ khai MỘT trong hai", "xóa bớt một trường")
+    if not has_mat and not has_name:
+        raise SpecError("material", "thiếu 'material' hoặc 'material_name'",
+                        "vd: \"material_name\": \"nhom_6061_t6\"")
+    if has_name:
+        mat_name = raw["material_name"]
+        if not isinstance(mat_name, str):
+            raise SpecError("material_name",
+                            f"phải là string, nhận {mat_name!r}", "")
+        mat = get_material(mat_name)
+        e_mpa = float(mat["E_MPa"])
+        nu = float(mat["nu"])
+        yield_mpa = float(mat["yield_MPa"])
+    else:
+        mat_name = ""
+        material = raw["material"]
+        if not isinstance(material, dict):
+            raise SpecError("material", "phải là object {E, nu}", "")
+        e_mpa = _require_number(material, "E", 0.0, float("inf"))
+        nu = _require_number(material, "nu", 0.0, 0.5)
+        yield_mpa = (_require_number(material, "yield_MPa", 0.0,
+                                     float("inf"))
+                     if "yield_MPa" in material else 0.0)
+    e_mod = e_mpa * h_mm
     simp = raw["simp"]
     if not isinstance(simp, dict):
         raise SpecError("simp", "phải là object {p, rmin}", "")
@@ -287,4 +323,5 @@ def load_spec3d(path) -> Spec3D:
         E=e_mod, nu=nu, p=p_pen, rmin=rmin,
         preserve=_parse_primitives(raw["preserve"], "preserve", nx, ny, nz),
         void=_parse_primitives(raw["void"], "void", nx, ny, nz),
-        load_cases=load_cases)
+        load_cases=load_cases, element_size_mm=h_mm,
+        material_name=mat_name, e_mpa=e_mpa, yield_mpa=yield_mpa)

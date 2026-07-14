@@ -1,0 +1,7 @@
+{
+  "task": "stage2-t2-materials",
+  "files_created": ["materials.json", "geophys/materials.py", "tests/test_materials.py"],
+  "files_modified": ["geophys/spec3d.py", "MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
