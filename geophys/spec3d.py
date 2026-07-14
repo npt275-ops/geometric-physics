@@ -22,8 +22,9 @@ VALID_DOFS3 = ("x", "y", "z", "all")
 VALID_PRIMITIVES = ("box", "sphere", "cylinder")
 VALID_AXES = ("x", "y", "z")
 
-_REQUIRED = ("nelx", "nely", "nelz", "volfrac", "loads", "supports",
+_REQUIRED = ("nelx", "nely", "nelz", "volfrac", "supports",
              "material", "simp", "preserve", "void")
+# "loads" HOẶC "load_cases" — kiểm riêng trong load_spec3d (schema v2)
 
 
 @dataclass(frozen=True)
@@ -60,7 +61,7 @@ class Spec3D:
     nely: int
     nelz: int
     volfrac: float
-    loads: tuple
+    loads: tuple            # case đầu tiên — tương thích code đọc v1
     supports: tuple
     E: float
     nu: float
@@ -68,6 +69,7 @@ class Spec3D:
     rmin: float
     preserve: tuple
     void: tuple
+    load_cases: tuple = ()  # v2: ((weight, (Load3D,…)), …) — luôn ≥ 1 case
 
 
 def _node_id3(x: int, y: int, z: int, nx: int, ny: int, nz: int,
@@ -248,10 +250,41 @@ def load_spec3d(path) -> Spec3D:
     p_pen = _require_number(simp, "p", 0.0, float("inf"))
     rmin = _require_number(simp, "rmin", 0.0, float("inf"))
 
+    has_l, has_lc = "loads" in raw, "load_cases" in raw
+    if has_l and has_lc:
+        raise SpecError("loads/load_cases",
+                        "chỉ khai MỘT trong hai: 'loads' (v1) hoặc "
+                        "'load_cases' (v2)", "xóa bớt một trường")
+    if not has_l and not has_lc:
+        raise SpecError("loads", "thiếu 'loads' hoặc 'load_cases'",
+                        "schema v2: \"load_cases\": [{weight, loads}]")
+    if has_lc:
+        raw_lc = raw["load_cases"]
+        if not isinstance(raw_lc, list) or not raw_lc:
+            raise SpecError("load_cases", "phải là list không rỗng",
+                            "ít nhất 1 case")
+        cases = []
+        for i, entry in enumerate(raw_lc):
+            field = f"load_cases[{i}]"
+            if not isinstance(entry, dict) or "loads" not in entry:
+                raise SpecError(field, "mỗi case phải là object có 'loads'",
+                                "{\"weight\": 1.0, \"loads\": [...]}")
+            w = entry.get("weight", 1.0)
+            if not isinstance(w, (int, float)) or isinstance(w, bool) \
+                    or w <= 0:
+                raise SpecError(f"{field}.weight",
+                                f"weight phải là số > 0, nhận {w!r}", "")
+            cases.append((float(w),
+                          _parse_loads3(entry["loads"], nx, ny, nz)))
+        load_cases = tuple(cases)
+    else:
+        load_cases = ((1.0, _parse_loads3(raw["loads"], nx, ny, nz)),)
+
     return Spec3D(
         nelx=nx, nely=ny, nelz=nz, volfrac=volfrac,
-        loads=_parse_loads3(raw["loads"], nx, ny, nz),
+        loads=load_cases[0][1],
         supports=_parse_supports3(raw["supports"], nx, ny, nz),
         E=e_mod, nu=nu, p=p_pen, rmin=rmin,
         preserve=_parse_primitives(raw["preserve"], "preserve", nx, ny, nz),
-        void=_parse_primitives(raw["void"], "void", nx, ny, nz))
+        void=_parse_primitives(raw["void"], "void", nx, ny, nz),
+        load_cases=load_cases)

@@ -16,8 +16,9 @@
   thật · 1.3 peak RAM 718MB · 1.4 resume giống hệt từng bit (direct+CG) ·
   1.5 đối xứng <1% · 1.6 2D nguyên vẹn (145 test) · 1.7 FreeCAD+CalculiX:
   Von Mises max 76.62 MPa tại x=11.6 GẦN ngàm, bằng chứng bench/ (FCStd +
-  report + screenshot). DoD-1.8 (optional) viewer ✓. KẾ TIẾP: Stage 2 tầng 2.1
-  multi-load.
+  report + screenshot). DoD-1.8 (optional) viewer ✓. STAGE 2: 1/5 tầng — 2.1 multi-load ĐÓNG 12/07
+  (golden TRÙNG BIT sau refactor, FD 1.3e-05, multi≠single 77.4%, 157 test).
+  Kế tiếp: 2.2 materials.json.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -48,12 +49,12 @@
 | geophys/optimize.py | STABLE | Vòng lặp tối ưu — Tầng 0.4 đóng, MBB khớp top88 0.006%, DoD-0.1 ✓ |
 | geophys/render2d.py | STABLE | PNG/GIF tách rời engine — Tầng 0.5 đóng, DoD-0.8 ✓ (media/) |
 | .github/workflows/ci.yml | STABLE | CI matrix 4 ô — DoD-0.7 xanh 08/07/2026 |
-| geophys/spec3d.py | STABLE | Schema v1 3D + primitives — Tầng 1.1 đóng 08/07 |
+| geophys/spec3d.py | STABLE | Schema v1+v2 (load_cases) — 1.1 đóng, 2.1 mở khóa nghi thức 12/07, golden giữ nguyên |
 | geophys/grid3d.py | STABLE | Voxel H8 + rasterize (sphere 1.46%, cyl 1.34%) — Tầng 1.1 đóng |
-| geophys/fea3d.py | STABLE | FEA H8 + CG/direct kép — Tầng 1.2 đóng 08/07: CG khớp direct 9.1e-13, Timoshenko 2.84%, residual check |
+| geophys/fea3d.py | STABLE | FEA H8 + CG/direct + đa vector lực — 1.2 đóng, 2.1 mở rộng, golden giữ nguyên |
 | geophys/sensitivity3d.py | STABLE | ∂c/∂ρ 3D — Tầng 1.3 đóng, FD 1.8e-07 |
 | geophys/filter3d.py | STABLE | Filter kernel cầu — Tầng 1.3 đóng, khớp ref 1.8e-15 |
-| geophys/optimize3d.py | STABLE | Vòng lặp 3D + warm start + checkpoint/profiling (mở khóa nghi thức 08/07, spec t4) — DoD-1.1 0.028%, DoD-1.4 ✓ |
+| geophys/optimize3d.py | STABLE | Vòng lặp 3D multi-load Σwᵢcᵢ + checkpoint — DoD-1.1 0.028%, golden trùng bit sau 2.1 |
 | geophys/checkpoint.py | STABLE | Save/load + digest chống resume nhầm bài — Tầng 1.4 |
 | geophys/export_stl.py | STABLE | Marching cubes + Taubin + trimesh check — Tầng 1.5: box 4.36%, sphere 0.88% |
 | geophys/render3d.py | STABLE | PNG trisurf + HTML viewer tự chứa offline — Tầng 1.6, DoD-1.8 ✓ |
@@ -61,10 +62,10 @@
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| (kế tiếp: specs/stage2-t1-multiload.md — Stage 2 Block 1) | |
+| specs/stage2-t2-materials.md | Tầng 2.2 — vật liệu thật (kế tiếp) |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| multi-load trong spec3d, materials.json | Stage 2 (tầng 2.1–2.2) |
+| materials.json + đơn vị mm-N-MPa | Stage 2 tầng 2.2 (kế tiếp) |
 | CLI geophys, spec validator, agent interface | Stage 3 — CẤM đụng trước đó |

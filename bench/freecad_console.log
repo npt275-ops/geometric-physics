@@ -3,4 +3,192 @@
 [smoketest] Shape->Solid OK: volume=1189.0, 5220 faces
 [smoketest] chon mat: ngam=52 (x~-0.5), tai=90 (x~59.6)
 [smoketest] rang buoc: ngam + luc 100N huong -Y
-[smoketes
+[smoketest] Gmsh: 2642 nodes, 6802 volume elements
+[smoketest] API 1.1: dung write_inp_file + ccx_run + load_results
+FreeCAD 1.1.1, Libs: 1.1.1R20260414 (Git shallow)
+(C) 2001-2026 FreeCAD contributors
+FreeCAD is free and open-source software licensed under the terms of LGPL2+ license.
+
+  ElementDimension: 3
+  C:\Users\ADMINN\AppData\Local\Temp\fcfem_f54asc5c\GP_Solid_Geometry.brep
+  C:\Users\ADMINN\AppData\Local\Temp\fcfem_f54asc5c\GP_Solid_Mesh.unv
+  C:\Users\ADMINN\AppData\Local\Temp\fcfem_f54asc5c\shape2mesh.geo
+  C:\Program Files\FreeCAD 1.1\bin\gmsh.EXE
+Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									
+Check prerequisites...
+Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									Recompute......
+						(11 %)							(22 %)							(33 %)							(44 %)							(55 %)							(66 %)							(77 %)							(88 %)							(100 %)									
+Get mesh data for constraints, materials and element geometry...
+NgamX0:
+    Type: Fem::ConstraintFixed, Name: NgamX0
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face325
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face326
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face327
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face328
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face329
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face330
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face331
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face332
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face333
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face334
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face335
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face336
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face337
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face338
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face339
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face340
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face341
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face342
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face343
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face344
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face345
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face346
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face347
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face348
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face349
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face350
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1136
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1137
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1138
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1139
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1140
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1141
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1142
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1143
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1144
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1145
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1146
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1147
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1148
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1149
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1150
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1151
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1152
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1153
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1154
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1155
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1156
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1157
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1158
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1159
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1160
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1161
+Luc100N:
+    Type: Fem::ConstraintForce, Name: Luc100N
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face1
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face2
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face3
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face4
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face7
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5102
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5104
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5106
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5107
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5110
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5111
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5118
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5124
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5125
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5126
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5127
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5128
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5134
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5141
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5151
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5152
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5153
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5154
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5155
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5156
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5157
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5158
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5159
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5160
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5161
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5162
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5163
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5164
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5165
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5166
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5167
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5168
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5169
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5170
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5171
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5172
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5173
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5174
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5175
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5176
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5177
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5178
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5179
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5180
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5181
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5182
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5183
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5184
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5185
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5186
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5187
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5188
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5189
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5190
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5191
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5192
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5193
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5194
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5195
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5196
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5197
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5198
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5199
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5200
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5201
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5202
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5203
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5204
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5205
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5206
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5207
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5208
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5209
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5210
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5211
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5212
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5213
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5214
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5215
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5216
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5217
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5218
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object label: GP_Solid, Element name: Face5219
+    ReferenceShape ... Type: Face, Object name: GP_Solid, Object[{'ccx_elset': 'Evolumes', 'ccx_elset_name': 'SteelSolid', 'mat_obj_name': 'Steel', 'ccx_mat_name': 'Steel-Generic'}]
+[smoketest] CalculiX chay xong
+[smoketest] Von Mises max 76.62 MPa tai x=11.6 (GAN ngam)
+[smoketest] luu D:\Nhà Kho\GP\bench\cantilever_smoketest.FCStd
+[smoketest] headless - mo file FCStd trong GUI de xem mau + screenshot
+[smoketest] report -> D:\Nhà Kho\GP\bench\freecad_report.json
+ label: GP_Solid, Element name: Face5220
+Getting mesh data time: 0.266 seconds.
+
+CalculiX solver input writing...
+Input file:C:\Users\ADMINN\AppData\Local\Temp\tmpc5uie45e\GmshMesh.inp
+One monster input file.
+Writing time CalculiX input file: 0.047 seconds.
+
+CalculiX solver run...
+Everything seems fine. CalculiX ccx will be executed ......
+								CalculiX finished without error.
+
+CalculiX read results...
+Read ccx results from frd file: C:\Users\ADMINN\AppData\Local\Temp\tmpc5uie45e\GmshMesh.frd
+Read ccx results from dat file: C:\Users\ADMINN\AppData\Local\Temp\tmpc5uie45e\GmshMesh.dat
+Recompute......
+						(7 %)							(15 %)							(23 %)							(30 %)							(38 %)							(46 %)							(53 %)							(61 %)							(69 %)							(76 %)							(84 %)							(92 %)							(100 %)									

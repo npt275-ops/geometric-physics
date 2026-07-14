@@ -12,4 +12,15 @@
     "CalculiX chay xong",
     "Von Mises max 76.62 MPa tai x=11.6 (GAN ngam)",
     "luu D:\\Nh\u00e0 Kho\\GP\\bench\\cantilever_smoketest.FCStd",
-    "
+    "headless - mo file FCStd trong GUI de xem mau + screenshot"
+  ],
+  "n_nodes": 2642,
+  "von_mises_max_MPa": 76.62,
+  "von_mises_mean_MPa": 24.976,
+  "vi_tri_max": {
+    "x": 11.6,
+    "y": 13.0,
+    "z": 2.9
+  },
+  "max_o_nua_gan_ngam": true
+}

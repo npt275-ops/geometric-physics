@@ -92,12 +92,20 @@ class FEA3D:
         self.e_min = 1e-9 * spec.E
         self.ke = ke_h8(1.0, spec.nu)
 
-        force = np.zeros(grid.n_dof, dtype=np.float64)
-        for load in spec.loads:
-            force[3 * load.node] += load.fx
-            force[3 * load.node + 1] += load.fy
-            force[3 * load.node + 2] += load.fz
-        self.force = force
+        # v2 multi-load: mỗi case một vector lực; case 0 giữ vai trò
+        # self.force để đường đơn-case GIỮ NGUYÊN TỪNG BIT (spec stage2-t1)
+        cases = getattr(spec, "load_cases", ()) or ((1.0, spec.loads),)
+        forces = []
+        for _, case_loads in cases:
+            force = np.zeros(grid.n_dof, dtype=np.float64)
+            for load in case_loads:
+                force[3 * load.node] += load.fx
+                force[3 * load.node + 1] += load.fy
+                force[3 * load.node + 2] += load.fz
+            forces.append(force)
+        self.forces = forces
+        self.weights = tuple(w for w, _ in cases)
+        self.force = forces[0]
 
         fixed = []
         for sup in spec.supports:
@@ -139,15 +147,23 @@ class FEA3D:
             (s_k, (self._i_idx, self._j_idx)), shape=(n, n)).tocsr()
 
     def solve(self, rho: np.ndarray, p: float, method: str = "auto",
-              x0: np.ndarray | None = None) -> np.ndarray:
+              x0: np.ndarray | None = None,
+              force: np.ndarray | None = None) -> np.ndarray:
         if method not in ("auto", "direct", "cg"):
             raise ValueError(f"method {method!r} — chọn auto|direct|cg")
         if method == "auto":
             method = "direct" if self.grid.n_dof <= _DIRECT_MAX_DOF else "cg"
+        if force is None:
+            force = self.force
+        else:
+            force = np.asarray(force, dtype=np.float64)
+            if force.shape != (self.grid.n_dof,):
+                raise ValueError(
+                    f"force shape {force.shape} — kỳ vọng ({self.grid.n_dof},)")
 
         k_mat = self.assemble(rho, p)
         k_ff = k_mat[self.free, :][:, self.free]
-        f_free = self.force[self.free]
+        f_free = force[self.free]
         u = np.zeros(self.grid.n_dof, dtype=np.float64)
 
         if method == "direct":
@@ -194,9 +210,11 @@ class FEA3D:
 
     # ── hậu xử lý ───────────────────────────────────────────────
 
-    def compliance(self, u: np.ndarray) -> float:
-        """c = F·U."""
-        return float(self.force @ u)
+    def compliance(self, u: np.ndarray,
+                   force: np.ndarray | None = None) -> float:
+        """c = F·U (mặc định case 0 — hành vi v1 giữ nguyên)."""
+        f = self.force if force is None else force
+        return float(f @ u)
 
     def element_energy(self, u: np.ndarray, rho: np.ndarray,
                        p: float) -> np.ndarray:

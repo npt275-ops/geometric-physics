@@ -1,0 +1,7 @@
+{
+  "task": "stage2-t1-multiload",
+  "files_created": ["tests/test_multiload.py"],
+  "files_modified": ["geophys/spec3d.py", "geophys/fea3d.py", "geophys/optimize3d.py", "MANIFEST.md"],
+  "tests_to_run": ["python -m pytest tests/ -v"],
+  "claimed_done": true
+}
