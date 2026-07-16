@@ -1,0 +1,11 @@
+{
+ "trang_thai": "KHONG_HOP_LE",
+ "loi": [
+  {
+   "ma": "GP-E-PHYSICS",
+   "vi_tri": "supports",
+   "ly_do": "phải là list không rỗng",
+   "goi_y": "không có ngàm → rigid body, không giải được"
+  }
+ ]
+}

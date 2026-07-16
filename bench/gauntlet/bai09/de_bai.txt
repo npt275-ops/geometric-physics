@@ -1,0 +1,3 @@
+Bài vòng đời: chạy bị ngắt sớm (max-iter 5) phải BÁO FAIL tử tế
+(exit 1, report đủ trường) rồi RESUME từ checkpoint chạy đến hội tụ
+(exit 0). Thanh thép 64x32x16mm ngàm trái, 300N mép phải, 35%.

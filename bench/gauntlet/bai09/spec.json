@@ -1,0 +1,53 @@
+{
+ "_comment": "gauntlet 09 — fail roi resume",
+ "nelx": 16,
+ "nely": 8,
+ "nelz": 4,
+ "volfrac": 0.35,
+ "element_size_mm": 4.0,
+ "material_name": "thep_s235",
+ "loads": [
+  {
+   "x": 16,
+   "y": 0,
+   "z": 0,
+   "fy": 60.0
+  },
+  {
+   "x": 16,
+   "y": 0,
+   "z": 1,
+   "fy": 60.0
+  },
+  {
+   "x": 16,
+   "y": 0,
+   "z": 2,
+   "fy": 60.0
+  },
+  {
+   "x": 16,
+   "y": 0,
+   "z": 3,
+   "fy": 60.0
+  },
+  {
+   "x": 16,
+   "y": 0,
+   "z": 4,
+   "fy": 60.0
+  }
+ ],
+ "supports": [
+  {
+   "face": "x0",
+   "dof": "all"
+  }
+ ],
+ "simp": {
+  "p": 3.0,
+  "rmin": 1.5
+ },
+ "preserve": [],
+ "void": []
+}

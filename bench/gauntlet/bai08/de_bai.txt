@@ -1,0 +1,3 @@
+Đế gá nhôm 64x32x16mm ngàm mặt trái, 250N mép phải. Khối lõi
+6x8x4 voxel BẮT BUỘC GIỮ NGUYÊN (chiếm ~89% ngân sách 42% vật liệu) —
+engine chỉ còn ~11% ngân sách tự do để nối tải về ngàm.

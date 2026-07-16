@@ -1,0 +1,11 @@
+{
+ "trang_thai": "HOP_LE",
+ "loi": [],
+ "tom_tat": {
+  "luoi": "16x16x4",
+  "so_phan_tu": 1024,
+  "so_case": 1,
+  "vat_lieu": "thep_s235",
+  "volfrac": 0.45
+ }
+}

@@ -1,0 +1,63 @@
+{
+ "_comment": "gauntlet 08 — preserve 192/215 ngan sach",
+ "nelx": 16,
+ "nely": 8,
+ "nelz": 4,
+ "volfrac": 0.42,
+ "element_size_mm": 4.0,
+ "material_name": "nhom_6061_t6",
+ "loads": [
+  {
+   "x": 16,
+   "y": 0,
+   "z": 0,
+   "fy": 50.0
+  },
+  {
+   "x": 16,
+   "y": 0,
+   "z": 1,
+   "fy": 50.0
+  },
+  {
+   "x": 16,
+   "y": 0,
+   "z": 2,
+   "fy": 50.0
+  },
+  {
+   "x": 16,
+   "y": 0,
+   "z": 3,
+   "fy": 50.0
+  },
+  {
+   "x": 16,
+   "y": 0,
+   "z": 4,
+   "fy": 50.0
+  }
+ ],
+ "supports": [
+  {
+   "face": "x0",
+   "dof": "all"
+  }
+ ],
+ "simp": {
+  "p": 3.0,
+  "rmin": 1.5
+ },
+ "preserve": [
+  {
+   "type": "box",
+   "x0": 5,
+   "y0": 0,
+   "z0": 0,
+   "x1": 10,
+   "y1": 7,
+   "z1": 3
+  }
+ ],
+ "void": []
+}

@@ -1,0 +1,4 @@
+Bài vòng tự sửa: spec đầu do 'người dùng ẩu' gửi có 2 lỗi chồng
+(quên ngàm + vùng bảo tồn ngoài lưới). Agent phải dùng JSON lỗi của
+validate để sửa lặp cho đến HỢP LỆ (kỳ vọng ≤3 vòng) rồi chạy PASS.
+Gá nhôm 48x24x16mm, 200N mép phải, 40%.

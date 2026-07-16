@@ -1,0 +1,40 @@
+{
+  "spec": "bench/gauntlet/bai04/spec.json",
+  "status": "PASS",
+  "digest": "64d5cd774b86c0a9c576b859abc7623406cf253a382f132b1719e68198bc3b85",
+  "material": "nhom_6061_t6",
+  "yield_mpa": 276.0,
+  "element_size_mm": 4.0,
+  "grid": "24x16x2",
+  "n_load_cases": 1,
+  "converged": true,
+  "n_iter": 95,
+  "compliance": 146.3563,
+  "c_cases": [
+    146.3563
+  ],
+  "volume_fraction": 0.4,
+  "stl": {
+    "watertight": true,
+    "n_components_raw": 1,
+    "n_components": 1,
+    "volume_stl": 242.3391781453594,
+    "volume_voxel": 276.0,
+    "volume_lech_pct": 12.19594994733355,
+    "n_faces": 988,
+    "iso": 0.5,
+    "smooth_iters": 10,
+    "path": "bench/gauntlet/bai04/out/spec.stl",
+    "size_kb": 48.3
+  },
+  "wall_s": 5.9,
+  "files": [
+    "checkpoint.npz",
+    "optimize_log.json",
+    "spec.stl",
+    "spec_iso.png",
+    "spec_viewer.html",
+    "report.json",
+    "report.md"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+ "sau_resume": "PASS",
+ "n_iter": 42,
+ "dat": true,
+ "ghi_chu": "PHAT HIEN BUG resume-tai-cho SameFileError — da va + test hoi quy; workaround outdir khac cung PASS"
+}

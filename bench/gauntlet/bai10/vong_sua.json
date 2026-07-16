@@ -1,0 +1,30 @@
+{
+ "so_vong_sua": 3,
+ "nhat_ky": [
+  {
+   "vong": 1,
+   "exit": 2,
+   "loi": [
+    [
+     "GP-E-PHYSICS",
+     "supports"
+    ]
+   ]
+  },
+  {
+   "vong": 2,
+   "exit": 2,
+   "loi": [
+    [
+     "GP-E-GEOMETRY",
+     "preserve[0]"
+    ]
+   ]
+  },
+  {
+   "vong": 3,
+   "exit": 0,
+   "loi": []
+  }
+ ]
+}

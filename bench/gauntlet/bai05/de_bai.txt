@@ -1,0 +1,4 @@
+Bracket thép S235 dạng chữ L trong khổ 64x64x16mm: góc dưới-phải
+là KHOẢNG TRỐNG bắt buộc (né thiết bị khác). Bắt tường bằng 1 bu-lông
+xuyên (lỗ ~8mm) giữa cột đứng — quanh lỗ giữ vành vật liệu, ngàm tại
+vành lỗ. Tải 400N ấn xuống ở đầu ngoài nhánh ngang trên. 45% vật liệu.

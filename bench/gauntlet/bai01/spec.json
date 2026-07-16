@@ -1,0 +1,29 @@
+{
+ "_comment": "gauntlet 01 — lech tam goc, ky vong bat doi xung z",
+ "nelx": 20,
+ "nely": 10,
+ "nelz": 6,
+ "volfrac": 0.4,
+ "element_size_mm": 4.0,
+ "material_name": "nhom_6061_t6",
+ "loads": [
+  {
+   "x": 20,
+   "y": 0,
+   "z": 0,
+   "fy": 400.0
+  }
+ ],
+ "supports": [
+  {
+   "face": "x0",
+   "dof": "all"
+  }
+ ],
+ "simp": {
+  "p": 3.0,
+  "rmin": 1.5
+ },
+ "preserve": [],
+ "void": []
+}

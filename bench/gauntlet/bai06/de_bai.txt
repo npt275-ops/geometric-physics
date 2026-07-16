@@ -1,0 +1,4 @@
+Ke đỡ nhôm 6061 ngàm mặt trái 64x32x32mm chịu 3 trường hợp tải ở
+mép đầu tự do: chính 300N ấn xuống (w 1.0), phụ 150N kéo dọc (w 0.5),
+phụ 90N đẩy ngang (w 0.3). Dùng 40% vật liệu. Đối chứng: bản chỉ tải
+chính — bản 3-case phải cứng hơn dưới tải ngang (đúng chiều).

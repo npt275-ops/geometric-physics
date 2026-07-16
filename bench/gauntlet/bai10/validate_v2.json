@@ -1,0 +1,11 @@
+{
+ "trang_thai": "KHONG_HOP_LE",
+ "loi": [
+  {
+   "ma": "GP-E-GEOMETRY",
+   "vi_tri": "preserve[0]",
+   "ly_do": "box (40, 0, 0, 45, 5, 3) ngoài lưới element [0..11]×[0..5]×[0..3]",
+   "goi_y": "box tính theo lưới ELEMENT"
+  }
+ ]
+}

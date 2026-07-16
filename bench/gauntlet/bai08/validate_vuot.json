@@ -1,0 +1,11 @@
+{
+ "trang_thai": "KHONG_HOP_LE",
+ "loi": [
+  {
+   "ma": "GP-E-PHYSICS",
+   "vi_tri": "preserve/volfrac",
+   "ly_do": "vùng bảo tồn chiếm 192/512 voxel (37.5%) > volfrac 30.0% — bài toán bất khả thi",
+   "goi_y": "tăng volfrac hoặc thu nhỏ vùng preserve"
+  }
+ ]
+}

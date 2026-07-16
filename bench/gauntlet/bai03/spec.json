@@ -1,0 +1,29 @@
+{
+ "_comment": "gauntlet 03 — nen doc truc, ky vong cot giua",
+ "nelx": 8,
+ "nely": 24,
+ "nelz": 8,
+ "volfrac": 0.3,
+ "element_size_mm": 4.0,
+ "material_name": "ti_6al_4v",
+ "loads": [
+  {
+   "x": 4,
+   "y": 0,
+   "z": 4,
+   "fy": 900.0
+  }
+ ],
+ "supports": [
+  {
+   "face": "y1",
+   "dof": "all"
+  }
+ ],
+ "simp": {
+  "p": 3.0,
+  "rmin": 1.5
+ },
+ "preserve": [],
+ "void": []
+}
