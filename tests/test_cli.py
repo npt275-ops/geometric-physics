@@ -1,4 +1,4 @@
-"""Acceptance Tầng 2.4 — `python -m geophys run` (spec stage2-t4, DoD-2.5).
+"""Acceptance CLI — run (Tầng 2.4, DoD-2.5) + validate/report (Tầng 3.2).
 
 Đo thật 14/07/2026: exit codes 0/1/2 đúng cả 4 nhánh; outdir đủ 7 file;
 resume lần hai tức thì (resume-sau-hội-tụ được công nhận).
@@ -79,11 +79,45 @@ def test_max_iter_thap_exit_1(tmp_path):
     assert report["status"] == "FAIL" and report["converged"] is False
 
 
-def test_lenh_stage3_bi_chan():
-    for cmd in ("validate", "report"):
-        result = cli(cmd, "x.json")
-        assert result.returncode == 2
-        assert "Stage 3" in result.stderr
+# ── Stage 3 (Tầng 3.2): validate + report mở chính thức ──────────
+
+def test_validate_spec_chuan_exit_0(tmp_path):
+    spec = tmp_path / "t.json"
+    spec.write_text(json.dumps(TINY), encoding="utf-8")
+    result = cli("validate", str(spec))
+    assert result.returncode == 0
+    kq = json.loads(result.stdout)
+    assert kq["trang_thai"] == "HOP_LE"
+
+
+def test_validate_rac_exit_2_json_loi(tmp_path):
+    hong = dict(TINY)
+    hong["supports"] = []
+    spec = tmp_path / "r.json"
+    spec.write_text(json.dumps(hong), encoding="utf-8")
+    result = cli("validate", str(spec))
+    assert result.returncode == 2
+    kq = json.loads(result.stdout)  # lỗi vẫn là JSON máy đọc được
+    assert kq["loi"][0]["ma"] == "GP-E-PHYSICS"
+    assert kq["loi"][0]["goi_y"]
+
+
+def test_report_sau_run_exit_0(tiny_run):
+    _, out, _ = tiny_run
+    result = cli("report", str(out))
+    assert result.returncode == 0
+    report = json.loads(result.stdout)
+    assert report["status"] == "PASS" and report["stl"]["watertight"]
+
+
+def test_report_thieu_outdir_exit_2(tmp_path):
+    result = cli("report", str(tmp_path / "khong_co"))
+    assert result.returncode == 2
+
+
+def test_lenh_la_exit_2():
+    result = cli("turbo")
+    assert result.returncode == 2
 
 
 def test_tham_so_la_exit_2():
