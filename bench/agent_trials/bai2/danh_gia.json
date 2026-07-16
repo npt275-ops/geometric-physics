@@ -1,0 +1,28 @@
+{
+ "de_bai": "Đề bài 2:\n\"Làm cho tôi cái dầm thép S235 gác qua hai gối đỡ ở hai đầu đáy, nhịp\n128 mm, tiết diện thiết kế cao 48 mm dày 16 mm, chịu 800N ấn giữa nhịp\nmặt trên. Chỉ được dùng 35% vật liệu.\"",
+ "spec_tom_tat": {
+  "luoi": "32x12x4",
+  "vat_lieu": "thep_s235",
+  "volfrac": 0.35,
+  "so_case": 1
+ },
+ "cac_lenh": [
+  "python -m geophys validate bench/agent_trials/bai2/spec.json",
+  "python -m geophys run bench/agent_trials/bai2/spec.json --outdir bench/agent_trials/bai2/out",
+  "python -m geophys report bench/agent_trials/bai2/out"
+ ],
+ "ket_qua_do": {
+  "n_iter": 14,
+  "compliance": 2.4039,
+  "volume_fraction": 0.35,
+  "stl_n_faces": 1388,
+  "wall_s": 2.1
+ },
+ "tieu_chi": {
+  "1_pass_va_hoi_tu": true,
+  "2_volume_1pct": true,
+  "3_stl_kin_1_khoi": true,
+  "4_exit_codes": true
+ },
+ "ket_luan": "THANH CONG"
+}

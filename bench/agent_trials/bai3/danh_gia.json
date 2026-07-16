@@ -1,0 +1,28 @@
+{
+ "de_bai": "Đề bài 3:\n\"Tấm treo thiết bị bằng titan Ti-6Al-4V 80 x 40 x 12 mm: hai lỗ bu-lông\nxuyên suốt (đường kính ~8mm) ở hai góc trên để bắt vào tường — quanh lỗ\nphải giữ nguyên vật liệu làm vành. Móc tải ở mép dưới giữa tấm: trường\nhợp chính kéo xuống 300N, trường hợp phụ đẩy ngang 90N (tính cả hai,\nphụ nhẹ hơn). Dùng 45% vật liệu.\"",
+ "spec_tom_tat": {
+  "luoi": "20x10x3",
+  "vat_lieu": "ti_6al_4v",
+  "volfrac": 0.45,
+  "so_case": 2
+ },
+ "cac_lenh": [
+  "python -m geophys validate bench/agent_trials/bai3/spec.json",
+  "python -m geophys run bench/agent_trials/bai3/spec.json --outdir bench/agent_trials/bai3/out",
+  "python -m geophys report bench/agent_trials/bai3/out"
+ ],
+ "ket_qua_do": {
+  "n_iter": 14,
+  "compliance": 0.2821,
+  "volume_fraction": 0.45,
+  "stl_n_faces": 892,
+  "wall_s": 1.0
+ },
+ "tieu_chi": {
+  "1_pass_va_hoi_tu": true,
+  "2_volume_1pct": true,
+  "3_stl_kin_1_khoi": true,
+  "4_exit_codes": true
+ },
+ "ket_luan": "THANH CONG"
+}

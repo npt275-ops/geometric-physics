@@ -1,0 +1,4 @@
+Đề bài 1 (tiếng Việt tự nhiên, người dùng gửi cho agent):
+"Thiết kế giá đỡ công-xôn bằng nhôm 6061: ngàm cứng toàn bộ mặt trái,
+chịu lực 500N ấn xuống ở mép đầu tự do. Khổ thiết kế 96 x 48 x 24 mm.
+Tôi muốn giảm 60% khối lượng so với khối đặc."

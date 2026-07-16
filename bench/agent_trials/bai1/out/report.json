@@ -1,0 +1,40 @@
+{
+  "spec": "bench/agent_trials/bai1/spec.json",
+  "status": "PASS",
+  "digest": "5f11a5d3460a583bae58d0d7a7832af2b776a41eac34900eee7b896ac0e0ea20",
+  "material": "nhom_6061_t6",
+  "yield_mpa": 276.0,
+  "element_size_mm": 4.0,
+  "grid": "24x12x6",
+  "n_load_cases": 1,
+  "converged": true,
+  "n_iter": 47,
+  "compliance": 14.8774,
+  "c_cases": [
+    14.8774
+  ],
+  "volume_fraction": 0.4,
+  "stl": {
+    "watertight": true,
+    "n_components_raw": 1,
+    "n_components": 1,
+    "volume_stl": 613.0866155049276,
+    "volume_voxel": 640.0,
+    "volume_lech_pct": 4.205216327355057,
+    "n_faces": 2568,
+    "iso": 0.5,
+    "smooth_iters": 10,
+    "path": "bench/agent_trials/bai1/out/spec.stl",
+    "size_kb": 125.5
+  },
+  "wall_s": 11.0,
+  "files": [
+    "checkpoint.npz",
+    "optimize_log.json",
+    "spec.stl",
+    "spec_iso.png",
+    "spec_viewer.html",
+    "report.json",
+    "report.md"
+  ]
+}

@@ -1,0 +1,6 @@
+Đề bài 3:
+"Tấm treo thiết bị bằng titan Ti-6Al-4V 80 x 40 x 12 mm: hai lỗ bu-lông
+xuyên suốt (đường kính ~8mm) ở hai góc trên để bắt vào tường — quanh lỗ
+phải giữ nguyên vật liệu làm vành. Móc tải ở mép dưới giữa tấm: trường
+hợp chính kéo xuống 300N, trường hợp phụ đẩy ngang 90N (tính cả hai,
+phụ nhẹ hơn). Dùng 45% vật liệu."

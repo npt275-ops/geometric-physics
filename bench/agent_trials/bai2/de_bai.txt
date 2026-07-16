@@ -1,0 +1,4 @@
+Đề bài 2:
+"Làm cho tôi cái dầm thép S235 gác qua hai gối đỡ ở hai đầu đáy, nhịp
+128 mm, tiết diện thiết kế cao 48 mm dày 16 mm, chịu 800N ấn giữa nhịp
+mặt trên. Chỉ được dùng 35% vật liệu."
