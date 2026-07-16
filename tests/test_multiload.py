@@ -7,6 +7,7 @@ golden khớp ✓ · FD multi 1.27e-05 · multi vs single 77.4% · resume ✓.
 
 import hashlib
 import json
+import sys
 
 import numpy as np
 import pytest
@@ -62,19 +63,32 @@ def base(**override):
 
 
 # ── HỒI QUY GOLDEN — cửa sinh tử của tầng 2.1 ──────────────────
+# Golden đo trên Linux. Bit-identity CHỈ có nghĩa cùng nền tảng:
+# CI 15/07/2026 — Windows cùng scipy hội tụ ĐÚNG số vòng, lệch FP
+# 3e-14 rel (thứ tự cộng BLAS khác OS). Trên Linux vẫn ép TỪNG BIT;
+# nền tảng khác: n_iter trùng tuyệt đối + compliance rtol 1e-12
+# (chặt hơn lệch thật ~50×). Hằng số golden KHÔNG đổi.
+
+_BIT_EXACT = sys.platform.startswith("linux")
+
+
+def _golden_check(res, n_iter, c_ref, hash_ref):
+    assert res.n_iter == n_iter
+    if _BIT_EXACT:
+        assert res.compliance == c_ref
+        assert hashlib.sha256(res.rho.tobytes()).hexdigest() == hash_ref
+    else:
+        assert res.compliance == pytest.approx(c_ref, rel=1e-12)
+
 
 def test_golden_g1_direct(tmp_path):
     res = optimize3d(mk(tmp_path, G1_SPEC))
-    assert res.n_iter == G1_ITER
-    assert res.compliance == G1_C
-    assert hashlib.sha256(res.rho.tobytes()).hexdigest() == G1_HASH
+    _golden_check(res, G1_ITER, G1_C, G1_HASH)
 
 
 def test_golden_g2_cg_preserve_void(tmp_path):
     res = optimize3d(mk(tmp_path, G2_SPEC), method="cg")
-    assert res.n_iter == G2_ITER
-    assert res.compliance == G2_C
-    assert hashlib.sha256(res.rho.tobytes()).hexdigest() == G2_HASH
+    _golden_check(res, G2_ITER, G2_C, G2_HASH)
 
 
 # ── tương đương v1 ↔ v2 một case ────────────────────────────────
