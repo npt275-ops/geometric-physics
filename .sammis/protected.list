@@ -26,9 +26,9 @@ geophys/optimize3d.py
 geophys/spec3d.py
 materials.json
 geophys/materials.py
-geophys/runner.py
 STAGE2_EXECUTION_PLAN.txt
 geophys/__main__.py
 geophys/validate.py
 AGENT.md
 docs/spec_schema.json
+geophys/runner.py
