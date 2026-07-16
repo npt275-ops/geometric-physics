@@ -65,7 +65,10 @@ def run_spec(spec_path, outdir=None, method: str = "auto",
         src = Path(resume_from)
         if not src.is_file():
             raise SpecError("--resume-from", f"không thấy {src}", "")
-        shutil.copy2(src, ckpt)
+        # Gauntlet bai09 16/07/2026: resume-tai-cho (src == ckpt) lam
+        # copy2 no SameFileError — truong hop hop phap, chi can bo copy.
+        if src.resolve() != ckpt.resolve():
+            shutil.copy2(src, ckpt)
 
     def progress(i, rho, c):
         if i % 5 == 0 or i == 1:

@@ -115,6 +115,18 @@ def test_report_thieu_outdir_exit_2(tmp_path):
     assert result.returncode == 2
 
 
+def test_resume_tai_cho_khong_no(tmp_path):
+    # Hồi quy gauntlet bai09 16/07: --resume-from trỏ vào chính
+    # checkpoint trong --outdir từng nổ SameFileError
+    spec = tmp_path / "t.json"
+    spec.write_text(json.dumps(TINY), encoding="utf-8")
+    out = tmp_path / "o"
+    cli("run", str(spec), "--outdir", str(out), "--max-iter", "3")
+    result = cli("run", str(spec), "--outdir", str(out),
+                 "--resume-from", str(out / "checkpoint.npz"))
+    assert result.returncode == 0, result.stderr
+
+
 def test_lenh_la_exit_2():
     result = cli("turbo")
     assert result.returncode == 2
