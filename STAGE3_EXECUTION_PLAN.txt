@@ -1,0 +1,87 @@
+================================================================
+ GP — KẾ HOẠCH THỰC THI STAGE 3 (v1.0 — 16/07/2026)
+ "Hòa vào hệ sinh thái: agent-ready + validation với thế giới thật"
+ Nguồn DoD: GEOMETRIC_PHYSICS_PLAN.txt §STAGE 3 (nguyên văn, KHÔNG nới)
+================================================================
+
+CÂU HỎI STAGE NÀY TRẢ LỜI
+  "Engine này có trở thành một node trong hệ X2 được không,
+   và có AI NGOÀI KIA quan tâm không?"
+
+MỤC TIÊU SẢN PHẨM: engine ĐÓNG HỘP — agent bất kỳ cắm vào dùng được
+mà không cần người đứng giữa; thế giới nhìn thấy; số liệu quyết định
+bước tiếp theo.
+
+----------------------------------------------------------------
+ 1. WORKFLOW MAP — 5 TẦNG
+----------------------------------------------------------------
+
+┌──────────────────────────────────────────────────────────────┐
+│ TẦNG 3.1  Spec Validator + `geophys validate`      [AGENT]   │
+│   JSON Schema đầy đủ + semantic checks; lỗi máy-đọc-được     │
+│   (mã + vị trí + gợi ý sửa — thiết kế cho agent TỰ SỬA spec) │
+│ CỔNG: DoD-3.2 — 10 spec rác bắt 10/10, lỗi actionable        │
+├──────────────────────────────────────────────────────────────┤
+│ TẦNG 3.2  `geophys report` + CLI 3 lệnh hoàn chỉnh [AGENT]   │
+│   validate / run / report — exit code chuẩn để agent đọc     │
+│ CỔNG: 3 lệnh chạy đúng, exit 0/1/2 đủ nhánh, test CLI xanh   │
+├──────────────────────────────────────────────────────────────┤
+│ TẦNG 3.3  Agent Interface + 3 bài thử trọn vòng    [AGENT]   │
+│   AGENT.md = hợp đồng giao tiếp (đề bài NL → spec → run →    │
+│   report → tự đánh giá); 3 đề bài tiếng Việt khác nhau       │
+│ CỔNG: DoD-3.1 — 3/3 bài không người can thiệp, bằng chứng    │
+│        bench/agent_trials/                                   │
+├──────────────────────────────────────────────────────────────┤
+│ TẦNG 3.4  Pass chuẩn Sammis + toàn bộ test         [AGENT]   │
+│ CỔNG: DoD-3.3 — sammis.py 0 vi phạm mức chặn; full suite ✓   │
+├──────────────────────────────────────────────────────────────┤
+│ TẦNG 3.5  Gói 2 cổng NGƯỜI                    [AGENT chuẩn bị│
+│   Outline video build-in-public (nguyên liệu 3 stage) +      │
+│   spreadsheet đo tín hiệu + giao thức ghi nhận 30 ngày       │
+│ CỔNG NGƯỜI: DoD-3.4 video lên sóng · DoD-3.5 đo ≥5 hội thoại │
+│   thật trong 30 ngày (quyết định Cấp độ 2 / đóng băng có lãi)│
+└──────────────────────────────────────────────────────────────┘
+
+----------------------------------------------------------------
+ 2. DoD STAGE 3 (nguyên văn hợp đồng)
+----------------------------------------------------------------
+- [ ] DoD-3.1 Agent tự vận hành trọn vòng: đề bài tiếng Việt tự
+      nhiên → spec.json hợp lệ → engine → STL + report, KHÔNG người
+      can thiệp giữa chừng, 3/3 bài.
+- [ ] DoD-3.2 Spec Validator chặn rác: 10 spec cố tình sai bắt
+      10/10, thông báo lỗi actionable.
+- [ ] DoD-3.3 sammis.py toàn codebase: 0 vi phạm mức chặn.
+- [ ] DoD-3.4 Video build-in-public lên sóng (kể chuẩn "mộc").
+- [ ] DoD-3.5 Tín hiệu thị trường ĐO không ĐOÁN: 30 ngày,
+      spreadsheet inbound; ngưỡng ≥5 hội thoại thật. Dưới ngưỡng:
+      đóng băng "công cụ nội bộ X2 + content" — KHÔNG build thêm.
+
+Điều kiện đóng: 5/5. DoD-3.5 quyết định Cấp độ 2 bằng DỮ LIỆU.
+
+----------------------------------------------------------------
+ 3. PHÂN VAI
+----------------------------------------------------------------
+| Việc                                              | Ai        |
+|---------------------------------------------------|-----------|
+| Spec 9 mục, validator, CLI, AGENT.md, test        | AGENT     |
+| Đóng vai agent chạy 3 bài thử (ghi bằng chứng)    | AGENT     |
+| Xác nhận 3 bài thử "không người can thiệp"        | NGƯỜI ký  |
+| Quay + đăng video (outline agent soạn)            | NGƯỜI     |
+| Ghi spreadsheet 30 ngày + phán quyết DoD-3.5      | NGƯỜI     |
+| Push GitHub + CI                                  | NGƯỜI     |
+
+----------------------------------------------------------------
+ 4. RỦI RO RIÊNG STAGE 3
+----------------------------------------------------------------
+| S3-R1 | Validator trùng/đè logic loader hiện có → hai nguồn  |
+|       | sự thật. Đối sách: validator GỌI LẠI loader (một      |
+|       | nguồn sự thật), chỉ thêm lớp dịch lỗi máy-đọc-được.   |
+| S3-R2 | Mở validate/report đụng __main__.py (protected).      |
+|       | Đối sách: nghi thức mở khóa đúng trình tự.            |
+| S3-R3 | 3 bài thử agent "tự chấm tự khen". Đối sách: tiêu chí |
+|       | đánh giá ghi TRƯỚC trong AGENT.md (report PASS +      |
+|       | volume ±1% + STL watertight); NGƯỜI ký xác nhận.      |
+| S3-R4 | Scope creep sang GP Studio/Cấp độ 2 (R4 gốc — pattern |
+|       | lịch sử). Đối sách: mọi ý mới vào BACKLOG.md.         |
+| S3-R5 | Thị trường im lặng. Đối sách: DoD-3.5 thiết kế sẵn    |
+|       | kết cục "đóng băng có lãi" — không được coi là fail.  |

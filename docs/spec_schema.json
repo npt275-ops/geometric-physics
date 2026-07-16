@@ -1,0 +1,335 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "https://github.com/npt275-ops/geometric-physics/docs/spec_schema.json",
+ "title": "GP spec.json — schema v1 (loads) / v2 (load_cases)",
+ "description": "Hợp đồng đầu vào engine GP. Đơn vị: mm-N-MPa khi có element_size_mm + material_name; không thứ nguyên khi khai E,nu tay. Luật vàng: load_cases XOR loads; preserve không giao void; validator chạy `python -m geophys validate <spec>` là trọng tài.",
+ "type": "object",
+ "required": [
+  "nelx",
+  "nely",
+  "nelz",
+  "volfrac",
+  "supports",
+  "simp"
+ ],
+ "properties": {
+  "nelx": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "nely": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "nelz": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "volfrac": {
+   "type": "number",
+   "exclusiveMinimum": 0,
+   "exclusiveMaximum": 1
+  },
+  "element_size_mm": {
+   "type": "number",
+   "exclusiveMinimum": 0,
+   "description": "kích thước 1 voxel (mm) — bật hệ đơn vị thật"
+  },
+  "material_name": {
+   "type": "string",
+   "description": "tra materials.json: nhom_6061_t6 | ti_6al_4v | thep_s235"
+  },
+  "material": {
+   "type": "object",
+   "properties": {
+    "E": {
+     "type": "number",
+     "exclusiveMinimum": 0
+    },
+    "nu": {
+     "type": "number",
+     "exclusiveMinimum": 0,
+     "exclusiveMaximum": 0.5
+    }
+   },
+   "required": [
+    "E",
+    "nu"
+   ],
+   "description": "thay cho material_name khi tự khai (không thứ nguyên)"
+  },
+  "loads": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "properties": {
+     "x": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "y": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "z": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "node": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "fx": {
+      "type": "number"
+     },
+     "fy": {
+      "type": "number"
+     },
+     "fz": {
+      "type": "number"
+     }
+    }
+   },
+   "description": "v1: một case duy nhất"
+  },
+  "load_cases": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "weight",
+     "loads"
+    ],
+    "properties": {
+     "weight": {
+      "type": "number",
+      "exclusiveMinimum": 0
+     },
+     "loads": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+       "type": "object",
+       "properties": {
+        "x": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "y": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "z": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "node": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "fx": {
+         "type": "number"
+        },
+        "fy": {
+         "type": "number"
+        },
+        "fz": {
+         "type": "number"
+        }
+       }
+      }
+     }
+    }
+   },
+   "description": "v2: đa trường hợp tải, c = SUM(w_i*c_i)"
+  },
+  "supports": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "properties": {
+     "x": {
+      "type": "integer"
+     },
+     "y": {
+      "type": "integer"
+     },
+     "z": {
+      "type": "integer"
+     },
+     "node": {
+      "type": "integer"
+     },
+     "face": {
+      "enum": [
+       "x0",
+       "x1",
+       "y0",
+       "y1",
+       "z0",
+       "z1"
+      ]
+     },
+     "dof": {
+      "enum": [
+       "all",
+       "x",
+       "y",
+       "z"
+      ]
+     }
+    },
+    "required": [
+     "dof"
+    ]
+   }
+  },
+  "simp": {
+   "type": "object",
+   "required": [
+    "p",
+    "rmin"
+   ],
+   "properties": {
+    "p": {
+     "type": "number",
+     "minimum": 1
+    },
+    "rmin": {
+     "type": "number",
+     "exclusiveMinimum": 0
+    }
+   }
+  },
+  "preserve": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "type"
+    ],
+    "properties": {
+     "type": {
+      "enum": [
+       "box",
+       "sphere",
+       "cylinder"
+      ]
+     },
+     "x0": {
+      "type": "integer"
+     },
+     "y0": {
+      "type": "integer"
+     },
+     "z0": {
+      "type": "integer"
+     },
+     "x1": {
+      "type": "integer"
+     },
+     "y1": {
+      "type": "integer"
+     },
+     "z1": {
+      "type": "integer"
+     },
+     "cx": {
+      "type": "number"
+     },
+     "cy": {
+      "type": "number"
+     },
+     "cz": {
+      "type": "number"
+     },
+     "r": {
+      "type": "number",
+      "exclusiveMinimum": 0
+     },
+     "axis": {
+      "enum": [
+       "x",
+       "y",
+       "z"
+      ]
+     }
+    }
+   }
+  },
+  "void": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "type"
+    ],
+    "properties": {
+     "type": {
+      "enum": [
+       "box",
+       "sphere",
+       "cylinder"
+      ]
+     },
+     "x0": {
+      "type": "integer"
+     },
+     "y0": {
+      "type": "integer"
+     },
+     "z0": {
+      "type": "integer"
+     },
+     "x1": {
+      "type": "integer"
+     },
+     "y1": {
+      "type": "integer"
+     },
+     "z1": {
+      "type": "integer"
+     },
+     "cx": {
+      "type": "number"
+     },
+     "cy": {
+      "type": "number"
+     },
+     "cz": {
+      "type": "number"
+     },
+     "r": {
+      "type": "number",
+      "exclusiveMinimum": 0
+     },
+     "axis": {
+      "enum": [
+       "x",
+       "y",
+       "z"
+      ]
+     }
+    }
+   }
+  },
+  "_comment": {
+   "type": "string"
+  }
+ },
+ "oneOf": [
+  {
+   "required": [
+    "loads"
+   ]
+  },
+  {
+   "required": [
+    "load_cases"
+   ]
+  }
+ ]
+}
