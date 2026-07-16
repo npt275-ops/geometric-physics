@@ -28,3 +28,4 @@ materials.json
 geophys/materials.py
 geophys/runner.py
 STAGE2_EXECUTION_PLAN.txt
+geophys/__main__.py

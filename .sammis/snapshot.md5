@@ -23,6 +23,6 @@ f58a8532af5332212d71c0cae274e963  geophys/fea3d.py
 f6ca3890d80b806f515eda5d31aad906  geophys/spec3d.py
 9ffc3ce8e514e20bd533e46e40825f15  materials.json
 e32bd601e6b43aa8337d019bdba85508  geophys/materials.py
-d6ac8aef18e78b0378f290cf90d52e88  geophys/__main__.py
 ec492b444afe3e9c9302ae511cc2581d  geophys/runner.py
 4b377aa094f4b59bfd77d59fea546a5f  STAGE2_EXECUTION_PLAN.txt
+f7329ce0d54bdb49760f18a8499e8214  geophys/__main__.py
