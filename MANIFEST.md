@@ -3,7 +3,7 @@
 > Bản đồ tĩnh. Agent đọc TRƯỚC TIÊN. MANIFEST sai làm agent tin sai.
 
 ## Thông tin dự án
-- **Tên:** Geometric Physics (GP) · **Giai đoạn:** CẤP ĐỘ 1 THÀNH CÔNG — STAGE 2 ĐÓNG 6/6 DoD 15/07/2026 (Stage 3 chuẩn bị)
+- **Tên:** Geometric Physics (GP) · **Giai đoạn:** STAGE 3 — phần MÁY xong 3/5 DoD 16/07/2026; chờ 2 cổng NGƯỜI (video + đo 30 ngày)
 - **Một câu:** Engine tối ưu hóa topology (FEA + SIMP + Filter + OC), Python,
   headless, nhận spec.json trả về cấu trúc tối ưu — kiểm chứng bằng benchmark
   quốc tế, không bằng cảm quan.
@@ -27,7 +27,15 @@
   **Von Mises max 72.18 MPa < 276 MPa · safety factor 3.82 · 0 node vượt
   yield** · max tại vành lỗ trục (27.9, 36.0)mm — đúng dự đoán cơ học.
   Bằng chứng bench/ (FCStd + report + screenshot + console log).
-  Biên bản đầy đủ: STAGE2_EXECUTION_PLAN.txt. Kế tiếp: lập kế hoạch Stage 3.
+  Biên bản đầy đủ: STAGE2_EXECUTION_PLAN.txt.
+- **STAGE 3 phần MÁY XONG (16/07/2026)** — kế hoạch STAGE3_EXECUTION_PLAN.txt:
+  DoD-3.1 ✓ agent 3/3 bài tiếng Việt trọn vòng (AGENT.md + bench/agent_trials,
+  test chấm lại độc lập) · DoD-3.2 ✓ validator bắt 10/10 spec rác, lỗi
+  ma/vi_tri/ly_do/goi_y · DoD-3.3 ✓ scan-all 51 file BLOCK=0, suite 209
+  passed · CLI đủ 3 lệnh validate/run/report exit 0/1/2.
+  CÒN NGƯỜI: DoD-3.4 video (docs/VIDEO4_OUTLINE.md) · DoD-3.5 đo 30 ngày
+  (docs/DO_TIN_HIEU_30_NGAY.md + bench/market_signals.csv) — quyết định
+  Cấp độ 2 / đóng băng có lãi.
 - **Cột mốc đã đạt — DoD-0.1 (cửa ải Stage 0):** MBB beam 60×20 hội tụ 94 vòng,
   compliance 203.1812 — lệch **0.006%** so với port top88 trung thực
   (ngưỡng ±5%). Bộ toán ĐÚNG với chuẩn quốc tế.
@@ -71,13 +79,16 @@
 | geophys/render3d.py | STABLE | PNG trisurf + HTML viewer tự chứa offline — Tầng 1.6, DoD-1.8 ✓ |
 | geophys/__main__.py | STABLE | Entry `python -m geophys run` — Tầng 2.4, DoD-2.5, exit 0/1/2 |
 | geophys/runner.py | STABLE | Pipeline một lệnh: spec→STL+report JSON/MD — Tầng 2.4 |
+| geophys/validate.py | STABLE | Spec Validator máy-đọc-được (DoD-3.2: 10/10) — Tầng 3.1 |
+| AGENT.md | STABLE | Hợp đồng giao tiếp agent (DoD-3.1) — Tầng 3.3 |
+| docs/spec_schema.json | STABLE | JSON Schema spec v1/v2 — Tầng 3.1 |
 
 ## Thành phần IN PROGRESS
 | File / Module | Đang làm gì |
 |---|---|
-| (trống — Stage 2 đóng; chờ kế hoạch Stage 3) | |
+| DoD-3.4 video + DoD-3.5 đo 30 ngày | CỔNG NGƯỜI — nguyên liệu đã gói trong docs/ |
 
 ## Thành phần NOT BUILT (CHƯA TỒN TẠI — ĐỪNG IMPORT)
 | File / Module | Ghi chú |
 |---|---|
-| geophys validate/report, spec validator JSON-schema, agent interface | Stage 3 — CẤM đụng (lệnh `run` đã mở ở 2.4 theo DoD-2.5) |
+| GP Studio (web UI) · Cấp độ 2 parallel simulation | CHỜ phán quyết DoD-3.5 (≥5 hội thoại thật) — mọi ý mới vào BACKLOG.md |

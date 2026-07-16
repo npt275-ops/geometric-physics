@@ -45,12 +45,12 @@ bước tiếp theo.
 ----------------------------------------------------------------
  2. DoD STAGE 3 (nguyên văn hợp đồng)
 ----------------------------------------------------------------
-- [ ] DoD-3.1 Agent tự vận hành trọn vòng: đề bài tiếng Việt tự
+- [x] DoD-3.1 (16/07/2026: 3/3 bài — công-xôn nhôm/dầm thép/tấm treo titan 2 case) Agent tự vận hành trọn vòng: đề bài tiếng Việt tự
       nhiên → spec.json hợp lệ → engine → STL + report, KHÔNG người
       can thiệp giữa chừng, 3/3 bài.
-- [ ] DoD-3.2 Spec Validator chặn rác: 10 spec cố tình sai bắt
+- [x] DoD-3.2 (16/07/2026: 10/10 rác bị bắt, 13 test) Spec Validator chặn rác: 10 spec cố tình sai bắt
       10/10, thông báo lỗi actionable.
-- [ ] DoD-3.3 sammis.py toàn codebase: 0 vi phạm mức chặn.
+- [x] DoD-3.3 (16/07/2026: scan-all 51 file BLOCK=0; suite 209 passed) sammis.py toàn codebase: 0 vi phạm mức chặn.
 - [ ] DoD-3.4 Video build-in-public lên sóng (kể chuẩn "mộc").
 - [ ] DoD-3.5 Tín hiệu thị trường ĐO không ĐOÁN: 30 ngày,
       spreadsheet inbound; ngưỡng ≥5 hội thoại thật. Dưới ngưỡng:
