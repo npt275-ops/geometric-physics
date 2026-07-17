@@ -1,4 +1,4 @@
-# GP run report — bench/gauntlet/bai10/spec_v3.json
+# GP run report — /sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai10/spec_laptop_v3.json
 
 | Chỉ số | Giá trị |
 |---|---|
@@ -9,8 +9,8 @@
 | Hội tụ | True sau 13 vòng |
 | Compliance (gia quyền) | 421.7557 N·mm |
 | Volume fraction | 0.4 |
-| STL | bench/gauntlet/bai10/out/spec_v3.stl — watertight=True |
-| Thời gian phiên | 0.3 s |
+| STL | /sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai10/out/spec_laptop_v3.stl — watertight=True |
+| Thời gian phiên | 0.6 s |
 | Spec digest | 2b4b7ca8d121385c… |
 
-File: checkpoint.npz, optimize_log.json, spec_v3.stl, spec_v3_iso.png, spec_v3_viewer.html, report.json, report.md
+File: checkpoint.npz, optimize_log.json, spec_laptop_v3.stl, spec_laptop_v3_iso.png, spec_laptop_v3_viewer.html, report.json, report.md

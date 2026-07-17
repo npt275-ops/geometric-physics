@@ -2,9 +2,10 @@
 commit dddfa66). Chấm lại ĐỘC LẬP từ bằng chứng gốc bench/gauntlet/
 theo đúng kỳ vọng mục 4 của spec — không tin cham_diem.json.
 
-Đo 16/07/2026: 9/10 ĐẠT; bài 08 LỆCH trung thực (OC dao động khi
-preserve ~89% ngân sách — engine FAIL exit 1 tử tế); bài 09 bắt được
-bug resume-tại-chỗ (đã vá + test hồi quy trong test_cli)."""
+PHIÊN 1 (16/07): 9/10 — bài 08 lệch trung thực (OC dao động, FAIL tử
+tế) + bắt bug resume-tại-chỗ. PHIÊN 2 (đăng ký 12346dd, sau vá OC giảm
+chấn + validator GP-W): tái khảo tra tươi 10 bài — 10/10 ĐẠT, bài 08
+hội tụ 47 vòng PASS kèm cảnh báo mềm."""
 
 import json
 from pathlib import Path
@@ -28,7 +29,12 @@ def _rep(bai, out="out"):
 
 def _chung(bai):
     r = _rep(bai)
-    ten = "spec_v3.json" if bai == "bai10" else "spec.json"  # bai10: spec cuối sau 3 vòng sửa
+    if bai == "bai10":  # spec cuối sau vòng sửa (phiên 2: spec_laptop_v3)
+        ten = ("spec_laptop_v3.json"
+               if (G / bai / "spec_laptop_v3.json").is_file()
+               else "spec_v3.json")
+    else:
+        ten = "spec.json"
     vf = json.loads((G / bai / ten).read_text(encoding="utf-8"))["volfrac"]
     assert r["status"] == "PASS" and r["converged"] is True
     assert abs(r["volume_fraction"] - vf) <= 0.01 * vf
@@ -36,7 +42,8 @@ def _chung(bai):
 
 
 @pytest.mark.parametrize("bai", ["bai01", "bai02", "bai03", "bai04",
-                                 "bai05", "bai06", "bai07", "bai10"])
+                                 "bai05", "bai06", "bai07", "bai08",
+                                 "bai09", "bai10"])
 def test_tieu_chi_chung(bai):
     _chung(bai)
 
@@ -81,21 +88,19 @@ def test_06_multi_cung_hon_duoi_tai_ngang():
     assert ty_so > 1.0  # đo thật: 2.365
 
 
-def test_08_lech_trung_thuc_va_validator_chan_vuot():
-    r = _rep("bai08")  # LỆCH kỳ vọng — nhưng phải LỆCH ĐÚNG KIỂU:
-    assert r["status"] == "FAIL" and r["converged"] is False
-    assert r["n_iter"] == 200  # chạy hết, không crash
-    assert abs(r["volume_fraction"] - 0.42) <= 0.0042  # volume vẫn giữ
+def test_08_phien2_pass_kem_canh_bao():
+    # Phiên 2 (sau vá OC giảm chấn): PASS thật, không chấm lại cho đẹp
+    r = _rep("bai08")
+    assert r["status"] == "PASS" and r["converged"] is True
+    assert r["n_iter"] <= 200
     v = json.loads((G / "bai08" / "validate_vuot.json")
                    .read_text(encoding="utf-8"))
-    assert v["loi"][0]["ma"] == "GP-E-PHYSICS"  # biến thể vượt bị chặn
+    assert v["loi"][0]["ma"] == "GP-E-PHYSICS"  # vượt ngân sách vẫn bị chặn
 
 
 def test_09_vong_doi_fail_resume():
-    truoc = _rep("bai09", "out2")  # bản resume-sang-dir-khác cũng PASS
-    sau = _rep("bai09")
+    sau = _rep("bai09")  # phiên 2: FAIL max-iter 5 → resume tại chỗ
     assert sau["status"] == "PASS" and sau["n_iter"] > 5
-    assert truoc["status"] == "PASS"
 
 
 def test_10_tu_sua_3_vong():

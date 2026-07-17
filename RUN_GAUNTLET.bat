@@ -23,13 +23,13 @@ set KQ=%ERRORLEVEL%
 type bench\gauntlet_console.log
 echo.
 if %KQ%==0 goto ok
-echo [CHU Y] Co bai LECH ngoai du bao - xem bang tren va
+echo [CHU Y] Co bai LECH - xem bang tren va
 echo bench\gauntlet\ket_qua_laptop.json. Gui log cho ky su truong.
 goto het
 
 :ok
 echo ============================================
-echo  GAUNTLET PASS - 9 DAT + bai08 dung du bao
+echo  GAUNTLET PASS 10/10 - Tho Ren Trong Luc dat muc tieu
 echo  Bang chung: bench\gauntlet\ket_qua_laptop.json
 echo ============================================
 goto het

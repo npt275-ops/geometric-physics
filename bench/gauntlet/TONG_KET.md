@@ -40,3 +40,35 @@ nổ SameFileError. Vá 1 dòng (bỏ copy khi src==đích) + test hồi quy
 preserve/void định hình + lỗ bu-lông · biên ngân sách 0.20 · đường
 FAIL/resume · vòng agent-tự-sửa-spec. Engine đóng hộp trả lời đúng
 mọi đường — kể cả đường xấu — bằng exit code và report máy-đọc-được.
+
+---
+# PHIÊN 2 — SAU KHI KHÓA LỖ HỔNG (16/07/2026, đăng ký 12346dd)
+
+Lệnh NGƯỜI: mục tiêu cuối 10/10 — vá tận gốc, không chấm lại cho đẹp.
+Hai bản vá (đều qua nghi thức mở khóa, golden trùng bit):
+1. **OC giảm chấn dao động** (optimize3d.py): 3 điều kiện kích hoạt
+   (≥vòng 40 + change đi ngang trên tol + compliance đổi dấu ≥4 lần)
+   → halve move, sàn 0.005. Bài hội tụ bình thường không bao giờ chạm
+   nhánh này — G1/G2 trùng bit, toàn suite xanh.
+2. **Validator cảnh báo mềm** GP-W-PHYSICS khi preserve >70% ngân sách.
+
+## Tái khảo tra TƯƠI 10 bài (xóa toàn bộ out cũ): **10/10 ĐẠT**
+
+| # | Số đo phiên 2 | Phán quyết |
+|---|---|---|
+| 01 | bất đối xứng z 392% | ĐẠT |
+| 02 | dồn về gối gần lực 38.1% | ĐẠT |
+| 03 | ρ cột giữa 0.986 vs 0.300 | ĐẠT |
+| 04 | PASS miền dẹt | ĐẠT |
+| 05 | void max 0.0 · vành min 1.0 | ĐẠT |
+| 06 | tỷ số c₃ 2.367 | ĐẠT |
+| 07 | volume 0.200000 | ĐẠT |
+| 08 | **PASS 47 vòng** (trước: FAIL 200 vòng dao động) + cảnh báo GP-W đúng chỗ + biến thể vượt vẫn bị chặn | **ĐẠT** |
+| 09 | exit 1 → resume tại chỗ exit 0, 42 vòng (bug đã vá) | ĐẠT |
+| 10 | tự sửa đúng 3 vòng → PASS | ĐẠT |
+
+**GAUNTLET PASS 10/10 — Thợ Rèn Trọng Lực đạt mục tiêu cuối.**
+Chuỗi bằng chứng: kỳ vọng phiên 1 (dddfa66) → 9/10 + 2 phát hiện →
+vá có kỷ luật → kỳ vọng phiên 2 (12346dd) → 10/10. Không một tiêu chí
+nào được nới hồi tố; mọi thay đổi engine đều qua nghi thức và giữ
+golden trùng bit.

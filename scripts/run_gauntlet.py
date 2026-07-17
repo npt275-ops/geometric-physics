@@ -19,6 +19,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))  # cho phep import geophys khi cham bai 06
 G = ROOT / "bench" / "gauntlet"
 PY = sys.executable
 OUT = os.environ.get("GAUNTLET_OUT", "out_laptop")

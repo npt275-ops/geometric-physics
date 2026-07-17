@@ -1,5 +1,5 @@
 {
-  "spec": "bench/gauntlet/bai04/spec.json",
+  "spec": "/sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai04/spec.json",
   "status": "PASS",
   "digest": "64d5cd774b86c0a9c576b859abc7623406cf253a382f132b1719e68198bc3b85",
   "material": "nhom_6061_t6",
@@ -24,10 +24,10 @@
     "n_faces": 988,
     "iso": 0.5,
     "smooth_iters": 10,
-    "path": "bench/gauntlet/bai04/out/spec.stl",
+    "path": "/sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai04/out/spec.stl",
     "size_kb": 48.3
   },
-  "wall_s": 5.9,
+  "wall_s": 7.7,
   "files": [
     "checkpoint.npz",
     "optimize_log.json",

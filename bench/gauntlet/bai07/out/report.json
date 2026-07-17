@@ -1,5 +1,5 @@
 {
-  "spec": "bench/gauntlet/bai07/spec.json",
+  "spec": "/sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai07/spec.json",
   "status": "PASS",
   "digest": "118338f01f1cbdedeee7c743af794ef3f34fad384d1f93dfc67ebdaf40969269",
   "material": "ti_6al_4v",
@@ -8,26 +8,26 @@
   "grid": "24x12x4",
   "n_load_cases": 1,
   "converged": true,
-  "n_iter": 184,
-  "compliance": 21.512,
+  "n_iter": 84,
+  "compliance": 22.934,
   "c_cases": [
-    21.512
+    22.934
   ],
   "volume_fraction": 0.2,
   "stl": {
     "watertight": true,
     "n_components_raw": 1,
     "n_components": 1,
-    "volume_stl": 134.76774925948538,
-    "volume_voxel": 191.0,
-    "volume_lech_pct": 29.44096897409142,
-    "n_faces": 1124,
+    "volume_stl": 107.19785845857865,
+    "volume_voxel": 196.0,
+    "volume_lech_pct": 45.30721507215375,
+    "n_faces": 1280,
     "iso": 0.5,
     "smooth_iters": 10,
-    "path": "bench/gauntlet/bai07/out/spec.stl",
-    "size_kb": 55.0
+    "path": "/sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai07/out/spec.stl",
+    "size_kb": 62.6
   },
-  "wall_s": 1.2,
+  "wall_s": 13.2,
   "files": [
     "checkpoint.npz",
     "optimize_log.json",

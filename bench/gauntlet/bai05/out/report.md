@@ -1,4 +1,4 @@
-# GP run report — bench/gauntlet/bai05/spec.json
+# GP run report — /sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai05/spec.json
 
 | Chỉ số | Giá trị |
 |---|---|
@@ -9,8 +9,8 @@
 | Hội tụ | True sau 26 vòng |
 | Compliance (gia quyền) | 3.6445 N·mm |
 | Volume fraction | 0.45 |
-| STL | bench/gauntlet/bai05/out/spec.stl — watertight=True |
-| Thời gian phiên | 3.5 s |
+| STL | /sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai05/out/spec.stl — watertight=True |
+| Thời gian phiên | 4.4 s |
 | Spec digest | 3a7db11b3f910e89… |
 
 File: checkpoint.npz, optimize_log.json, spec.stl, spec_iso.png, spec_viewer.html, report.json, report.md

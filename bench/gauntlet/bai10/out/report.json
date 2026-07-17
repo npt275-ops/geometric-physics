@@ -1,5 +1,5 @@
 {
-  "spec": "bench/gauntlet/bai10/spec_v3.json",
+  "spec": "/sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai10/spec_laptop_v3.json",
   "status": "PASS",
   "digest": "2b4b7ca8d121385c31498aa269751f83dbb58b36966efbfa87133c84a733a653",
   "material": "nhom_6061_t6",
@@ -24,16 +24,16 @@
     "n_faces": 252,
     "iso": 0.5,
     "smooth_iters": 10,
-    "path": "bench/gauntlet/bai10/out/spec_v3.stl",
+    "path": "/sessions/serene-wonderful-galileo/mnt/GP/bench/gauntlet/bai10/out/spec_laptop_v3.stl",
     "size_kb": 12.4
   },
-  "wall_s": 0.3,
+  "wall_s": 0.6,
   "files": [
     "checkpoint.npz",
     "optimize_log.json",
-    "spec_v3.stl",
-    "spec_v3_iso.png",
-    "spec_v3_viewer.html",
+    "spec_laptop_v3.stl",
+    "spec_laptop_v3_iso.png",
+    "spec_laptop_v3_viewer.html",
     "report.json",
     "report.md"
   ]
