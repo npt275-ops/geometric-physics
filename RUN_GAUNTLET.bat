@@ -30,7 +30,7 @@ goto het
 :ok
 echo ============================================
 echo  GAUNTLET PASS 10/10 - Tho Ren Trong Luc dat muc tieu
-echo  Bang chung: bench\gauntlet\ket_qua_laptop.json
+echo  Bang chung: bench\gauntlet\ket_qua_out_laptop.json
 echo ============================================
 goto het
 

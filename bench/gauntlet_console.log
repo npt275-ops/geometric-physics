@@ -1,0 +1,13 @@
+bai01 DAT  {'lech_z_pct': 392.0}
+bai02 DAT  {'lech_x_pct': 38.1}
+bai03 DAT  {'rho_giua': 0.986, 'rho_toan': 0.3}
+bai04 DAT  {}
+bai05 DAT  {'void_max': 0.0, 'vanh_min': 1.0}
+bai06 DAT  {'ty_so_c3': 2.365}
+bai07 DAT  {'volume': 0.2}
+bai08 DAT  {'status': 'PASS', 'n_iter': 47, 'canh_bao_GP_W': True, 'validator_chan_vuot': True}
+bai09 DAT  {'exit_lan1': 1, 'exit_resume': 0, 'n_iter_cuoi': 42}
+bai10 DAT  {'so_vong_sua': 3}
+==================================================
+GAUNTLET PHIEN 2: 10/10 DAT (muc tieu 10/10)
+luu ket_qua_out_laptop.json — tich luy 10/10 DAT

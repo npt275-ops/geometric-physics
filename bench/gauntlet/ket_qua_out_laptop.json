@@ -1,0 +1,48 @@
+{
+ "bai01": {
+  "dat": true,
+  "lech_z_pct": 392.0
+ },
+ "bai02": {
+  "dat": true,
+  "lech_x_pct": 38.1
+ },
+ "bai03": {
+  "dat": true,
+  "rho_giua": 0.986,
+  "rho_toan": 0.3
+ },
+ "bai04": {
+  "dat": true
+ },
+ "bai05": {
+  "dat": true,
+  "void_max": 0.0,
+  "vanh_min": 1.0
+ },
+ "bai06": {
+  "dat": true,
+  "ty_so_c3": 2.365
+ },
+ "bai07": {
+  "dat": true,
+  "volume": 0.2
+ },
+ "bai08": {
+  "dat": true,
+  "status": "PASS",
+  "n_iter": 47,
+  "canh_bao_GP_W": true,
+  "validator_chan_vuot": true
+ },
+ "bai09": {
+  "dat": true,
+  "exit_lan1": 1,
+  "exit_resume": 0,
+  "n_iter_cuoi": 42
+ },
+ "bai10": {
+  "dat": true,
+  "so_vong_sua": 3
+ }
+}

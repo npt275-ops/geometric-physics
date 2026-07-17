@@ -8,3 +8,5 @@ bench/bench64_checkpoint.npz
 bench/brake_*_checkpoint.npz
 runs/
 bench/brake_verdict_vonmises.jfif
+bench/gauntlet/bai*/out_laptop*/
+bench/gauntlet/bai*/spec_laptop_v*.json

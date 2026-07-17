@@ -33,6 +33,11 @@
   test chấm lại độc lập) · DoD-3.2 ✓ validator bắt 10/10 spec rác, lỗi
   ma/vi_tri/ly_do/goi_y · DoD-3.3 ✓ scan-all 51 file BLOCK=0, suite 209
   passed · CLI đủ 3 lệnh validate/run/report exit 0/1/2.
+- **GP GAUNTLET 10/10 (16/07/2026)** — bằng chứng khả năng, kỳ vọng đăng
+  ký trước (dddfa66 → 12346dd): 10 bài hộp đen ĐẠT trên sandbox VÀ laptop
+  thật (bench/gauntlet/TONG_KET.md + ket_qua_out_laptop.json). Chiến lợi
+  phẩm: vá OC giảm chấn (golden trùng bit) + bug resume-tại-chỗ + cảnh
+  báo mềm GP-W validator.
   CÒN NGƯỜI: DoD-3.4 video (docs/VIDEO4_OUTLINE.md) · DoD-3.5 đo 30 ngày
   (docs/DO_TIN_HIEU_30_NGAY.md + bench/market_signals.csv) — quyết định
   Cấp độ 2 / đóng băng có lãi.
