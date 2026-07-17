@@ -96,6 +96,7 @@ def optimize3d(spec: Spec3D, *, max_iter: int = 200, tol: float = 0.01,
                   if history["compliance"] else np.inf)
     n_iter = start_iter
     converged = False
+    move_ht = move  # move hien thoi — co the bi giam chan (xem duoi)
 
     for n_iter in range(start_iter + 1, max_iter + 1):
         t0 = time.perf_counter()
@@ -115,7 +116,8 @@ def optimize3d(spec: Spec3D, *, max_iter: int = 200, tol: float = 0.01,
         dc_f = filt.apply(rho, dc)
         t2 = time.perf_counter()
         rho_new = oc_update(rho, dc_f, dv, spec.volfrac,
-                            grid.preserve_mask, grid.void_mask, move=move)
+                            grid.preserve_mask, grid.void_mask,
+                            move=move_ht)
         t3 = time.perf_counter()
         change = float(np.abs(rho_new - rho).max())
         rho = rho_new
@@ -129,6 +131,21 @@ def optimize3d(spec: Spec3D, *, max_iter: int = 200, tol: float = 0.01,
         history["t_grad_filter"].append(t2 - t1)
         history["t_oc"].append(t3 - t2)
         history["rss_mb"].append(_rss_mb())
+
+        # Giảm chấn dao động (gauntlet bai08, 16/07/2026): khi ngân
+        # sách tự do quá hẹp OC flip-flop vô hạn (change đi ngang trên
+        # tol, compliance nhấp nhô đổi dấu). Kích hoạt CHỈ KHI đủ 3
+        # điều kiện sau vòng 40 — mọi bài hội tụ bình thường (golden
+        # G1/G2 xong ở 26/27 vòng, benchmark giảm đơn điệu) không bao
+        # giờ chạm nhánh này: kết quả cũ trùng bit tuyệt đối.
+        if (n_iter >= 40 and move_ht > 0.005
+                and len(history["change"]) >= 10):
+            ch10 = history["change"][-10:]
+            d_c = np.diff(history["compliance"][-7:])
+            so_lat = int(np.sum(d_c[1:] * d_c[:-1] < 0))
+            if (min(ch10) > tol and max(ch10) - min(ch10) < 10 * tol
+                    and so_lat >= 4):
+                move_ht = max(move_ht * 0.5, 0.005)
 
         if callback is not None:
             callback(n_iter, rho, float(compliance))
