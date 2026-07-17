@@ -1,0 +1,39 @@
+{
+ "_comment": "gauntlet 10 v1 — 2 loi gieo san",
+ "nelx": 12,
+ "nely": 6,
+ "nelz": 4,
+ "volfrac": 0.4,
+ "element_size_mm": 4.0,
+ "material_name": "nhom_6061_t6",
+ "loads": [
+  {
+   "x": 12,
+   "y": 0,
+   "z": 2,
+   "fy": 200.0
+  }
+ ],
+ "supports": [
+  {
+   "face": "x0",
+   "dof": "all"
+  }
+ ],
+ "simp": {
+  "p": 3.0,
+  "rmin": 1.5
+ },
+ "preserve": [
+  {
+   "type": "box",
+   "x0": 8,
+   "y0": 0,
+   "z0": 0,
+   "x1": 11,
+   "y1": 5,
+   "z1": 3
+  }
+ ],
+ "void": []
+}
