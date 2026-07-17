@@ -84,3 +84,21 @@ Lưới lớn laptop-scale · FreeCAD (đã có DoD-2.3) · benchmark thời gia
 1. Output: mục 5. 2. Không chạm: 31 protected. 3. Dep: không mới.
 4. I/O: CLI thuần. 5. STABLE: chỉ gọi qua CLI. 6. Lỗi: mục 7.
 7. Production? Staging — chiến dịch kiểm chứng.
+
+---
+## PHIÊN 2 — ĐĂNG KÝ SAU VÁ (16/07/2026, sau commit vá OC + validator)
+
+Phiên 1: 9/10 + bài 08 lệch trung thực + bug resume bị bắt (TONG_KET.md).
+NGƯỜI ra lệnh mục tiêu cuối: 10/10 — vá tận gốc, không chấm lại cho đẹp.
+Đã vá: (a) OC giảm chấn dao động (optimize3d, golden trùng bit, nghi
+thức mở khóa); (b) validator cảnh báo mềm GP-W-PHYSICS >70% ngân sách.
+
+KỲ VỌNG PHIÊN 2 (đăng ký TRƯỚC khi tái khảo tra, cấm sửa):
+- Bài 01–07, 09, 10: GIỮ NGUYÊN kỳ vọng mục 4 phiên 1, chạy lại TƯƠI
+  từ đầu (xóa out cũ) trên engine đã vá.
+- Bài 08 (kỳ vọng MỚI): validate HOP_LE + canh_bao[0].ma == GP-W-PHYSICS;
+  run exit 0, PASS, converged, n_iter ≤ 200; |vol − 0.42| ≤ 1%·0.42;
+  STL watertight 1 khối; biến thể vượt ngân sách vẫn bị CHẶN GP-E-PHYSICS.
+  (Chấp nhận compliance cao hơn nghiệm dao động phiên 1 — ổn định và
+  tất định là yêu cầu của thợ rèn, đo thí nghiệm: 302.25, 47 vòng.)
+- Chiến dịch PASS khi và chỉ khi 10/10 ĐẠT phiên 2.

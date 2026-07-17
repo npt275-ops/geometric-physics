@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 """GP GAUNTLET tren may NGUOI — chay lai 10 bai tu spec da commit.
 
-Ky vong dang ky truoc: specs/stage3-t6-gauntlet.md (commit dddfa66).
-Moi bai chay vao out_laptop/ (khong dung den bang chung sandbox trong
-out/). Cham dung tieu chi da dang ky. Bai 08 DU BAO SAN se FAIL trung
-thuc (OC dao dong khi preserve ~89% ngan sach) — cham la DUNG-DU-BAO.
+Ky vong dang ky truoc: specs/stage3-t6-gauntlet.md (dddfa66 + PHIEN 2).
+PHIEN 2 (sau va OC giam chan + validator canh bao): bai 08 phai PASS
+that su — validate HOP_LE kem GP-W-PHYSICS, run exit 0 hoi tu, volume
+0.42 +/-1%. OUT dat qua env GAUNTLET_OUT (mac dinh out_laptop).
 
 Cach dung:  python scripts/run_gauntlet.py [--chi-bai N]
 Exit 0 = 9 DAT + bai08 dung du bao. Khac = xem bang.
 """
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -20,7 +21,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 G = ROOT / "bench" / "gauntlet"
 PY = sys.executable
-OUT = "out_laptop"
+OUT = os.environ.get("GAUNTLET_OUT", "out_laptop")
 
 
 def cli(*args):
@@ -133,14 +134,18 @@ def main():
                 "volume": r["volume_fraction"]}
 
     def b08():
+        vv = cli("validate", str(G / "bai08" / "spec.json"))
+        kv = json.loads(vv.stdout)
+        canh_bao_ok = (kv["trang_thai"] == "HOP_LE" and kv["canh_bao"]
+                       and kv["canh_bao"][0]["ma"] == "GP-W-PHYSICS")
         code = chay("bai08")
         r = rep("bai08")
         v = cli("validate", str(G / "bai08" / "spec_vuot.json"))
         chan = json.loads(v.stdout)["loi"][0]["ma"] == "GP-E-PHYSICS"
-        dung_du_bao = (code == 1 and r["status"] == "FAIL"
-                       and r["n_iter"] == 200 and chan)
-        return {"dat": dung_du_bao, "du_bao": "FAIL-trung-thuc",
-                "status": r["status"], "validator_chan_vuot": chan}
+        return {"dat": bool(code == 0 and chung("bai08") and canh_bao_ok
+                            and chan),
+                "status": r["status"], "n_iter": r["n_iter"],
+                "canh_bao_GP_W": canh_bao_ok, "validator_chan_vuot": chan}
 
     def b09():
         c1 = chay("bai09", them=("--max-iter", "5"))
@@ -188,11 +193,14 @@ def main():
 
     tong = sum(1 for d in kq.values() if d["dat"])
     print("=" * 50)
-    print("GAUNTLET LAPTOP: %d/%d DAT (bai08 = DUNG-DU-BAO FAIL trung thuc)"
-          % (tong, len(kq)))
-    (G / "ket_qua_laptop.json").write_text(
-        json.dumps(kq, ensure_ascii=False, indent=1), encoding="utf-8")
-    print("luu bench/gauntlet/ket_qua_laptop.json")
+    print("GAUNTLET PHIEN 2: %d/%d DAT (muc tieu 10/10)" % (tong, len(kq)))
+    f_kq = G / ("ket_qua_%s.json" % OUT)
+    cu = json.loads(f_kq.read_text(encoding="utf-8")) if f_kq.is_file() else {}
+    cu.update(kq)
+    f_kq.write_text(json.dumps(cu, ensure_ascii=False, indent=1),
+                    encoding="utf-8")
+    tong_all = sum(1 for d in cu.values() if d["dat"])
+    print("luu %s — tich luy %d/%d DAT" % (f_kq.name, tong_all, len(cu)))
     return 0 if tong == len(kq) else 1
 
 
