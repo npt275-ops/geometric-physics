@@ -56,11 +56,21 @@ def validate_spec(path, deep: bool = True) -> dict:
         except SpecError as exc:
             loi.append(_loi(exc))
 
+    canh_bao = []
     if grid is not None:
         # Kiểm MỚI duy nhất: khả thi thể tích. OC không thể đạt volfrac
         # nếu riêng vùng preserve đã chiếm nhiều hơn ngân sách vật liệu.
         n_el = spec.nelx * spec.nely * spec.nelz
         n_preserve = int(grid.preserve_mask.sum())
+        if 0.7 * spec.volfrac * n_el < n_preserve <= spec.volfrac * n_el:
+            # Gauntlet bai08 16/07/2026: preserve ~89% ngân sách làm OC
+            # phải giảm chấn, thiết kế kém tối ưu. Cảnh báo mềm — không chặn.
+            canh_bao.append({
+                "ma": "GP-W-PHYSICS", "vi_tri": "preserve/volfrac",
+                "ly_do": (f"vùng bảo tồn chiếm {n_preserve / (spec.volfrac * n_el):.0%} "
+                          "ngân sách vật liệu (>70%) — ít tự do tối ưu, "
+                          "kết quả có thể kém cứng"),
+                "goi_y": "tăng volfrac hoặc thu nhỏ preserve nếu có thể"})
         if n_preserve > spec.volfrac * n_el:
             loi.append({
                 "ma": "GP-E-PHYSICS", "vi_tri": "preserve/volfrac",
@@ -72,6 +82,7 @@ def validate_spec(path, deep: bool = True) -> dict:
     ket_qua = {
         "trang_thai": "HOP_LE" if not loi else "KHONG_HOP_LE",
         "loi": loi,
+        "canh_bao": canh_bao,
     }
     if not loi:
         so_case = len(spec.load_cases)

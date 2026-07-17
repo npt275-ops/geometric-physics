@@ -91,6 +91,21 @@ def test_spec_chuan_hop_le():
     assert kq["tom_tat"]["vat_lieu"] == "nhom_6061_t6"
 
 
+def test_canh_bao_mem_preserve_lon(tmp_path):
+    # Bài học gauntlet 08: preserve >70% ngân sách → cảnh báo, KHÔNG chặn
+    spec = _sua(volfrac=0.42, preserve=[{"type": "box", "x0": 1, "y0": 0,
+        "z0": 0, "x1": 3, "y1": 3, "z1": 3}])  # 48/53.76 ≈ 89%
+    kq = validate_spec(_viet(tmp_path, spec))
+    assert kq["trang_thai"] == "HOP_LE"
+    assert kq["canh_bao"][0]["ma"] == "GP-W-PHYSICS"
+    assert kq["canh_bao"][0]["goi_y"]
+
+
+def test_spec_thuong_khong_canh_bao():
+    kq = validate_spec(ROOT / "examples" / "spec_brake_smoke.json")
+    assert kq["canh_bao"] == []
+
+
 def test_khong_raise_voi_rac(tmp_path):
     # hợp đồng mục 7: rác → dict, không exception
     for _, spec, _ma in RAC:
